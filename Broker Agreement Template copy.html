@@ -1,0 +1,2018 @@
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tenanacy Agreement</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      :root {
+        --color: #3796c6;
+        --whitecolor: #fff !important;
+        --backgroundcolor: #15eb52;
+        --bodybackground: #e2e2e2;
+      }
+      /* Area Variable - Black */
+
+      * {
+        font-family: "poppins" !important;
+        font-size: 16px !important;
+      }
+
+      .no-focus:focus {
+        outline: none;
+      }
+      .header-text {
+        padding: 3rem 3rem;
+      }
+      .icons-content {
+        margin: 3rem 0rem;
+      }
+      .gradient-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 42%;
+        padding: 20px;
+        /* background: linear-gradient(to right, rgb(0 0 0 / 79%), transparent); */
+        background: linear-gradient(
+          to right,
+          #2f3433 32%,
+          rgba(47, 52, 51, 0.8) 50%,
+          transparent 100%
+        );
+        color: white !important;
+        font-size: 2em;
+        text-align: left;
+        font-family: "IvyModeRegular";
+      }
+      #generatePDF {
+        background-color: #2f3433;
+        border: none;
+        color: #fff !important;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 7px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        outline: none;
+        margin-left: 12px;
+        font-family: "Raleway", sans-serif;
+      }
+      #generatePDF:focus {
+        outline: none;
+      }
+      .profile-image {
+        padding: 60px 0px;
+      }
+      #loading {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border: 1px solid #ffe740;
+        border-radius: 10px;
+        background-color: #ffe740;
+        font-weight: 600;
+        z-index: 1;
+      }
+      button#PrintLayoutButton {
+        display: none;
+      }
+      .aminities-left ul li {
+        border-right: 1px solid #57c4bf !important;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .property-address {
+        padding: 0px 0px 15px 0px;
+        text-transform: uppercase;
+      }
+      .footer h3 img {
+        width: 124px;
+        height: 120px;
+      }
+      .cb:after {
+        content: "";
+        height: 20px;
+        width: 2px;
+        position: absolute;
+        right: -40px;
+        background-color: #dfdfdf;
+      }
+      .profile-image img {
+        border-radius: 50%;
+        border: 4px solid #fff !important;
+        width: 200px;
+        height: 200px;
+      }
+      #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .logo-image {
+        padding-top: 52px;
+        padding-bottom: 80px;
+      }
+      .flex-section {
+        padding-bottom: 45px;
+      }
+      .pr-c {
+        padding-right: 16px;
+      }
+      .flex {
+        display: flex;
+      }
+      .pr-4 {
+        padding-right: 10px;
+      }
+      .image-d {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .image-m {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .pdf-setting .image-a {
+        height: 550px;
+        object-fit: cover;
+      }
+      .pdf-setting .description {
+        height: 545px;
+      }
+      .pdf-setting .image-b {
+        height: 569px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-c {
+        height: 571px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-l {
+        height: 571.1px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-d {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 0px;
+      }
+      .pdf-setting .image-m {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 1px;
+      }
+      .pdf-setting .image-e {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-f {
+        height: 565.5px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-g {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-h {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-i {
+        height: 564px;
+        object-fit: cover;
+      }
+      .pdf-setting .aveen {
+        padding-top: 80px;
+      }
+      .pdf-setting .aveenN {
+        padding-top: 30px;
+      }
+      .pdf-setting .image-last {
+        padding-top: 40px;
+        height: 580px;
+        object-fit: cover;
+      }
+      .pdf-setting .property-address {
+        padding: 60px 0px 25px 0px;
+      }
+      .pdf-setting .logo-image {
+        padding-top: 30px;
+        padding-bottom: 164.6px;
+      }
+      .flex-maintain1 {
+        float: left;
+        width: 100%;
+      }
+      .flex1 {
+        float: left;
+        width: 100%;
+      }
+      .ls {
+        width: 300px;
+        float: left;
+        text-align: left;
+      }
+      .lsc {
+        width: 100px;
+        float: left;
+      }
+      .rsc {
+        width: 87%;
+        float: left;
+      }
+      .ls2 {
+        width: 50px;
+        float: left;
+        text-align: left;
+      }
+      .rs2 {
+        width: 440px;
+        float: left;
+        text-align: left;
+      }
+      .rs {
+        width: 496px;
+        float: left;
+        text-align: left;
+      }
+      .rs2.rs3 {
+        width: 100%;
+      }
+      /* .page2-content > div > h2 {
+      margin-bottom: 80px !important;
+      } */
+      .pdf-setting .flex-section {
+        padding-bottom: 60px;
+      }
+      .page2-content td:first-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:first-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td:last-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:last-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td {
+        line-height: 30px;
+
+        padding-left: 26px;
+      }
+      .page2-content td:first-child table tbody tr td:first-child {
+        display: none;
+      }
+      .page2-content td:last-child table tbody tr td:first-child {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sec1" style="float: left; width: 100%">
+      <div
+        class="container"
+        style="max-width: 800px; margin: auto"
+        id="content"
+      >
+        <div class="page1-content">
+          <div style="padding-bottom: 20px; text-align: center">
+            <div
+              style="font-weight: 500; text-align: left"
+              class="property-address"
+            >
+              <img
+                src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL3BlbnRhLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"
+                alt="no-img"
+              />
+            </div>
+            <div
+              style="
+                font-size: 18px !important;
+                text-align: center;
+                padding-top: 10px;
+                font-weight: 600;
+                padding-bottom: 20px;
+                text-decoration: underline;
+              "
+              class="playfai"
+            >
+              Limited Period Sales Broker Agreement
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="text-align: left; padding-top: 10px; padding-bottom: 10px"
+              class="playfai"
+            >
+              This Sales BROKER Agreement (“Agreement”) is signed and executed
+              in the Emirate of
+              <span
+                style="
+                  min-width: 100px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  height: 25px;
+                "
+                contenteditable="true"
+              ></span>
+              on{<span
+                style="
+                  min-width: 130px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  height: 25px;
+                "
+                contenteditable="true"
+              ></span
+              >}(‘The effective date’) By and Between:
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="text-align: left; padding-top: 10px; padding-bottom: 10px"
+              class="playfai"
+            >
+              <span style="font-weight: 600">Pantheon Development FZ-LLC,</span>
+              an entity operating under RAK Municipality Trade License number
+              5029497, having developer ID #
+              <span style="font-weight: 600">DRC/202456</span> (Hereinafter
+              referred to, as the ‘Principal’ such term or expression shall also
+              be deemed to mean and include its legal heirs, successors,
+              assignees and nominees);
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="text-align: left; padding-top: 5px; padding-bottom: 10px"
+              class="playfai"
+            >
+              And
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="text-align: left; padding-top: 10px; padding-bottom: 10px"
+              class="playfai"
+            >
+              <span
+                style="
+                  min-width: 200px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  height: 25px;
+                "
+                contenteditable="true"
+              ></span>
+              Operating under RAK/DED Commercial License number
+              <span
+                style="
+                  min-width: 100px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  height: 25px;
+                "
+                contenteditable="true"
+              ></span>
+              RERA ORN represented by,<span
+                style="
+                  min-width: 130px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  height: 25px;
+                "
+                contenteditable="true"
+              ></span
+              >National, holding Emirates ID/Passport number<span
+                style="
+                  min-width: 100px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  height: 25px;
+                "
+                contenteditable="true"
+              ></span
+              >(Hereinafter referred to, as the ‘Sub Agent” or “BROKER” and such
+              term or expression shall also be deemed to mean and include its
+              legal heirs, successors, assigns and nominees).
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="text-align: left; padding-top: 5px; padding-bottom: 10px"
+              class="playfai"
+            >
+              The Principal and the Sub Agent shall be hereinafter being jointly
+              referred to as the “Parties” and shall individually be referred to
+              as “Party.”
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="
+                text-align: left;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                font-weight: 600;
+              "
+              class="playfai"
+            >
+              REAMBLE:
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 20px"
+              >
+                <div class="pr-4">I.</div>
+                <div style="text-align: left">
+                  The principal is the real estate developer, mainly involved in
+                  development and sales & marketing of its ready to move in and
+                  off plan properties within the Emirates of UAE.
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 20px"
+              >
+                <div class="pr-4">II.</div>
+                <div style="text-align: left">
+                  The Sub Agent is a real estate brokerage company, duly
+                  established under the laws of Emirate of UAE, having
+                  substantial experience in the field of real estate;
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 20px"
+              >
+                <div class="pr-4">III.</div>
+                <div style="text-align: left">
+                  The Sub Agent is desirous to be appointed by the Principal as
+                  one of their sub brokers for finding potential buyers and
+                  offering the principle projects (both off plan & ready to move
+                  in) on NON-EXCLUSIVE bas
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 20px"
+              >
+                <div class="pr-4">IV.</div>
+                <div style="text-align: left">
+                  The Principal has accepted Sub Agent’s offer as per below
+                  stated terms & conditions to sell the Units/Project to
+                  Prospective Buyers.
+                </div>
+              </div>
+            </div>
+
+            <div
+              contenteditable="true"
+              class="no-focus"
+              style="
+                text-align: left;
+                padding-top: 5px;
+                padding-bottom: 10px;
+                font-weight: 600;
+              "
+              class="playfai"
+            >
+              NOW IT IS HEREBY AGREED, DECLARED BY AND BETWEEN THE PARTIES
+              HERETO AS FOLLOWS:
+            </div>
+
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px; padding-left: 0px">
+                <div class="pr-4">1.</div>
+                <div style="text-align: left">
+                  The Preamble & Schedule(s) contained above shall constitute as
+                  an operative and integral part of this Agreement.
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px; padding-left: 0px">
+                <div class="pr-4">2.</div>
+                <div style="text-align: left">
+                  APPOINTMENT, ACCEPTANCE AND TERM
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 30px"
+              >
+                <div class="pr-4">I.</div>
+                <div style="text-align: left">
+                  The Principal hereby engages, the Sub Agent for sale of the
+                  DEVELOPER’s unsold units/inventory of Residential units. The
+                  Sub Agent hereby accepts the appointment for Limited period as
+                  Principal’s Non-exclusive Sub Agent for the services set out
+                  above and as per the terms and conditions of this Agreement.
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 30px"
+              >
+                <div class="pr-4">II.</div>
+                <div style="text-align: left">
+                  The commission as outlined in clause 4 shall be payable to Sub
+                  Agent from Developer. This commission will be payable on
+                  realization of the initial down payment of 20% for Deferred
+                  Payment Plan base unit sales and 25% (for mortgage and or cash
+                  base deals/sales) or signing of SPA with submission of
+                  complete KYC whichever is later. This commission so entitled
+                  will be payable within seven business days from the date of
+                  the realization of down Payment as stated above into
+                  Principal’s bank account.
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 30px; padding-left: 30px"
+              >
+                <div class="pr-4">III.</div>
+                <div style="text-align: left">
+                  The Parties mutually agree that this Agency Agreement shall be
+                  valid for a period of one (1) year from the date of this
+                  agreement, unless otherwise extended by mutual agreement in
+                  writing.
+                </div>
+              </div>
+            </div>
+
+            <div style="float: left; width: 100%">
+              <div
+                style="width: 50%; float: left; text-align: left; padding: 10px"
+              >
+                <div
+                  style="font-weight: 400"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Principal:
+                </div>
+              </div>
+              <div style="width: 50%; float: left; text-align: left">
+                <div style="display: flex; padding: 10px">
+                  <div style="font-weight: 400">Sub Agent:</div>
+                  <div
+                    contenteditable="true"
+                    class="no-focus"
+                    style="min-width: 200px"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page2-content">
+          <div
+            style="font-weight: 500; text-align: left"
+            class="property-address"
+          >
+            <img
+              src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL3BlbnRhLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"
+              alt="no-img"
+            />
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">IV.</div>
+              <div style="text-align: left">
+                The developer has a right to alter/ modify/claw back /reassign
+                the assigned units at any point in time and availability of
+                assigned units is on first come, with booking reservation, first
+                serviced basis.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">V.</div>
+              <div style="text-align: left">
+                The developer has an option to terminate this agreement by
+                giving 7 days’ notice to the Sub broker without assigning any
+                reasons whatsoever
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">3.</div>
+              <div style="text-align: left">
+                SERVICE TO BE RENDERED BY THE SUB AGENT:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">I.</div>
+              <div style="text-align: left">
+                Sub Agent agrees not to solicit any communication either
+                directly or indirectly which may be understood as soliciting
+                unviable /unethical offers from Public/interested parties. Thus,
+                any inadvertent error or omission if happens, Sub Agent
+                undertakes the complete responsibility & indemnifies the
+                Principal suitably.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">II.</div>
+              <div style="text-align: left">
+                As the non-exclusive Sales Agency of the Project, the Sub Agent
+                shall find Potential INDIVIDUAL Buyers for the Assigned Units in
+                the Project; Additionally, the Sub Agent shall work on the
+                leads/enquiries generated through their self-identified various
+                medium of Sales leads through their dedicated client/Own source
+                /Word of mouth and their data base.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">III.</div>
+              <div style="text-align: left">
+                Sub Agent will also ensure that they will provide necessary data
+                for input into the Principal proprietary software for
+                registering the client and for tracking sales. However,
+                Principal shall reserve the right to track the sales to
+                individual buyers including document archival, retrieval and
+                follow up for the realization of Payment /deferred payment plan
+                as is applicable to pre-& post sales process.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">IV.</div>
+              <div style="text-align: left">
+                Payment terms to be strictly adopted by Sub Agent from
+                Prospective Buyers of units are as per company policy including
+                Admin /Other charges as per PRICE LIST available at Sales office
+                of Principal
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 70px">
+              <div class="pr-4">1.</div>
+              <div style="text-align: left">Cash buyer :</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">i</div>
+              <div style="text-align: left">
+                10% on signing of the Unit Reservation Form (URF) within 7days
+                of booking amount
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">ii.</div>
+              <div style="text-align: left">
+                10% on signing of SPA within 15 days from the date of signing of
+                Unit Reservation Form (URF) plus AED 3,000 initial registration
+                fees where applicable
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">iii.</div>
+              <div style="text-align: left">
+                Balance 80% as per payment plan approved by developer
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">iv.</div>
+              <div style="text-align: left">
+                4% of SPA value for unit registration fees plus admin fees AED
+                7,500 on completion, where applicable.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 70px">
+              <div class="pr-4">2.</div>
+              <div style="text-align: left">Buyers opting Payment Plan:</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">i.</div>
+              <div style="text-align: left">
+                10% on signing of the Unit Reservation Form (URF) within 7days
+                of booking amount
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">ii.</div>
+              <div style="text-align: left">
+                10% on signing of SPA within 15 days from the date of signing of
+                Unit Reservation Form (URF) plus AED 3,000 initial registration
+                fees where applicable
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">iii.</div>
+              <div style="text-align: left">
+                40% will split over 12/24/36 months base payment plan, whatever
+                is applicable at that time.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 100px">
+              <div class="pr-4">iv.</div>
+              <div style="text-align: left">
+                Balance 40% plus 4% of SPA value for unit registration fees plus
+                admin fees AED 7,500 on completion, where applicable
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">2.</div>
+              <div style="text-align: left">
+                The payment terms for the Deferred Payment plans will be
+                communicated as per the relevant schemes applicable during the
+                tenure.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">3.</div>
+              <div style="text-align: left">RESPONSIBILITIES OF PRINCIPAL:</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">I.</div>
+              <div style="text-align: left">
+                Sub Agent is eligible for a commission is up to 5% of SPA Value
+                on the Apartments/units sold. Any addition towards broker
+                commission will be notified by the developer through email
+                (special promotion, special commission)
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">II.</div>
+              <div style="text-align: left">
+                Commission structure for payment plan base unit details etc.,
+                which is variable, will on case-to-case basis, mutually agreed
+                between both the parties while closing the individual deals.
+              </div>
+            </div>
+          </div>
+
+          <div style="float: left; width: 100%">
+            <div
+              style="width: 50%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Principal:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div style="font-weight: 400">Sub Agent:</div>
+                <div
+                  contenteditable="true"
+                  class="no-focus"
+                  style="min-width: 200px"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page3-content">
+          <div
+            style="font-weight: 500; text-align: left"
+            class="property-address"
+          >
+            <img
+              src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL3BlbnRhLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"
+              alt="no-img"
+            />
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">5.</div>
+              <div style="text-align: left">
+                OBLIGATIONS AND RESPONSIBILITIES OF THE SUB AGENT:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">I.</div>
+              <div style="text-align: left">
+                The Sub Agent shall be responsible to offer the Assigned Units
+                for a consideration amount as per the pricing strategy of
+                Principal.
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 20px; padding-left: 30px"
+              >
+                <div class="pr-4">II.</div>
+                <div style="text-align: left">
+                  The Sub Agent is prohibited from using portal advertising, for
+                  generating sales leads, unless granted written
+                  authorization/No Objection letter (NOC) by the Principal.
+                  Portal advertising for generating rental leads for Assigned
+                  Units in the Project is strictly prohibited.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">III.</div>
+              <div style="text-align: left">
+                The role of the Sub Agent shall be to assist the Principal and
+                the Prospective Buyer with the sale transaction and ensure that
+                all the rules and regulations of RAK Land Department/RAK
+                Central/ Government and the rules specifically mentioned in the
+                Law no. <div style="display:inline-block;min-width:50px;height: 20px;border-bottom: 1px solid #000;" contenteditable="true" class="no-focus"></div> “Regulating the Real Estate Brokers in the
+                Emirates of UAE” along with the related Regulation(s),
+                circular(s) issued from time to time are complied with.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">IV.</div>
+              <div style="text-align: left">
+                The Sub Agent cannot do any kind of Marketing or any branding
+                activity without prior written approval of the Developer.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">V.</div>
+              <div style="text-align: left">
+                The Sub Agent on behalf of the principal shall not collect any
+                payment(s) and or cheque(s) in his favor from the Prospective
+                Buyer. Sub Agent also shall not collect any cash payment as
+                token advance or otherwise from any Prospective Buyer, and if
+                found such practice at any time will lead to termination of the
+                agreement and Sub Agent will return all the funds collected to
+                the Principal.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">VI.</div>
+              <div style="text-align: left">
+                . The Sub Agent shall not disclose any confidential information
+                to any other brokers and shall not disclose/sell the prices
+                lower than the developer fixed for each specified unit without
+                prior written approval from the developer. If Sub Agent does,
+                then this Agreement will be terminated with immediate effect by
+                the developer. This clause supersedes all the other clauses
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 30px">
+              <div class="pr-4">VII.</div>
+              <div style="text-align: left">
+                In the event of material breach of this contract/agreement then
+                the agreement will be terminated with immediate effect.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">6.</div>
+              <div style="text-align: left">
+                DISPUTE RESOLUTION & JURISDICTION
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 38px">
+              <div class="pr-4">I.</div>
+              <div style="text-align: left">
+                The parties mutually agree that any dispute in this regard will
+                be mutually resolved between the Developer and Sub Agent as long
+                is not contractual violation /interpretation. However, if there
+                are any unresolved disputes can be referred to Arbitrator
+                mutually appointed by Developer &Sub Agent and for all purposes
+                the dispute & resolution will be under the jurisdiction of UAE
+                court laws, Dubai Court.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">7.</div>
+              <div style="text-align: left">NOTICE</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 38px">
+              <div class="pr-4">I.</div>
+              <div style="text-align: left">
+                The parties mutually agree that any dispute in this regard will
+                be mutually resolved between the Developer and Sub For the
+                purposes of this Agency Agreement all notices and communication
+                shall be communicated in the English Language to the following
+                designated person of the Parties and shall be deemed to be
+                delivered once communicated.
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              >
+                For the Principal:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 600"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Pantheon Development FZ-LLC
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Email Address:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 400"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  customeradmin@pered.ae
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Contact Person
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 400"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Mr. Santosh Kumar Singh
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+              padding-top: 30px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              >
+                For the Sub Agent:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 600"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Company/Entity:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 400"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Email Address:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 400"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              float: left;
+              width: 100%;
+              padding-left: 30px;
+              padding-bottom: 10px;
+            "
+          >
+            <div
+              style="width: 30%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Name:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div
+                  style="font-weight: 400"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="float: left; width: 100%; padding-top: 30px">
+            <div
+              style="width: 50%; float: left; text-align: left; padding: 0px"
+            >
+              <div
+                style="font-weight: 400"
+                contenteditable="true"
+                class="no-focus"
+              >
+                Principal:
+              </div>
+            </div>
+            <div style="width: 50%; float: left; text-align: left">
+              <div style="display: flex; padding: 0px">
+                <div style="font-weight: 400">Sub Agent:</div>
+                <div
+                  contenteditable="true"
+                  class="no-focus"
+                  style="min-width: 200px"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="page4-content">
+          <div
+            style="font-weight: 500; text-align: left"
+            class="property-address"
+          >
+            <img
+              src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL3BlbnRhLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"
+              alt="no-img"
+            />
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 20px; padding-left: 0px">
+              <div class="pr-4">8.</div>
+              <div style="text-align: left">
+                The Sub Agent shall be responsible to offer the Assigned Units
+                for a consideration amount as per the pricing strategy of
+                Principal.
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="
+                  padding-bottom: 20px;
+                  padding-left: 0px;
+                  font-weight: 600;
+                "
+              >
+                <div class="pr-4">I.</div>
+                <div style="text-align: left">
+                  All commissions due under this Agreement will be paid either
+                  by cheque or by bank transfer exclusively to the following
+                  bank account:
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">Bank Name:</div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">
+                  Bank Account Name:
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">
+                  Account Number:
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">IBAN:</div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">SWIFT Code:</div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">
+                  Bank Address 1:
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">
+                  Bank Address 2:
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="padding-bottom: 6px; padding-left: 0px; font-weight: 600"
+              >
+                <div class="no-focus" contenteditable="true">
+                  Bank Address 3:
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="
+                  padding-bottom: 20px;
+                  padding-left: 0px;
+                  padding-top: 20px;
+                "
+              >
+                <div class="pr-4">9.</div>
+                <div style="text-align: left">ENTIRE AGREEMENT:</div>
+              </div>
+            </div>
+
+            <div class="flex-maintain">
+              <div
+                class="flex"
+                style="
+                  padding-bottom: 20px;
+                  padding-left: 30px;
+                  padding-top: 20px;
+                "
+              >
+                <div class="pr-4">I.</div>
+                <div style="text-align: left">
+                  This Agreement contains the entire agreement between the
+                  parties in relation to the subject matter contemplated by this
+                  Agreement and supersedes any arrangements understandings or
+                  previous agreement, whether written or verbal, between them
+                  relating to the subject matter thereof.
+                </div>
+              </div>
+
+              <div class="flex-maintain">
+                <div
+                  class="flex"
+                  style="
+                    padding-bottom: 20px;
+                    padding-left: 0px;
+                    padding-top: 20px;
+                    font-weight: 600;
+                  "
+                >
+                  <div class="pr-4">SIGNED BY:</div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 30px;
+                  padding-left: 40px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    1. For Pantheon Development FZ-LLC
+                  </div>
+                </div>
+                <div style="width: 50%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">2.</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  padding-left: 53px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Mr. Santosh Kumar Singh
+                  </div>
+                </div>
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 30px;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  padding-left: 53px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 30px;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  padding-left: 53px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 30px;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  padding-left: 53px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 30px;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  padding-left: 53px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 30px;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  padding-left: 53px;
+                "
+              >
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 30px;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 30px;
+                  margin-left: 50px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding-right: 30px;
+                  "
+                >
+                  <div
+                    style="
+                      font-weight: 400;
+                      min-width: 300px;
+                      border-bottom: 1px solid #000;
+                    "
+                    contenteditable="true"
+                    class="no-focus"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding-left: 0px, margin;
+                  "
+                >
+                  <div style="display: flex; padding: 0px">
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="
+                        font-weight: 400;
+                        min-width: 300px;
+                        border-bottom: 1px solid #000;
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 5px;
+                  margin-left: 50px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Principal:
+                  </div>
+                </div>
+                <div style="width: 40%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">Sub Agent:</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 50px;
+                  margin-left: 50px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Witness:
+                  </div>
+                </div>
+                <div style="width: 40%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">Witness:</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 10px;
+                  margin-left: 50px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Name:
+                  </div>
+                </div>
+                <div style="width: 40%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">Name:</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 10px;
+                  margin-left: 50px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Passport No:
+                  </div>
+                </div>
+                <div style="width: 40%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">Passport No:</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                style="
+                  float: left;
+                  width: 100%;
+                  padding-top: 10px;
+                  margin-left: 50px;
+                  display: flex;
+                  justify-content: space-between;
+                "
+              >
+                <div
+                  style="
+                    width: 40%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Nationality:
+                  </div>
+                </div>
+                <div style="width: 40%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">Nationality:</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="float: left; width: 100%; padding-top: 250px">
+                <div
+                  style="
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 0px;
+                  "
+                >
+                  <div
+                    style="font-weight: 400"
+                    contenteditable="true"
+                    class="no-focus"
+                  >
+                    Principal:
+                  </div>
+                </div>
+                <div style="width: 50%; float: left; text-align: left">
+                  <div style="display: flex; padding: 0px">
+                    <div style="font-weight: 400">Sub Agent:</div>
+                    <div
+                      contenteditable="true"
+                      class="no-focus"
+                      style="min-width: 200px"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

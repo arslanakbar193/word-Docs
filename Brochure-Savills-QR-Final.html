@@ -1,0 +1,594 @@
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LivingAscot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      :root {
+      --color: #3796c6;
+      --whitecolor: #fff !important;
+      --backgroundcolor: #15eb52;
+      --bodybackground: #e2e2e2;
+      }
+      /* Area Variable - Black */
+      @font-face {
+      font-family: "AreaVariableBlack";
+      src: url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Black.woff2")
+      format("woff2"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Black.woff")
+      format("woff"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Black.ttf")
+      format("truetype");
+      font-weight: 900;
+      font-style: normal;
+      }
+      /* Area Variable - Bold */
+      @font-face {
+      font-family: "AreaVariableBold";
+      src: url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Bold.woff2")
+      format("woff2"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Bold.woff")
+      format("woff"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Bold.ttf")
+      format("truetype");
+      font-weight: bold;
+      font-style: normal;
+      }
+      /* Area Variable - Light */
+      @font-face {
+      font-family: "AreaVariableLight";
+      src: url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Light.woff2")
+      format("woff2"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Light.woff")
+      format("woff"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/AreaVariable-Light.ttf")
+      format("truetype");
+      font-weight: 300;
+      font-style: normal;
+      }
+      /* IvyMode - Bold */
+      @font-face {
+      font-family: "IvyModeBold";
+      src: url("https://demo.goyzer.com/uf/2677/content/fonts/IvyMode-Bold.woff2")
+      format("woff2"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/IvyMode-Bold.woff")
+      format("woff"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/IvyMode-Bold.ttf")
+      format("truetype");
+      font-weight: bold;
+      font-style: normal;
+      }
+      /* IvyMode - Regular */
+      @font-face {
+      font-family: "IvyModeRegular";
+      src: url("https://demo.goyzer.com/uf/2677/content/fonts/IvyMode-Regular.woff2")
+      format("woff2"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/IvyMode-Regular.woff")
+      format("woff"),
+      url("https://demo.goyzer.com/uf/2677/content/fonts/IvyMode-Regular.ttf")
+      format("truetype");
+      font-weight: normal;
+      font-style: normal;
+      }
+      * {
+      font-family: "Raleway", sans-serif;
+      }
+      .playfair {
+      font-family: "Playfair Display", serif;
+      }
+      .poppins {
+      font-family: "Poppins", sans-serif;
+      }
+      /* .lato{
+      font-family: "Roboto", sans-serif;
+      } */
+      /* .font-regular {
+      font-family: "AreaVariableLight";
+      }
+      .font-bold {
+      font-family: "AreaVariableBlack";
+      font-weight: 600;
+      } */
+      .no-focus:focus {
+      outline: none;
+      }
+      .header-text {
+      padding: 3rem 3rem;
+      }
+      .icons-content {
+      margin: 3rem 0rem;
+      }
+      .gradient-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 42%;
+      padding: 20px;
+      /* background: linear-gradient(to right, rgb(0 0 0 / 79%), transparent); */
+      background: linear-gradient(
+      to right,
+      #2f3433 32%,
+      rgba(47, 52, 51, 0.8) 50%,
+      transparent 100%
+      );
+      color: white !important;
+      font-size: 2em;
+      text-align: left;
+      font-family: "IvyModeRegular";
+      }
+      #generatePDF {
+      background-color: #2f3433;
+      border: none;
+      color: #fff !important;
+      font-weight: bold;
+      border-radius: 4px;
+      padding: 7px 15px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      outline: none;
+      margin-left: 12px;
+      font-family: "Raleway", sans-serif;
+      }
+      #generatePDF:focus {
+      outline: none;
+      }
+      .profile-image {
+      padding: 60px 0px;
+      }
+      #loading {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border: 1px solid #ffe740;
+      border-radius: 10px;
+      background-color: #ffe740;
+      font-weight: 600;
+      z-index: 1;
+      }
+      button#PrintLayoutButton {
+      display: none;
+      }
+      .aminities-left ul li {
+      border-right: 1px solid #57c4bf !important;
+      }
+      .playfair {
+      font-family: "Playfair Display", serif;
+      }
+      .property-address {
+      padding: 30px 0px 15px 0px;
+      text-transform: uppercase;
+      }
+      .footer h3 img {
+      width: 124px;
+      height: 120px;
+      }
+      .cb:after {
+      content: "";
+      height: 20px;
+      width: 2px;
+      position: absolute;
+      right: -40px;
+      background-color: #dfdfdf;
+      }
+      .profile-image img {
+      border-radius: 50%;
+      border: 4px solid #fff !important;
+      width: 200px;
+      height: 200px;
+      }
+      #content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      }
+      .logo-image {
+      padding-top: 52px;
+      padding-bottom: 80px;
+      }
+      .flex-section {
+      padding-bottom: 45px;
+      }
+      .image-d {
+      padding-bottom: 4px;
+      padding-top: 4px;
+      }
+      .image-m {
+      padding-bottom: 4px;
+      padding-top: 4px;
+      }
+      .pdf-setting .image-a {
+      height: 550px;
+      object-fit: cover;
+      }
+      .pdf-setting .description {
+      height: 545px;
+      }
+      .pdf-setting .image-b {
+      height: 569px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-c {
+      height: 571px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-l {
+      height: 571.10px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-d {
+      height: 566px;
+      object-fit: cover;
+      padding-bottom: 5px;
+      padding-top: 0px;
+      }
+      .pdf-setting .image-m{
+      height: 566px;
+      object-fit: cover;
+      padding-bottom: 5px;
+      padding-top: 1px;
+      }
+      .pdf-setting .image-e {
+      height: 565px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-f {
+      height: 565.5px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-g {
+      height: 565px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-h {
+      height: 565px;
+      object-fit: cover;
+      }
+      .pdf-setting .image-i {
+      height: 564px;
+      object-fit: cover;
+      }
+      .pdf-setting .aveen {
+      padding-top: 80px;
+      }
+      .pdf-setting .aveenN {
+      padding-top: 30px;
+      }
+      .pdf-setting .image-last {
+      padding-top: 40px;
+      height: 580px;
+      object-fit: cover;
+      }
+      .pdf-setting .property-address {
+      padding: 60px 0px 25px 0px;
+      }
+      .pdf-setting .logo-image {
+      padding-top: 30px;
+      padding-bottom: 164.6px;
+      }
+      /* .page2-content > div > h2 {
+      margin-bottom: 80px !important;
+      } */
+      .pdf-setting .flex-section {
+      padding-bottom: 60px;
+      }
+      .page2-content td:first-child table tbody tr{
+      position: relative;
+      }
+      .page2-content td:first-child table tbody tr:after{
+      position: absolute;
+      content: "";
+      height: 7px;
+      width: 7px;
+      background-color: black;
+      border-radius: 50%;
+      left: 0px;
+      top: 11px;
+      }
+      .page2-content td:last-child table tbody tr{
+      position: relative;
+      }
+      .page2-content td:last-child table tbody tr:after{
+      position: absolute;
+      content: "";
+      height: 7px;
+      width: 7px;
+      background-color: black;
+      border-radius: 50%;
+      left: 0px;
+      top: 11px;
+      }
+      .page2-content td {
+      line-height: 30px;
+      font-size: 16px;
+      padding-left: 26px;
+      }
+      .page2-content td:first-child table tbody tr td:first-child {
+      display: none;
+      }
+      .page2-content td:last-child table tbody tr td:first-child {
+      display: none;
+      }
+      .pdf-setting .page2-content {
+      /* padding-top: 60px; */
+      }
+      /* .image-b,
+      .image-c,
+      .image-d{
+      height: 450px;
+      } */
+  </style>
+  </head>
+  <body data-lt-tmp-id="lt-427429" spellcheck="false" data-gramm="false">
+    <lt-highlighter contenteditable="false" style="display: none;" data-lt-linked="1"><lt-div spellcheck="false" class="lt-highlighter__wrapper" style="width: 2358.75px !important; height: 360px !important; transform: none !important; transform-origin: 1179.38px 180px !important; zoom: 1 !important;"><lt-div class="lt-highlighter__scroll-element" style="top: 0px !important; left: 0px !important; width: 2358px !important; height: 6685px !important;"><canvas class="lt-highlighter__canvas" width="267" height="869" style="display: none; top: 76px !important; left: 1058px !important;"></canvas></lt-div></lt-div></lt-highlighter>
+    <section class="sec1" style="float: left; width: 100%;">
+    <div style="max-width: 800px; margin: auto;">
+    <button id="generatePDF" class="font-regular">Generate PDF</button>
+    </div>
+    <div id="loading" class="font-regular">
+    Generating PDF, please wait...
+    </div>
+    <div class="container" style="max-width: 800px; margin: auto;" id="content">
+    <div class="page1-content">
+    <div style="padding-bottom: 30px; text-align: center;">
+    <div contenteditable="true" style="font-size: 16px; font-weight: 500; letter-spacing: 4px;" class="property-address">
+    PROPERTY ADDRESS : {{Community}} , {{City}}
+    </div>
+    <div contenteditable="true" style="font-size: 50px; letter-spacing: 4px; text-transform: uppercase;height:150px;overflow: hidden;" class="playfair">
+    {{Property}}
+    </div>
+    </div>
+    <div style="display: flex; justify-content: space-between; width: 85%; margin: auto;" class="flex-section">
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;" class="cb">
+    <div contenteditable="true" style="font-size: 14px;">Bedrooms</div>
+    <div contenteditable="true" style="font-size: 18px; font-weight: 500;" class="poppins">
+    {{Bedrooms}} Bedroom(s)
+    </div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;" class="cb">
+    <div contenteditable="true" style="font-size: 14px;">Size</div>
+    <div contenteditable="true" style="font-size: 18px; font-weight: 500;" class="poppins">
+    {{Builtup Area}}
+    </div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;" class="cb">
+    <div contenteditable="true" style="font-size: 14px;">Furniture</div>
+    <div contenteditable="true" style="font-size: 18px; font-weight: 500;" class="poppins">
+    {{Furnished}}
+    </div>
+    </div>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
+    <div contenteditable="true" style="font-size: 14px;">
+    Price <span style="font-weight: bold;">AED</span>
+    </div>
+    <div contenteditable="true" style="font-size: 18px; font-weight: 500;" class="poppins">
+    {{Selling Price}}
+    </div>
+    </div>
+    </div>
+    <div class="images">
+    <img alt="" class="image-a" src="{{Image1URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="logo-image" style="text-align: center;">
+    <img src="https://img.goyzer.com/images/L3VmLzI2NzcvcHJvcGVydHkvNDU2MC9Mb2dvX1BORy5qcGcuMjY3Ny5QTS4wYnkwLjY1OTQ2LkRlZmF1bHQuQ2VudGVy.watermark" alt="no-img1" style="height: 65px; width: 65px; object-fit: cover;" />
+    </div>
+    </div>
+    <div class="page2-content">
+    <div>
+    <h2 contenteditable="true" class="playfair" style="padding: 0px 120px; line-height: 45px; margin-bottom: 9px; text-align: center;"><span style="font-size: 36px; letter-spacing: 4px; line-height: 45px; font-family: 'Playfair Display', serif;">
+    EXQUISITE UPGRADED {{Bedrooms}} Bedroom(s) VIILA IN</span><span style="font-size: 40px; letter-spacing: 4px; line-height: 45px; font-family: 'Playfair Display', serif;"><br />
+    </span>
+    <div style="font-size: 27px; padding-top: 20px; height: 290px; overflow: hidden; text-align: center;">
+    <span style="text-align: left; font-size: 13px; color: inherit;">{{2ColumnsAmenities}}</span>
+    </div>
+    </h2>
+    </div>
+    <div style="display: flex; justify-content: space-between; padding-bottom: 79px; padding-left: 50px; padding-right: 60px;">
+    <ul style="font-size: 13px;">
+    </ul>
+    </div>
+    <div class="images">
+    <img alt="" class="image-c" src="{{Image2URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-l" src="{{Image3URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;padding-top: 1px;" />
+    </div>
+    <div style="width: 90%; margin: 52px auto; height: 457px; overflow: hidden; text-align: center;font-size: 14px;">
+    {{Property Description}}
+    <p style="font-size: 13px;">
+    </p>
+    </div>
+    <div class="images">
+    <img alt="" class="image-d" src="{{Image4URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-e" src="{{Image5URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-d" src="{{Image6URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-f" src="{{Image7URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-d" src="{{Image8URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-g" src="{{Image9URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-d" src="{{Image10URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-h" src="https://img.goyzer.com/images/watermark.aspx?imageurl=/{{Image11URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-m" src="https://img.goyzer.com/images/watermark.aspx?imageurl=/{{Image12URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="images">
+    <img alt="" class="image-i" src="https://img.goyzer.com/images/watermark.aspx?imageurl=/{{Image13URL}}&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Default&amp;position=BottomRight" style="width: 100%; object-fit: cover;" />
+    </div>
+    <div class="footer" style="background-color: #2a2a3d;">
+    <div class="logo-image" style="padding-top: 122px; padding-bottom: 40px; text-align: center;">
+    </div>
+    <div style="text-align: center;">
+    <p style="margin-bottom: 0px; font-size: 13px; color: #ffffff;">
+    To know more about this
+    </p>
+    <p style="margin-bottom: 0px; font-size: 13px; color: #ffffff;">
+    property, get in touch today.
+    </p>
+    </div>
+    <div style="text-align: center;">
+    <div class="profile-image">{{Listing Agent Picture}}</div>
+    </div>
+    <div style="text-align: center;">
+    <p class="playfair" style="font-size: 34px; color: #ffffff; margin-bottom: 15px;">
+    {{Listing Agent Name}}
+    </p>
+    </div>
+    <div style="font-size: 12px; color: #ffffff; text-align: center;">
+    <p style="color: #ffffff;">{{Listing Agent Designation}}</p>
+    </div>
+    <div style="text-align: center;">
+    <p style="font-size: 16px; color: #ffffff; margin-bottom: 5px; margin-top: 40px;">
+    +{{Listing Agent Mobile}}
+    </p>
+    </div>
+    <div style="text-align: center;">
+    <p style="font-size: 16px; color: #ffffff;">
+    {{Listing Agent Email}}
+    </p>
+    </div>
+    <div style="display: flex; font-size: 14px; justify-content: center; padding-top: 60px;">
+    <div style="padding-right: 10px; color: #ffffff;">savills.me</div>
+    <div style="color: #ffffff;">|</div>
+    <div style="padding-left: 10px; color: #ffffff;">
+    @savillsmiddleeast
+    </div>
+    </div>
+    <div style="display: flex; justify-content: center; padding-top: 92.9px; padding-bottom: 180px;">
+    <img src="{{QR Code Sale URL}}" alt="QR Code" style="width: 65px; float: right; margin-right: 3px; display: block; height: 65px; border-radius: 4px;" />
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <script>
+      $(document).ready(function () {
+
+        function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Get the 'unitIDs' parameter from the URL
+const unitID = getQueryParam('unitIDs');
+        $("#generatePDF").click(function () {
+          $(".sec1").addClass("pdf-setting");
+
+          // Automatically remove the class after 2 seconds (2000 milliseconds)
+          setTimeout(function () {
+            $(".sec1").removeClass("pdf-setting");
+          }, 200); // Adjust the duration as needed
+          const { jsPDF } = window.jspdf;
+          var $button = $(this);
+          var $loading = $("#loading");
+
+          // Disable the button and show the loading indicator
+          $button.prop("disabled", true);
+          $loading.show();
+
+          // Create a new jsPDF instance
+          var doc = new jsPDF("p", "mm", "a4");
+
+          // Capture the content as a canvas
+          html2canvas(document.querySelector("#content"), {
+            useCORS: true,
+            allowTaint: false,
+            scale: 1, // Increase the scale for better resolution
+            logging: true, // Debugging option, helps to see potential errors
+            backgroundColor: null, // Ensure transparency is captured properly
+          })
+            .then(function (canvas) {
+              var imgData = canvas.toDataURL("image/png");
+
+              // Adjust width and height for edge-to-edge A4 page
+              var imgWidth = 210; // Full width of A4 size page (210mm)
+              var pageHeight = 297; // Full height of A4 size page (297mm)
+              var imgHeight = (canvas.height * imgWidth) / canvas.width;
+              var heightLeft = imgHeight;
+              var position = 0;
+
+              // Add the first image to the PDF (no margins)
+              doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // Set left margin to 0mm
+              heightLeft -= pageHeight;
+
+              // Add new pages if necessary
+              while (heightLeft > 0) {
+                position = heightLeft - imgHeight;
+                doc.addPage();
+                doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight); // Set left margin to 0mm
+                heightLeft -= pageHeight;
+              }
+
+              // Save the PDF
+              doc.save(unitID);
+
+              // Re-enable the button and hide the loading indicator
+              $button.prop("disabled", false);
+              $loading.hide();
+            })
+            .catch(function (error) {
+              // In case of an error, re-enable the button and hide the loading indicator
+              $button.prop("disabled", false);
+              $loading.hide();
+              console.error("PDF generation error: ", error);
+            });
+        });
+      });
+    </script>
+</body>
+</html>

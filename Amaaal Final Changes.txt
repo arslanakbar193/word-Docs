@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true">
+    <head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet" />
+        <style>
+            :root {
+            --themecolor: #3497c7;
+            }
+            body,
+            input {
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            }
+            .table-width {
+            width: 100%;
+            border-collapse: collapse;
+            }
+            p {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 14px;
+            }
+            .seticon img {
+            position: relative;
+            top: 3px;
+            margin-right: 8px;
+            }
+            #generatePDF {
+            background-color: #2e2f43;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 7px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            outline: none;
+            }
+            #generatePDF:focus {
+            outline: none;
+            }
+            #loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid #ffe740;
+            border-radius: 10px;
+            background-color: #ffe740;
+            font-weight: 600;
+            z-index: 1;
+            }
+            button#PrintLayoutButton {
+            display: none;
+            }
+            .profile-img img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 130px;
+            width: 130px;
+            }
+            .amin tbody tbody tr td {
+            padding-bottom: 6px;
+            font-weight: 100 !important;
+            }
+            .amin {
+            font-weight: 100 !important;
+            width: 100%;
+            }
+            .amin > table {
+            width: 100%;
+            }
+            #map_canvas_view {
+            height: 334px !important;
+            }
+            .btn3 {
+            background-color: #2e2f43;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 7px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            outline: none;
+            }
+            td.w-khan img {
+            width: 80px;
+            }
+            .dontprint {
+            margin-top: 0px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="margin: 0px auto; width: 800px;">
+        <button id="generatePDF">Generate PDF</button>
+        <button class="btn3" onclick="getImage(event)" id="#generateJPG">
+        Generate JPG
+        </button>
+        <div id="loading">Generating PDF, please wait...</div>
+        <div id="content" style="width: 100%; float: left;">
+        <table width="800" cellspacing="0" cellpadding="0" border="0" align="center">
+            <tbody>
+                <tr>
+                    <td style="margin-top: 0px; width: 652px; font-family: arial; height: 21px; color: #333333; font-size: 11px;" valign="top" align="center">
+                    {{See in your browser Link}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="800" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td rowspan="2" style="margin-top: 12px; width: auto;" class="w-khan">
+                                {{Company Logo}}&nbsp;
+                                </td>
+                                <td style="font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" align="right">
+                                Call Our Sales Office Today
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-family: arial; color: #3796c6; font-size: 20px; font-weight: bold;" align="right">Unit No : {{Unit Number}}<br />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <!-- <tr>
+                <td style="height: 12px;"> <br />
+                </td>
+            </tr> -->
+                <tr>
+                    <td>
+                    <table style="padding-bottom: 0px; background-color: #f3f3f3; height: 28px; border-top: 1px solid #bfc4ca;" width="800" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td style="padding-left: 8px; width: 300px; font-family: arial; color: #333333; font-size: 15px; font-weight: bold;">
+                                {{Type}} For Sale
+                                </td>
+                                <td style="padding-right: 4px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" align="right">
+                                {{PromotionalTitle}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <!-- <tr style="display: flex; margin-bottom: 8px">
+              <td>
+                <table width="800" cellspacing="0" cellpadding="0" border="0">
+                  <tbody>
+                    <tr>
+                      <td
+                        style="
+                          padding-left: 8px;
+                          font-family: arial;
+                          height: 22px;
+                          color: #3796c6;
+                          font-size: 15px;
+                          font-weight: bold;
+                        "
+                        valign="bottom"
+                      >
+                        <br />
+                      </td>
+                      <td
+                        style="
+                          font-family: arial;
+                          color: #333333;
+                          font-size: 12px;
+                          font-weight: bold;
+                        "
+                        valign="bottom"
+                        align="right"
+                      >
+                        Unit Number:
+                        <span style="padding-right: 1px; color: #3796c6"
+                          >{{Unit Number}}</span
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr> -->
+                <!-- <tr>
+                <td style="height: 0px;"><br />
+                </td>
+            </tr> -->
+                <!-- <tr>
+                <td>&nbsp;</td>
+            </tr> -->
+                <tr>
+                    <td>
+                    <table width="800" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td valign="top">
+                                <table width="200" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; overflow: hidden; text-align: center;">
+                                            <a style="float: left;" target="_blank" href="{{FloorPlan1URL}}">
+                                            <img src="{{FloorPlan1URL}}" alt="{{Floor Plan 1 Title}}" style="border: 0px solid; cursor: pointer; object-fit: cover; width: 540px; height: 380px;" />
+                                            </a>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                                <!-- <td style="width: 12px;">&nbsp;</td> -->
+                                <td valign="top">
+                                <table width="200" cellspacing="0" cellpadding="0" border="0" align="right" style="margin-top: 50px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; width: 112px; height: 82px; overflow: hidden;">
+                                            <a target="_blank" href="{{Image1URL}}"><img src="{{Image1URL}}" alt="{{Image1 Title}}" style="border: 0px solid; cursor: pointer;" width="112" height="82" /></a>
+                                            </div>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; width: 112px; height: 82px; overflow: hidden;">
+                                            <a target="_blank" href="{{Image2URL}}"><img src="{{Image2URL}}" alt="{{Image2 Title}}" style="border: 0px solid; cursor: pointer;" width="112" height="82" /></a>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                          <td style="height: 7px;"> <br />
+                                          </td>
+                                          <td> <br />
+                                          </td>
+                                          <td> <br />
+                                          </td>
+                                      </tr> -->
+                                        <tr>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; width: 112px; height: 82px; overflow: hidden;">
+                                            <a target="_blank" href="{{Image3URL}}"><img src="{{Image3URL}}" alt="{{Image3 Title}}" style="border: 0px solid; cursor: pointer;" width="112" height="82" /></a>
+                                            </div>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; width: 112px; height: 82px; overflow: hidden;">
+                                            <a target="_blank" href="{{Image4URL}}"><img src="{{Image4URL}}" alt="{{Image4 Title}}" style="border: 0px solid; cursor: pointer;" width="112" height="82" /></a>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                          <td style="height: 7px;"> <br />
+                                          </td>
+                                          <td> <br />
+                                          </td>
+                                          <td> <br />
+                                          </td>
+                                      </tr> -->
+                                        <tr>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; width: 112px; height: 82px; overflow: hidden;">
+                                            <a target="_blank" href="{{Image5URL}}"><img src="{{Image5URL}}" alt="{{Image5 Title}}" style="border: 0px solid; cursor: pointer;" width="112" height="82" /></a>
+                                            </div>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                            <div style="border: 1px solid #bfc4ca; padding: 2px; width: 112px; height: 82px; overflow: hidden;">
+                                            <a target="_blank" href="{{Image6URL}}"><img src="{{Image6URL}}" alt="{{Image6 Title}}" style="border: 0px solid; cursor: pointer;" width="112" height="82" /></a>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <!-- <tr>
+              <td style="height: 12px"><br /></td>
+            </tr> -->
+                <tr>
+                    <td>
+                    <table width="800" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td style="width: 299px;" valign="top">
+                                <table width="308" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="border-bottom: 1px solid #bfc4ca; padding-left: 1px; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                            Property Details
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; height: 12px; color: #333333; font-size: 12px; font-weight: bold; padding-top: 10px;">
+                                            Escrow number
+                                            </td>
+                                            <td style="width: 180px; font-family: arial; color: #000000; font-size: 12px; font-weight: normal; padding-top: 10px;" valign="bottom">
+                                            {{Escrow Number}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            Location
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{Community}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            Property
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{Property}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            Availability
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{Availability}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            Estimated completion
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{Completion Date}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                                <td rowspan="2" style="width: 17px;" valign="top">
+                                <br />
+                                </td>
+                                <td rowspan="2" style="width: 326px;" valign="top">
+                                <table width="309" cellspacing="0" cellpadding="0" border="0" align="right" style="float: left;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="border-bottom: 1px solid #bfc4ca; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                            Unit Details
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold; padding-top: 10px;">
+                                            Bedrooms
+                                            </td>
+                                            <td style="width: 146px; font-family: arial; color: #000000; font-size: 12px; font-weight: normal; padding-top: 10px;">
+                                            {{Bedrooms}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="line-height: 16px; width: 150px; float: left; font-size: 12px; font-weight: bold; font-family: arial; color: #333333;">Built up area (BUA)
+                                            </span>
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_TA}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="line-height: 16px; width: 150px; float: left; font-size: 12px; font-weight: bold; font-family: arial; color: #333333;">Unit view
+                                            </span>
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{Primary View}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="font-size: 12px; font-weight: 700; font-family: arial; color: #333333;">Ensuite Bathroom</span><br />
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_EB}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="font-size: 12px; font-weight: 700; font-family: arial; color: #333333;">Powder Room</span><br />
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_PR}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="font-size: 12px; font-weight: 700; font-family: arial; color: #333333;">Maids Room</span><br />
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_MR}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="font-size: 12px; font-weight: 700; font-family: arial; color: #333333;">Balcony Area</span><br />
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_BA}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="font-size: 12px; font-weight: 700; font-family: arial; color: #333333;">Total Area</span><br />
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_TA}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            <span style="font-size: 12px; font-weight: 700; font-family: arial; color: #333333;">Livable Area</span><br />
+                                            </td>
+                                            <td style="font-family: arial; color: #000000; font-size: 12px; font-weight: normal;" valign="top">
+                                            {{c_GA}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="642" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td style="width: 282px;" valign="top">
+                                <table width="308" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="border-bottom: 1px solid #bfc4ca; padding-left: 1px; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                            <!-- Other Features -->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px;" valign="top"><br />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                                <td rowspan="2" style="width: 25px;" valign="top">
+                                &nbsp;
+                                </td>
+                                <td rowspan="2" style="width: 348px;" valign="top">
+                                <table width="309" cellspacing="0" cellpadding="0" border="0" align="right" style="margin-left: 86px;">
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="border-bottom: 1px solid #bfc4ca; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                            Sales Details
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold; padding-top: 10px;">
+                                            Selling price
+                                            </td>
+                                            <td style="width: 152px; font-family: arial; color: #3796c6; font-size: 12px; font-weight: bold; padding-top: 10px;">
+                                            {{Selling Price}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="width: 150px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold;" valign="top">
+                                            &nbsp;
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+                <!-- <tr>
+                <td>&nbsp;<br />
+                <br />
+                </td>
+            </tr> -->
+                <tr>
+                    <td>
+                    <table width="800" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td valign="top">
+                                <table width="800" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="printdecheadingcrome" style="border-bottom: 1px solid #bfc4ca; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                            Unit Description
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: arial; color: #333333; font-size: 12px; padding-top: 9px;" valign="top">
+                                            <div class="printdeschrome" style="width: 800px;">{{Property Description|chars=500}}</div>
+                                            </td>
+                                        </tr>
+                                        <tr style="top: 0px; position: relative;">
+                                            <td valign="top">
+                                            <table width="800" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="printdecheadingcrome" style="border-bottom: 1px solid #bfc4ca; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                                        Payment Plan<span style="font-size: small; background-color: #ffffff; font-family: Arial, Helvetica, sans-serif; color: #222222;">&nbsp;</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="font-family: arial; color: #333333; font-size: 12px; padding-top: 9px;" valign="top">
+                                                        <div class="printdeschrome t2" style="width: 644px;">
+                                                        {{Payment Plan}}<br />
+                                                        The payment plan is applicable from
+                                                        the date of signing of the booking
+                                                        form. The 4% DLD charges and the
+                                                        Administrative charges are separate
+                                                        from the payment plan and to be paid
+                                                        immediately after the first
+                                                        installment*.<br />
+                                                        </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                      <td><br /></td>
+                    </tr> -->
+                            <tr>
+                                <td>
+                                <table width="800" cellspacing="0" cellpadding="0" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top">
+                                            <table width="800" cellspacing="0" cellpadding="0" border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" style="border-bottom: 1px solid #bfc4ca; font-family: arial; height: 25px; color: #3796c6; font-size: 15px; font-weight: bold;">
+                                                        Website Details
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width: 145px; font-family: arial; color: #333333; font-size: 12px; font-weight: bold; padding-top: 9px;">
+                                                        Website Link:
+                                                        </td>
+                                                        <td style="width: 269px; font-family: arial; color: #000000; font-size: 12px; font-weight: normal; padding-top: 9px;">
+                                                        <a href="https://xplor.amaal8.com/" target="_blank">https://xplor.amaal8.com/</a>
+                                                        </td>
+                                                        <td style="width: 230px; font-family: arial; color: #000000; font-size: 12px; font-weight: normal; padding-top: 9px;">
+                                                        <br />
+                                                        </td>
+                                                    </tr>
+                                                    <!-- <tr>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #333333;
+                                          font-size: 12px;
+                                          font-weight: bold;
+                                        "
+                                        valign="top"
+                                      ></td>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #000000;
+                                          font-size: 12px;
+                                          font-weight: normal;
+                                        "
+                                        valign="top"
+                                      ></td>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #000000;
+                                          font-size: 12px;
+                                          font-weight: normal;
+                                        "
+                                        valign="top"
+                                      >
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #333333;
+                                          font-size: 12px;
+                                          font-weight: bold;
+                                        "
+                                        valign="top"
+                                      ></td>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #000000;
+                                          font-size: 12px;
+                                          font-weight: normal;
+                                        "
+                                        valign="top"
+                                      ></td>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #000000;
+                                          font-size: 12px;
+                                          font-weight: normal;
+                                        "
+                                        valign="top"
+                                      >
+                                        &nbsp;
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #333333;
+                                          font-size: 12px;
+                                          font-weight: bold;
+                                        "
+                                        valign="top"
+                                      >
+                                        <br />
+                                      </td>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #000000;
+                                          font-size: 12px;
+                                          font-weight: normal;
+                                        "
+                                        valign="top"
+                                      ></td>
+                                      <td
+                                        style="
+                                          font-family: arial;
+                                          color: #000000;
+                                          font-size: 12px;
+                                          font-weight: normal;
+                                        "
+                                        valign="top"
+                                      >
+                                        &nbsp;
+                                      </td>
+                                    </tr> -->
+                                                </tbody>
+                                            </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                      <td style="height: 12px"><br /></td>
+                    </tr> -->
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+<script>
+      /*for jpg*/
+      function getImage(event) {
+        event.preventDefault(); // prevent default button behavior
+        var content = document.querySelector("#content");
+
+        // Define the padding/margin size (in pixels)
+        var padding = 40;
+
+        html2canvas(content, {
+          useCORS: true,
+          scale: 2,
+        }).then((canvas) => {
+          // Create a new canvas with extra space
+          var newCanvas = document.createElement("canvas");
+          newCanvas.width = canvas.width + padding * 2;
+          newCanvas.height = canvas.height + padding * 2;
+
+          var ctx = newCanvas.getContext("2d");
+          ctx.fillStyle = "#ffffff"; // Set the background color (optional)
+          ctx.fillRect(0, 0, newCanvas.width, newCanvas.height); // Fill the new canvas with white background
+
+          // Draw the original canvas onto the new canvas with padding
+          ctx.drawImage(canvas, padding, padding);
+
+          // Convert the new canvas to an image
+          const imgData = newCanvas.toDataURL("image/jpeg");
+          const link = document.createElement("a");
+          link.href = imgData;
+          link.download = "image.jpg";
+          link.click();
+        });
+      }
+
+      /*for pdf*/
+      $(document).ready(function () {
+        function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get the 'unitIDs' parameter from the URL
+    const unitID = getQueryParam('unitIDs');
+        $("#generatePDF").click(function () {
+          const { jsPDF } = window.jspdf;
+          var $button = $(this);
+          var $loading = $("#loading");
+
+          // Disable the button and show the loading indicator
+          $button.prop("disabled", true);
+          $loading.show();
+
+          // Create a new jsPDF instance
+          var doc = new jsPDF("p", "mm", "a4");
+
+          // Capture the content as a canvas
+          html2canvas(document.querySelector("#content"), {
+            useCORS: true,
+            allowTaint: false,
+            scale: 1,
+          })
+            .then(function (canvas) {
+              var imgData = canvas.toDataURL("image/png");
+              var imgWidth = 190; // Full width of A4 size page
+              var pageHeight = 290; // Full height of A4 size page
+              var imgHeight = (canvas.height * imgWidth) / canvas.width;
+              var heightLeft = imgHeight;
+              var position = 10;
+
+              // Add the first image to the PDF
+              doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+              heightLeft -= pageHeight;
+
+              // Add new pages if necessary
+              while (heightLeft > 0) {
+                position = heightLeft - imgHeight;
+                doc.addPage();
+                doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+              }
+
+              // Save the PDF
+              doc.save(unitID);
+
+              // Re-enable the button and hide the loading indicator
+              $button.prop("disabled", false);
+              $loading.hide();
+            })
+            .catch(function (error) {
+              // In case of an error, re-enable the button and hide the loading indicator
+              $button.prop("disabled", false);
+              $loading.hide();
+              console.error("PDF generation error: ", error);
+            });
+        });
+      });
+    </script>
+    </body>
+</html>

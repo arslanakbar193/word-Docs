@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejari Contract</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="css/index.css" /> -->
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins" !important;
+        font-size: 17px !important;
+        color: #34373b !important;
+      }
+      .g-bg {
+        background-color: #eeeeee;
+        border-radius: 4px;
+        padding: 3px 8px;
+        min-height: 25px;
+      }
+      .b-bg {
+        background-color: #34373b;
+        color: #fff !important;
+        padding: 2px 8px;
+        text-transform: uppercase;
+        font-size: 19px !important;
+        text-align: left;
+      }
+      .no-focus {
+        outline: none;
+      }
+      .hr {
+        border-bottom: 2px solid #ddd;
+      }
+      
+      .formp{
+        display: inline-block;
+        width: 24.5%;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+      .formp.newformp{
+        width:50%;
+      }
+
+      .form [type="radio"]:checked,
+      .form [type="radio"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+    }
+    .form [type="radio"]:checked + label,
+    .form [type="radio"]:not(:checked) + label
+    {
+        position: relative;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+        color: #666;
+        width: 60%;
+    }
+    .form [type="radio"]:checked + label:before,
+    .form [type="radio"]:not(:checked) + label:before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 22px;
+        height: 22px;
+        border: 1px solid #ccc;
+        border-radius: 100%;
+        background: #eeeeee;
+    }
+    .form [type="radio"]:checked + label:after,
+    .form [type="radio"]:not(:checked) + label:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        background: #34373b;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+    .form [type="radio"]:not(:checked) + label:after {
+        opacity: 0;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    .form [type="radio"]:checked + label:after {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .form-group {
+        display: inline-block;
+        margin-bottom: 0px;
+        width: 150px;
+    }
+    .new {
+        width: 100%;
+    }
+
+    .form-group input {
+    padding: 0;
+    height: initial;
+    width: initial;
+    margin-bottom: 0;
+    display: none;
+    cursor: pointer;
+    }
+
+    .form-group label {
+    position: relative;
+    cursor: pointer;
+    }
+
+    .form-group label:before {
+    content:'';
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #eeeeee;
+    padding: 10px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: #eeeeee;
+    }
+
+    .form-group input:checked + label:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 9px;
+    width: 6px;
+    height: 14px;
+    border: solid #343a40;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    }
+    .form-group1{
+        display: inline-block;
+        margin-left: 10px;
+    }
+      
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="top-information top-info-1">
+        <div class="container">
+
+          <div class="row pt-3 pb-3">
+            <div class="col-6 text-left p-0 pr-4">
+              <div
+                style="
+                  text-transform: uppercase;
+                  text-transform: uppercase;
+                  font-weight: 700;
+                  font-size: 19px !important;
+                  padding-top: 10px;
+                "
+              >
+                SALES / LEASING LISTING FORM
+              </div>
+            </div>
+            <div class="col-6 p-0 pl-4" style="text-align: end">
+              <img
+                src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81NDI4L3NzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LkNlbnRlcg==.watermark"
+              />
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-2">
+            <div class="col-6 text-left p-0 pr-4">
+              <div>Listing Consultant</div>
+            </div>
+            <div class="col-6 p-0 pl-4" style="text-align: left">
+              <div>Property Reference No</div>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-2">
+            <div class="col-6 text-left p-0 pr-4">
+              <div class="g-bg no-focus" contenteditable="true"></div>
+            </div>
+            <div class="col-6 p-0 pl-4" style="text-align: left">
+              <div class="g-bg no-focus" contenteditable="true"></div>
+            </div>
+          </div>
+
+          <div class="row pt-3 pb-3">
+            <div class="col-12 hr"></div>
+          </div>
+
+          <div class="row pb-2">
+            <div class="col-12 b-bg">LANDLORD DETAILS</div>
+          </div>
+
+          <div class="row pt-1 pb-2">
+            <div class="col-12 p-0 pb-1" style="text-align: left;">Landlord’s Name</div>
+
+            <div class="col-12 p-0">
+              <div class="g-bg no-focus" contenteditable="true"></div>
+            </div>
+
+          </div>
+
+          <div class="row pt-1 pb-2">
+            <div class="col-6 text-left p-0 pr-4">
+              <div>ID Number</div>
+            </div>
+            <div class="col-6 p-0 pl-4" style="text-align: left">
+              <div>Expiry Date</div>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-3">
+            <div class="col-6 text-left p-0 pr-4">
+              <div class="g-bg no-focus" contenteditable="true"></div>
+            </div>
+            <div class="col-6 p-0 pl-4" style="text-align: left">
+              <div class="g-bg no-focus text-center" contenteditable="true">
+                DD / MM /YYYY
+              </div>
+            </div>
+          </div>
+
+          <div class="row pb-3">
+            <div class="col-12 b-bg">PROPERTY DETAILS</div>
+          </div>
+
+          
+          <div class="row pt-1 pb-2" >
+            <div class="col-12 p-0">
+                <div class="form" style="width: 100%;">
+                    <p class="formp">
+                      <input type="radio" id="test1" name="radio-group">
+                      <label for="test1">Villa</label>
+                    </p>
+                    <p class="formp">
+                      <input type="radio" id="test2" name="radio-group">
+                      <label for="test2">Apartment</label>
+                    </p>
+                    <p class="formp">
+                      <input type="radio" id="test3" name="radio-group">
+                      <label for="test3">Furnished</label>
+                    </p>
+                    <p class="formp">
+                        <input type="radio" id="test4" name="radio-group">
+                        <label for="test4">Unfurnished</label>
+                      </p>
+                    </div>
+            </div>
+            
+          </div>
+
+          <div class="row pb-2" >
+            <div class="col-12 p-0">
+                <div class="form" style="width: 100%;">
+                    <p class="formp">
+                      <input type="radio" id="test5" name="radio-group" >
+                      <label for="test5">Vacant</label>
+                    </p>
+                    <p class="formp">
+                      <input type="radio" id="test6" name="radio-group">
+                      <label for="test6">Tenanted</label>
+                    </p>
+                    <div class="formp newformp">
+                        <div>
+                            <div style="display: inline-block;width: 25%;">Vacating Date</div>  
+                            <div class="g-bg no-focus text-center" contenteditable="true" style="display: inline-block; width: 74%;">DD / MM /YYYY</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+          </div>
+
+          <div class="row pt-1 pb-4">
+            <div class="col-6 text-left p-0 pr-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">Building Name</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+            <div class="col-6 text-left p-0 pl-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">Unit</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-4">
+            <div class="col-6 text-left p-0 pr-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">Street Name</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+            <div class="col-6 text-left p-0 pl-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">Community</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-4">
+            <div class="col-6 text-left p-0 pr-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">BUA (sqft)</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+            <div class="col-6 text-left p-0 pl-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">Plot (sqft)</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-4">
+            <div class="col-6 text-left p-0 pr-4">
+                <div>
+                    <div style="display: inline-block;width: 18%;">Bedroom</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 30%;"></div>
+                    <div style="display: inline-block;width: 19%;">Bathroom</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 30%;"></div>
+                </div>
+                
+            </div>
+            <div class="col-6 text-left p-0 pl-4">
+                <div>
+                    <div style="display: inline-block;width: 27%;">Parking</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 72%;"></div>
+                </div>
+            </div>
+          </div>
+
+          <div class="row pt-1 pb-4">
+            <div class="col-12 text-left p-0">
+                <div>
+                    <div style="display: inline-block;width: 30%;">Rental Amount / Sale Amount</div>  
+                    <div class="g-bg no-focus" contenteditable="true" style="display: inline-block; width: 69.5%;"></div>
+                </div>
+                
+            </div>
+          </div>
+
+          <div class="row pb-3">
+            <div class="col-12 b-bg">TERMS & CONDITIONS</div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="col-12 p-0 text-left">
+                <div style="display: inline-block;">The landlord/legal representating has agreed to appoint</div>
+                <div style="display: inline-block;width:450px" class="g-bg no-focus" contenteditable="true" ></div>
+                <div style="display: inline-block;">as its</div>
+            </div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="new text-left" >
+                
+                <div class="form-group">
+                    <input type="checkbox" id="html">
+                    <label for="html">Exclusive</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="css">
+                    <label for="css">Non Exclusive</label>
+                </div>
+                <div class="form-group1">
+                    broker to list and advertise the above property for a period of:
+                </div>
+                
+              </div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="new text-left">
+                
+                <div class="form-group" style="width: 13%;">
+                    <input type="checkbox" id="htmll">
+                    <label for="htmll">1 Month</label>
+                </div>
+                <div class="form-group" style="width: 13%;">
+                    <input type="checkbox" id="csss">
+                    <label for="csss">3 Month</label>
+                </div>
+                <div class="form-group" style="width: 13%;">
+                    <input type="checkbox" id="css1">
+                    <label for="css1">6 Month</label>
+                </div>
+                <div class="form-group1" style="width: 13%;">
+                    or until
+                </div>
+                <div class="form-group1 g-bg no-focus" style="width: 44%;text-align: center;" contenteditable="true">
+                    DD / MM /YYYY
+                </div>
+                
+              </div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="col-12 p-0 text-left">I, the undersigned confirm that I am the owner of the above property and/or have the legal authority to sign on
+                behalf of the named owner(s).</div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="col-12 p-0 text-left">This form will be considered as valid for a period of 6 months from the start date.</div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="col-12 p-0 text-left">This Agreement may be terminated by either party at any time upon seven (˜) days written notice to the other party.</div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="col-12 p-0 text-left">Agent is authorized to do live viewing through virtual application.</div>
+          </div>
+
+          <div class="row pb-4">
+            <div class="new text-left">
+                
+                <div class="form-group" style="width: 5%;text-align: center;display: inline-block;">
+                    Name
+                </div>
+                <div class="form-group no-focus g-bg" style="width: 25%;text-align: center;display: inline-block;" contenteditable="true">
+                    DD / MM /YYYY
+                </div>
+                <div class="form-group" style="width: 10%;text-align: left;display: inline-block;padding: 0px 10px;">
+                    Signature 
+                </div>
+                <div class="form-group no-focus" style="width: 18%;text-align: left;display: inline-block;border-bottom: 1px solid #000;" contenteditable="true">
+                </div>
+                <div class="form-group" style="width: 6%;text-align: left;display: inline-block;padding: 0px 10px;">
+                    Date
+                </div>
+                <div class="form-group g-bg no-focus" style="width: 33.5%;text-align: center;display: inline-block;" contenteditable="true">
+                    DD / MM /YYYY
+                </div>
+                
+              </div>
+          </div>
+
+
+          
+
+        
+
+
+        </div>
+      </section>
+    </main>
+    <script>
+        $(document).ready(function(){
+            $(".form-group input").removeAttr("disabled");
+        });
+    </script>
+  </body>
+</html>

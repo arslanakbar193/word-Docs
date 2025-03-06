@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://img.goyzer.com/images/html2canvas.js"></script>
+        <script src="https://img.goyzer.com/images/jspdf.js"></script>
+        <style>
+            :root {
+            --themecolor: #3497c7;
+            }
+            body,
+            input {
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            }
+            .table-width {
+            width: 100%;
+            border-collapse: collapse;
+            }
+            p {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 14px;
+            }
+            .seticon img {
+            position: relative;
+            top: 3px;
+            margin-right: 8px;
+            }
+            #generatePDF {
+            background-color: #2e2f43;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 7px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            outline: none;
+            }
+            #generatePDF:focus {
+            outline: none;
+            }
+            #loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid #ffe740;
+            border-radius: 10px;
+            background-color: #ffe740;
+            font-weight: 600;
+            z-index: 1;
+            }
+            button#PrintLayoutButton {
+            display: none;
+            }
+            .profile-img img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 130px;
+            width: 130px;
+            }
+            .amin tbody tbody tr td {
+            padding-bottom: 6px;
+            font-weight: 100 !important;
+            }
+            .amin{
+            font-weight: 100 !important;
+            width: 100%;
+            }
+            .amin > table{
+            width:100%;
+            }
+            #map_canvas_view{
+            height: 334px !important;
+            }
+            .btn3{
+            background-color:#2e2f43;
+            border:none;
+            color:#fff;
+            font-weight:bold;
+            border-radius:4px;
+            padding:7px 15px;
+            font-size:14px;
+            cursor:pointer;
+            margin-bottom:10px;
+            outline:none;}
+            button#PrintLayoutButton{display:none;}
+            .container{max-width:1440px !important;}
+        </style>
+       
+    </head>
+    <body >
+        
+        <div style="margin: 0px auto; width: 1440px;">
+        <button id="generatePDF">Generate PDF</button><button class="btn3" onclick="getImage(event)" id="#generateJPG" style="margin-left: 6px;">Generate JPG</button>
+        <div class="image_box" style="width: 1440px;">
+        <div id="loading">Generating PDF, please wait...</div>
+        <div id="content" style="width: 100%; float: left;">
+        <div style="position: relative; clear: both; display: block; break-after: page;">
+        <div style="display: inline-block; width: 68%; height: 730px; object-fit: cover;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Marketing Image Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="display: inline-block; width: 30.5%; padding-left: 14px;">
+        <div style="display: block; width: 100%; height: 354px; margin-bottom: 20px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image1 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="display: block; width: 100%; height: 354px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image2 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        </div>
+        <div style="position: relative; float: left; width: 100%; margin-bottom: 10px; margin-top: 14px;">
+        <div style="display: block; float: left; margin-right: 0px; width: 180px; margin-top: 0px;">
+        <img alt="" style="width: 100%;" src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" />
+        <!-- {{Company Logo}}&nbsp; -->
+        </div>
+        <div class="    display: flex;
+        flex-direction: column;
+        ">
+        <div style="display: flex; padding-left: 30px; justify-content: space-between;">
+        <div style="position: relative; float: left;">
+        <h1 style="position: relative; float: left; margin-top: 5px;">
+        PromotionalTitle
+        </h1>
+        </div>
+        <div style="position: relative; float: right; margin-right: 0px; padding-left: 20px;">
+        <h1 style="position: relative; float: right; color: var(--themecolor); margin-top: 5px;">
+        AED Selling Price Rent Per Anum
+        </h1>
+        </div>
+        </div>
+        <div>
+        <div style="position: relative; float: left; width: 80px; background-color: var(--themecolor); color: #ffffff; text-transform: uppercase; padding: 10px; border-radius: 20px; margin-left: 30px; text-align: center;">
+        For Sale
+        </div>
+        <div style="position: relative; float: left; margin-left: 15px;">
+        <h2 style="margin-top: 4px; font-size: 1.7rem;">
+        Property, Community, City
+        </h2>
+        </div>
+        <div style="position: relative; float: right; margin-right: 6px; font-size: 16px; top: 15px;">
+        <strong>Ref: Reference Number</strong>
+        </div>
+        </div>
+        </div>
+        </div>
+        <p style="font-size: 16px; margin-right: 0px; color: #999999; float: right; width: 100%; margin-top: 10px; margin-bottom: 10px; text-align: right;">
+        Company Name | Company Website
+        </p>
+        <p style="font-size: 16px; margin-right: 0px; color: #999999; float: right; width: 100%; text-align: right;">
+        Listing Agent Name | +Listing Agent Mobile&nbsp; | Listing Agent Email
+        </p>
+        </div>
+        <!-- 2nd Page -->
+        <div id="page-2" style="position: relative; clear: both; display: block; break-after: page;">
+        <div style="position: relative; float: left; width: 100%; margin-top: 20px;">
+        <div style="position: relative; float: left; width: 40%;">
+        <div style="position: relative; margin-top: 0px; width: 100%; background-color: #ebebed; border-radius: 12px; padding: 6px 20px; box-sizing: border-box; float: left; display: flex; align-items: center; justify-content: space-between;">
+        <div style="float: left; display: flex; align-items: center;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/bedroom-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        Bedrooms
+        </span>
+        </div>
+        <div style="float: left; display: flex; align-items: center; margin-left: 15px;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/bathroom-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        Bathrooms
+        </span>
+        </div>
+        <div style="float: left; display: flex; align-items: center; margin-left: 15px;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/car-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        Parkings
+        </span>
+        </div>
+        <div style="float: left; display: flex; align-items: center; margin-left: 15px;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/size-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        Builtup Area
+        </span>
+        </div>
+        </div>
+        <div style="clear: both;"></div>
+        <h3 style="font-size: 1rem; margin-bottom: 8px; margin-top: 14px;">
+        Property Details
+        </h3>
+        <p style="color: #999999; font-size: 13px; height: 360px; overflow: auto;">Property Description</p>
+        <h3 style="font-size: 1rem; margin-bottom: 5px; margin-top: 10px;">
+        Facilities and Amenities
+        </h3>
+        <div style="position: relative; width: 100%; height: 140px; overflow: hidden auto;" class="seticon">
+        <div style="display: inline-block; width: 100%;">
+        <span style="float: left; margin-left: 5px; margin-top: 3px; width: 100%; font-size: 13px; color: #999999;" class="amin">CommaSeparatedAmenities</span>
+        </div>
+        </div>
+        <h3 style="font-size: 1rem; margin-bottom: 12px; margin-top: 0px;">
+        Location
+        </h3>
+        <div style="position: relative; width: 100%;">
+        <div id="map_canvas_view" style="width: 100%; height: 246px;"></div>
+        </div>
+        </div>
+        <div style="float: right; width: 58%; position: relative;">
+        <div style="position: relative; width: 100%; height: 510px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image3 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; width: 100%; display: block; margin-top: 15px;">
+        <div style="position: relative; display: inline-block; width: 49%; height: 260px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image4 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; display: inline-block; width: 48.5%; margin-left: 15px; height: 260px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image5 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        </div>
+        <div style="position: relative; width: 100%; display: block; margin-top: 10px;">
+        <div style="position: relative; display: inline-block; width: 32%; height: 200px; margin-left: 0px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image6 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; display: inline-block; width: 32%; height: 200px; margin-left: 11px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image7 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; display: inline-block; width: 32%; height: 200px; margin-left: 13px;" class="image-common">
+        <img src="https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/2381/Screenshot_2024-11-06_at_12_01_37_PM.jpg&amp;v=1&amp;group=2677&amp;module=1&amp;watermarktype=Sold&amp;position=0" alt="" style="width: 100%; height: 100%; border-radius: 10px;" alt="{{Image8 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        </div>
+        </div>
+        <div style="position: relative; float: left; width: 100%; padding: 0px; margin-top: 0px;">
+        <div style="float: right; width: 140px; margin-right: 0px; margin-bottom: 0px; margin-top: 12px;">
+        </div>
+        <div class="b17" style="float: left; width: 150px; margin-left: 0px;">
+        <h3 style="margin-bottom: 0px; text-align: center;" width="150" height="150px" class="profile-img">
+        Agent Picture
+        </h3>
+        </div>
+        <div style="position: relative; float: left; margin-left: 20px; margin-top: 15px;">
+        <p style="color: #000000; font-size: 18px;">Contact Name</p>
+        <p style="font-size: 15px; opacity: 0.9; color: #000000;">
+        Agent Designation
+        </p>
+        <div style="position: relative; float: left; width: 100%;">
+        <span style="float: left; width: 25px; margin-left: -5px;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/phone-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; padding-left: 10px; margin-top: 5px; opacity: 0.5; font-size: 12px; color: #000000;">
+        Contact Mobile
+        </span>
+        </div>
+        <div style="clear: both;"></div>
+        <div style="position: relative; float: left; width: 100%; margin-top: 3px;">
+        <span style="float: left; width: 25px; margin-left: -5px;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/email-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; padding-left: 10px; margin-top: 5px; opacity: 0.5; font-size: 12px; color: #000000;">
+        <a href="{{Contact Email}}"><span style="color: #000000;">Make an enquiry</span></a>
+        </span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- 3rd Page -->
+        <div class="container13">
+        <div>
+        <label id="longitude" style="display: none;">{{Longitude}}</label>
+        <label id="latitude" style="display: none;">{{Latitude}}</label>
+        <label id="masklocation" value="False" style="display: none;">False</label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <script>
+            /*for jpg*/
+            function getImage(event) {
+                event.preventDefault(); // prevent default button behavior
+                var content = document.querySelector('#content');
+    
+                // Define the padding/margin size (in pixels)
+                var padding = 40;
+    
+                html2canvas(content, {
+                    useCORS: true,
+                    scale: 1
+                }).then(canvas => {
+                    // Create a new canvas with extra space
+                    var newCanvas = document.createElement('canvas');
+                    newCanvas.width = canvas.width + padding * 2;
+                    newCanvas.height = canvas.height + padding * 2;
+    
+                    var ctx = newCanvas.getContext('2d');
+                    ctx.fillStyle = "#ffffff"; // Set the background color (optional)
+                    ctx.fillRect(0, 0, newCanvas.width, newCanvas.height); // Fill the new canvas with white background
+    
+                    // Draw the original canvas onto the new canvas with padding
+                    ctx.drawImage(canvas, padding, padding);
+    
+                    // Convert the new canvas to an image
+                    const imgData = newCanvas.toDataURL('image/jpeg');
+                    const link = document.createElement('a');
+                    link.href = imgData;
+                    link.download = 'image.jpg';
+                    link.click();
+                });
+            }
+            
+            /*for pdf*/
+            $(document).ready(function () {
+                $('.image-common  img').each(function () {
+                  const currentSrc = $(this).attr('src'); // Get the current src
+                  // Replace 'lbcdntest' with 'img'
+                  const updatedSrc = currentSrc.replace('lbcdntest', 'img');
+                  $(this).attr('src', updatedSrc); // Set the updated src
+              });
+              function getQueryParam(param) {
+              const urlParams = new URLSearchParams(window.location.search);
+              return urlParams.get(param);
+              }
+  
+              // Get the 'unitIDs' parameter from the URL
+              const unitID = getQueryParam('unitIDs');
+                $("#generatePDF").click(function () {
+                    const { jsPDF } = window.jspdf;
+                    var $button = $(this);
+                    var $loading = $("#loading");
+        
+                    // Disable the button and show the loading indicator
+                    $button.prop("disabled", true);
+                    $loading.show();
+        
+                    // Create a new jsPDF instance
+                    var doc = new jsPDF("p", "mm", "a4");
+        
+                    // Capture the content as a canvas
+                    html2canvas(document.querySelector("#content"), {
+                        useCORS: true,
+                        allowTaint: false,
+                        scale: 1,
+                    })
+                    .then(function (canvas) {
+                        var imgData = canvas.toDataURL("image/png");
+                        var imgWidth = 190; // Full width of A4 size page
+                        var pageHeight = 290; // Full height of A4 size page
+                        var imgHeight = (canvas.height * imgWidth) / canvas.width;
+                        var heightLeft = imgHeight;
+                        var position = 10;
+        
+                        // Add the first image to the PDF
+                        doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+        
+                        // Add new pages if necessary
+                        while (heightLeft > 0) {
+                            position = heightLeft - imgHeight;
+                            doc.addPage();
+                            doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                            heightLeft -= pageHeight;
+                        }
+        
+                        // Save the PDF
+                        doc.save(unitID);
+        
+                        // Re-enable the button and hide the loading indicator
+                        $button.prop("disabled", false);
+                        $loading.hide();
+                    })
+                    .catch(function (error) {
+                        // In case of an error, re-enable the button and hide the loading indicator
+                        $button.prop("disabled", false);
+                        $loading.hide();
+                        console.error("PDF generation error: ", error);
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+<script> 
+    $(document).ready(function () {
+        // Function to handle image capture
+        function getImage(event) {
+            event.preventDefault(); // prevent default button behavior
+            var $content = $("#content");
+    
+            // Define the padding/margin size (in pixels)
+            var padding = 0;
+    
+            // Extract the unit ID from the URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var unitID = urlParams.get('unitIDs'); // Get the unit ID from the URL
+    
+            html2canvas($content[0], {
+                useCORS: true,
+                scale: 1,
+            }).then(function (canvas) {
+                // Create a new canvas with extra space
+                var newCanvas = document.createElement("canvas");
+                newCanvas.width = canvas.width + padding * 2;
+                newCanvas.height = canvas.height + padding * 2;
+    
+                var ctx = newCanvas.getContext("2d");
+                ctx.fillStyle = "#ffffff"; // Set the background color (optional)
+                ctx.fillRect(0, 0, newCanvas.width, newCanvas.height); // Fill the new canvas with white background
+    
+                // Draw the original canvas onto the new canvas with padding
+                ctx.drawImage(canvas, padding, padding);
+    
+                // Convert the new canvas to an image
+                var imgData = newCanvas.toDataURL("image/jpeg");
+    
+                // Use the unit ID as the filename
+                var fileName = unitID + ".jpg";
+    
+                // Create a link to download the image
+                var $link = $("<a></a>").attr({
+                    href: imgData,
+                    download: fileName // Set the filename to the unit ID
+                });
+                $link[0].click();
+            });
+        }
+    
+        // Attach click event to the button using jQuery
+        $("#generateJPG").on("click", function (event) {
+            getImage(event);
+        });
+    
+        // URL-based logic to set contentEditable to false using jQuery
+        if ($("body").hasClass("body-url-status")) {
+            var currentUrl = window.location.href;
+            if (currentUrl.includes("https://demo.goyzer.com/Pages/UnitCard.aspx") ||
+                currentUrl.includes("https://savillsme.goyzer.com/Pages/UnitCard.aspx")) {
+                $("*").attr("contenteditable", "false");
+            }
+        }
+    
+        // Logic to change content of #unitval div using jQuery
+         // Get the image source
+         var imgSrc = $('.img-fluid img').attr('src');
+                    
+                    // Set it as the background image of the #content div
+                    $('#content').css('background-image', 'url(' + imgSrc + ')');
+        var $unitval = $("#unitval");
+    
+        // If text is 'Just Available', change to 'Just Listed'
+        if ($unitval.text().trim() === "Just Available") {
+            $unitval.text("Just Listed");
+        }
+    
+        // If text is 'Just Sold', change background and text color
+        if ($unitval.text().trim() === "Just Sold") {
+            $unitval.css({
+                "background-color": "red",
+                color: "#fff"
+            });
+        }
+    
+        // If text is 'Just Leased', change text to 'Just Rented' and update color
+        if ($unitval.text().trim() === "Just Leased") {
+            $unitval.text("Just Rented").css({
+                "background-color": "red",
+                color: "#fff"
+            });
+        }
+    });
+    
+      </script>

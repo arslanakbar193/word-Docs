@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SPA Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-size: 15px !important;
+        color: #000;
+        font-family: "Lato" !important;
+      }
+      .color2 {
+        color: #612973;
+      }
+      .fs-large {
+        font-size: 24px;
+      }
+      .custom-margin {
+        position: relative;
+        left: 14rem;
+      }
+      .tenant-info.info-1,
+      .tenant-info.info-2 {
+        width: 38%;
+        float: left;
+        font-weight: bold;
+      }
+      .tenant-info.info-3 {
+        width: 24%;
+        float: left;
+        font-weight: bold;
+      }
+      .border-top1 {
+        border-top: 2px solid #000;
+      }
+      .border-bottom1:last-child {
+        border-bottom: 2px solid #000;
+      }
+      .border-right1 {
+        border-right: 2px solid #000;
+      }
+      .border-left1 {
+        border-left: 2px solid #000;
+      }
+      .border-bottom1 {
+        border-bottom: 2px solid #000;
+      }
+      .yellow {
+        color: #efc21f;
+      }
+      page[size="A4"] {
+        width: 21cm;
+      }
+      div:focus,
+      span:focus,
+      h4 {
+        outline: none;
+      }
+      .service-charge {
+        font-size: 1.3rem;
+        padding: 1rem 0rem;
+        font-weight: bold;
+      }
+      .red {
+        color: red;
+      }
+      .clear {
+        clear: both;
+      }
+      .min-h {
+        height: 20px;
+      }
+      .min-h2 {
+        min-height: 50px;
+      }
+      .min-h3 {
+        min-height: 60px;
+      }
+      .min-h-56 {
+        min-height: 56px;
+      }
+      .mu {
+        font-size: 20px;
+      }
+      .min-setting {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 56px;
+      }
+      .fs-14 {
+        font-size: 14px;
+      }
+      .fs-16 {
+        font-size: 16px;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .border-all {
+        border: 2px solid #000;
+        border-bottom: none;
+      }
+      .border-all:last-child {
+        border-bottom: 2px solid #000;
+      }
+      .enn {
+        text-align: left;
+      }
+      .arr {
+        text-align: right;
+      }
+      .custom-margin1 {
+        margin-top: 4rem;
+      }
+      .custom-margin2 {
+        margin-bottom: 2rem;
+      }
+      .custom-margin3 {
+        margin-top: 70rem;
+      }
+      .cm36 {
+        margin-top: 37rem;
+      }
+      .cm35 {
+        margin-top: 35rem;
+      }
+      .cm34 {
+        margin-top: 34rem;
+      }
+      .cm33 {
+        margin-top: 33rem;
+      }
+      .cm32 {
+        margin-top: 32rem;
+      }
+      .cm30 {
+        margin-top: 30rem;
+      }
+      .cm28 {
+        margin-top: 28rem;
+      }
+      .cm25 {
+        margin-top: 25rem;
+      }
+      .cm23 {
+        margin-top: 23rem;
+      }
+      .cm20 {
+        margin-top: 20rem;
+      }
+      .cm14 {
+        margin-top: 14rem;
+      }
+      .cm12 {
+        margin-top: 12rem;
+      }
+      .cm10 {
+        margin-top: 10rem;
+      }
+      .cm8 {
+        margin-top: 8rem;
+      }
+      .cm6 {
+        margin-top: 6rem;
+      }
+      .cm5 {
+        margin-top: 5rem;
+      }
+      .cm4 {
+        margin-top: 4rem;
+      }
+      .cm3 {
+        margin-top: 3rem;
+      }
+      .cm2 {
+        margin-top: 2rem;
+      }
+      .cm1 {
+        margin-top: 1rem;
+      }
+      .cmb1 {
+        margin-bottom: 1rem;
+      }
+      .cmb2 {
+        margin-bottom: 2rem;
+      }
+      .cmb3 {
+        margin-bottom: 3rem;
+      }
+      .cmb4 {
+        margin-bottom: 4rem;
+      }
+      .cmb5 {
+        margin-bottom: 5rem;
+      }
+      .border-all.include-border-bottom {
+        border-bottom: 2px solid #000;
+      }
+      .h-100 {
+        height: 100%;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid mt-2">
+      <div class="container">
+        <div class="row">
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left flex1 enn"
+              style="width: 100%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #eceded;
+                    padding: 8px 10px;
+                  "
+                  >Know Your Customer (“KYC”) Form <br />For Non-Individuals
+                  only
+                </span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left  flex1 enn"
+              style="width: 100%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #fff;
+                    padding: 8px 10px;
+                  "
+                  >PLEASE COMPLETE THE FORM IN ITS ENTIRETY IN BLOCK LETTERS ONLY</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left  flex1 enn"
+              style="width: 100%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #fff;
+                    padding: 8px 10px;
+                    font-style: italic;
+                  "
+                  >To comply with our obligation as Designated Non-Financial Businesses and Professions (DNFBP) we are mandated to request the information contained therein.</span
+                >
+              </div>
+            </div>
+            
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left  flex1 enn"
+              style="width: 100%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #002060;
+                    color:#fff !important;
+                    padding: 8px 10px;
+                  "
+                  >1. Details of the Client</span
+                >
+              </div>
+            </div>
+            
+          </div>
+          
+          
+          
+          
+          
+          
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Name of the Client</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 80%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Date of Incorporation</span>
+              </div>
+            </div>
+            <div class="float-left border-right1 flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+              <div class="float-left" style="width: 100%;border-top: 1px solid #000;border-bottom: 1px solid #000;border-left: 1px solid #000;border-right: 1px solid #000;"> 
+                <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;height: 18px;"> </div>
+                <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;height: 18px;"> </div>
+                <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;height: 18px;"> </div>
+              </div>
+              <div class="float-left" style="width: 100%;border-bottom: 1px solid #000;border-left: 1px solid #000;border-right: 1px solid #000;"> 
+                <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;"> Day</div>
+                <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;"> Month</div>
+                <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;"> Year</div>
+              </div>
+            </div>
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Country of Incorporation</span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+              <div class="float-left w-100 text-right font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Registration Number <br/>
+                  (License Number)</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 80%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Legal Form</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 80%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Industry</span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Business Activity
+                </span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Regulatory Authority
+                </span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Email Address
+                </span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Website
+                </span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Sub Community],&nbsp;[Community],&nbsp;[City]&nbsp;
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #002060;
+                    color:#fff !important;
+                    padding: 8px 10px;
+                  ">2. Address Details</span>
+              </div>
+            </div>
+            
+          </div>
+
+
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Address
+                </span>
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 80%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Landlord First Name]&nbsp;[Landlord Family Name]
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Country</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 30%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Reference Number]
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >P.O Box</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 30%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-right font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #002060;
+                    color:#fff !important;
+                    padding: 8px 10px;
+                  ">3. Representative Details</span>
+              </div>
+            </div>
+            
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Representative Name
+                </span>
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 80%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Landlord First Name]&nbsp;[Landlord Family Name]
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  >Nationality
+                </span>
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn"
+              style="width: 80%; padding: 8px 10px"
+              contenteditable="true"
+            >
+              [Landlord First Name]&nbsp;[Landlord Family Name]
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Representative Capacity
+              </span>
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Landlord First Name]&nbsp;[Landlord Family Name]
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Email Address
+              </span>
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Landlord First Name]&nbsp;[Landlord Family Name]
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Mobile Phone No.</span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 30%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Reference Number]
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Work Phone Number</span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 30%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-right font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                "
+                >Address
+              </span>
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn"
+            style="width: 80%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            [Landlord First Name]&nbsp;[Landlord Family Name]
+            <div
+              class="float-left w-100 text-center font-bold"
+              contenteditable="true"
+            ></div>
+          </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #bfc2c2;
+                    color:#000 !important;
+                    padding: 8px 10px;
+                    font-style: italic;
+                  ">Please provide copy of Emirates ID and Passport</span>
+              </div>
+            </div>
+            
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #002060;
+                    color:#fff !important;
+                    padding: 8px 10px;
+                  ">4. Management Details</span>
+              </div>
+            </div>
+            
+          </div>
+
+          
+          
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #eceded;
+                  "
+                  >Company Shareholding Structure</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left border-right1 flex1 enn font-bold"
+              style="width: 15%; padding: 8px 10px"
+              contenteditable="true"
+            >
+            Individuals
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div class="float-left border-right1 flex1 enn" style="width: 12%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "></span>
+              </div>
+            </div>
+            <div class="float-left border-right1 flex1 enn" style="width: 15%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Corporate</span>
+              </div>
+            </div>
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width:12%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  ></span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn border-right1 font-bold"
+              style="width: 15%; padding: 8px 10px;"
+              contenteditable="true"
+            >
+              Both<br />
+              <div
+                class="float-left w-100 text-right font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div
+              class="float-left  flex1 enn"
+              style="width:11%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="four-sections border-all"
+            style="display: flex; width: 100%"
+          >
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width: 20%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #eceded;
+                  "
+                  >Senior Management</span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left border-right1 flex1 enn font-bold"
+              style="width: 15%; padding: 8px 10px"
+              contenteditable="true"
+            >
+            Director
+              <div
+                class="float-left w-100 text-center font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div class="float-left border-right1 flex1 enn" style="width: 12%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "></span>
+              </div>
+            </div>
+            <div class="float-left border-right1 flex1 enn" style="width: 15%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Manager</span>
+              </div>
+            </div>
+            <div
+              class="float-left border-right1 flex1 enn"
+              style="width:12%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  ></span
+                >
+              </div>
+            </div>
+            <div
+              class="float-left flex1 enn border-right1 font-bold"
+              style="width: 15%; padding: 8px 10px;"
+              contenteditable="true"
+            >
+              Others<br />
+              <div
+                class="float-left w-100 text-right font-bold"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div
+              class="float-left  flex1 enn"
+              style="width:11%"
+              contenteditable="true"
+            >
+              <div
+                class="float-left w-100 text-left font-bold h-100"
+                contenteditable="true"
+              >
+                <span
+                  class="h-100"
+                  style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  "
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+          class="four-sections border-all"
+          style="display: flex; width: 100%"
+        >
+          <div
+            class="float-left border-right1 flex1 enn"
+            style="width: 20%"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold h-100"
+              contenteditable="true"
+            >
+              <span
+                class="h-100"
+                style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #eceded;
+                "
+                ></span
+              >
+            </div>
+          </div>
+          <div
+            class="float-left flex1 enn border-right1"
+            style="width: 42%; padding: 8px 10px"
+            contenteditable="true"
+          >
+            <div
+              class="float-left w-100 text-left font-bold"
+              contenteditable="true"
+            >
+            If others, please specify
+            </div>
+          </div>
+          <div
+          class="float-left flex1 enn"
+          style="width: 35%; padding: 8px 10px"
+          contenteditable="true"
+        >
+          <div
+            class="float-left w-100 text-left font-bold"
+            contenteditable="true"
+          >
+            
+          </div>
+        </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #bfc2c2;
+                    color:#000 !important;
+                    padding: 8px 10px;
+                    font-style: italic;
+                  ">Details of Senior Management</span>
+              </div>
+            </div>
+            
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Name
+                </span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Position
+                </span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn border-right1" style="width: 30%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+            <div class="float-left flex1 enn border-right1" style="width: 30%; padding: 8px 10px" contenteditable="true">
+              <div class="float-left w-100 text-center font-bold" contenteditable="true">Nationality</div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Email Address
+                </span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Mobile Phone Number
+                </span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn border-right1" style="width: 30%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+            <div class="float-left flex1 enn border-right1" style="width: 30%; padding: 8px 10px" contenteditable="true">
+              <div class="float-left w-100 text-center font-bold" contenteditable="true">Work Phone Number</div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Address
+                </span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #bfc2c2;
+                    color:#000 !important;
+                    padding: 8px 10px;
+                    font-style: italic;
+                  ">Please provide copy of Emirates ID and Passport</span>
+              </div>
+            </div>
+            
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    background-color: #002060;
+                    color:#fff !important;
+                    padding: 8px 10px;
+                  ">5. Source of Funds</span>
+              </div>
+            </div>
+            
+          </div>
+          <div class="four-sections border-all" style="display: flex; width: 100%">
+            <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+              <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                <span class="h-100" style="
+                    width: 100%;
+                    display: inline-block;
+                    padding: 8px 10px;
+                    background-color: #fff;
+                  ">Source of Funds
+                </span>
+              </div>
+            </div>
+            <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+              &nbsp;
+              <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div class="row">
+          <div class="col-sm-12 text-center p-0">
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color: #002060;
+                      color:#fff !important;
+                      padding: 8px 10px;
+                    ">6. Bank Account Details</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Account Holder Name
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Bank Name
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Account No.
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">IBAN No.
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Branch Name
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Swift Code
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color: #002060;
+                      color:#fff !important;
+                      padding: 8px 10px;
+                    ">7.Ultimate Beneficial Owner (UBO)</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 80%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Is there any individual who ultimately owns or control the Company directly through a chain of ownership or control or by other means of control?
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn border-right1 " style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">Yes</div>
+              </div>
+              <div class="float-left flex1 enn border-right1 " style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+              <div class="float-left flex1 enn border-right1 " style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">No</div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color: #fff;
+                      color:#000 !important;
+                      padding: 8px 10px;
+                    ">If yes, please provide the following information:</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Name</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+                AP5694
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Date of Birth</span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-right font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Nationality</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+                AP5694
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Passport Number</span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-right font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color: #002060;
+                      color:#fff !important;
+                      padding: 8px 10px;
+                    ">8. PEP (Politically Exposed Person)</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 80%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Have any of the Company's shareholders or Senior Management been entrusted with prominent public functions in the UAE or any foreign country such as Head of State or Government, senior politicians, senior government officials, judicial or military officials, senior executive managers of state-owned corporations, senior officials of political parties, and persons who are, or have previously been entrusted with the management of an international organization or any prominent function within such an organization. 
+
+This definition extends to direct family member, associates in a close business relationship/joint ownership.
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn border-right1 " style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">Yes</div>
+              </div>
+              <div class="float-left flex1 enn border-right1 " style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+              <div class="float-left flex1 enn border-right1 " style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">No</div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 5%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">If Yes, please provide details
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color: #002060;
+                      color:#fff !important;
+                      padding: 8px 10px;
+                    ">9. Client Declaration and Consent </span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                      text-align: center;
+                    ">Declaration
+                  </span>
+                </div>
+              </div>
+             
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                      text-align: left;
+                    ">We (Client) hereby declare that the information furnished by us to the Company is true and correct and the Company is entitled to verify the same either directly or through any third-party agent. We also agree that, if any such declarations made by Us are found to be incorrect, the Company shall be entitled to terminate our business relationship. We, understand that if any of the above information is found to be false or untrue or misleading or misrepresenting, We are aware that We shall be held liable for it.
+                  </span>
+                </div>
+              </div>
+             
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                      text-align: center;
+                    ">Consent
+                  </span>
+                </div>
+              </div>
+             
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                      text-align: left;
+                    ">We (Client) agree that the Company can disclose this applicable, any information contained therein, other related confidential information and transactions in this application and on accounts linked to me to law enforcement and regulatory authorities.
+                  </span>
+                </div>
+              </div>
+             
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Representative Name</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Date</span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn border-right1" style="width: 30%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-right font-bold" contenteditable="true"></div>
+              </div>
+              <div class="float-left  flex1 enn" style="width: 30%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left" style="width: 100%;border-top: 1px solid #000;border-bottom: 1px solid #000;border-left: 1px solid #000;border-right: 1px solid #000;"> 
+                  <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;height: 18px;"> </div>
+                  <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;height: 18px;"> </div>
+                  <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;height: 18px;"> </div>
+                </div>
+                <div class="float-left" style="width: 100%;border-bottom: 1px solid #000;border-left: 1px solid #000;border-right: 1px solid #000;"> 
+                  <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;"> Day</div>
+                  <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;border-right:1px solid #000;"> Month</div>
+                  <div class="float-left text-center font-bold" contenteditable="true" style="width: 33%;"> Year</div>
+                </div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Signature
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn " style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                      text-align: left;
+                    ">Privacy notice: we will not disclose your personal details like name, email address or contact number to any third party other than a regulatory authority, and we will only use your personal details for the purpose of dealing with your enquiry. 
+                  </span>
+                </div>
+              </div>
+             
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color: #002060;
+                      color:#fff !important;
+                      padding: 8px 10px;
+                    ">10. Preliminary Documentation for KYC Registration</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      background-color:#bfc2c2;
+                      color:#000 !important;
+                      padding: 8px 10px;
+                    ">Non-individuals</span>
+                </div>
+              </div>
+              
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">1
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Memorandum/Articles of Association (if any)
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">2
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of Company's License (mandatory)
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">3
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of Valid Passport of Representative (mandatory)
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">4
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of Representative Emirates ID (mandatory)
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">5
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of National ID (in the case where Emirates ID is not available)
+
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">6
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of Valid UAE Residency Visa of Representative (mandatory)
+
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">7
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of Valid Passport of UBO (mandatory)
+
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">8
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of Company's Utility Bill/Telephone Bill/Tenancy Contract (optional)
+
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+            <div class="four-sections border-all" style="display: flex; width: 100%">
+              <div class="float-left border-right1 flex1 enn" style="width: 10%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">9
+                  </span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 enn" style="width: 70%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Copy of English translated documents in case of foreign language (optional)
+
+
+                  </span>
+                </div>
+              </div>
+              <div class="float-left flex1 enn" style="width: 20%; padding: 8px 10px" contenteditable="true">
+                &nbsp;
+                <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+              </div>
+            </div>
+           </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="four-sections border-all" style="display: flex; width: 100%">
+          <div class="float-left  flex1 enn" style="width: 100%" contenteditable="true">
+            <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+              <span class="h-100" style="
+                  width: 100%;
+                  display: inline-block;
+                  background-color:#fff;
+                  color:#000 !important;
+                  padding: 8px 10px;
+                ">The preliminary documents submitted by the Client have been validated as original and/or as true copies.</span>
+            </div>
+          </div>
+          
+        </div>
+        <div class="four-sections border-all" style="display: flex; width: 100%">
+          <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+            <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+              <span class="h-100" style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                ">Employee Name
+              </span>
+            </div>
+          </div>
+          <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+            &nbsp;
+            <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+          </div>
+        </div>
+        <div class="four-sections border-all" style="display: flex; width: 100%">
+          <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+            <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+              <span class="h-100" style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                ">Department
+              </span>
+            </div>
+          </div>
+          <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+            &nbsp;
+            <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+          </div>
+        </div>
+        <div class="four-sections border-all" style="display: flex; width: 100%">
+          <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+            <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+              <span class="h-100" style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                ">Signature
+              </span>
+            </div>
+          </div>
+          <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+            &nbsp;
+            <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+          </div>
+        </div>
+        <div class="four-sections border-all" style="display: flex; width: 100%">
+          <div class="float-left border-right1 flex1 enn" style="width: 20%" contenteditable="true">
+            <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+              <span class="h-100" style="
+                  width: 100%;
+                  display: inline-block;
+                  padding: 8px 10px;
+                  background-color: #fff;
+                ">Date
+              </span>
+            </div>
+          </div>
+          <div class="float-left flex1 enn" style="width: 80%; padding: 8px 10px" contenteditable="true">
+            &nbsp;
+            <div class="float-left w-100 text-center font-bold" contenteditable="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

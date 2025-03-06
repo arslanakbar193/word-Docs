@@ -1,0 +1,1007 @@
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tenanacy Agreement</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      :root {
+        --color: #3796c6;
+        --whitecolor: #fff !important;
+        --backgroundcolor: #15eb52;
+        --bodybackground: #e2e2e2;
+      }
+      /* Area Variable - Black */
+
+      * {
+        font-family: "poppins" !important;
+        font-size: 16px !important;
+      }
+
+      .no-focus:focus {
+        outline: none;
+      }
+      .header-text {
+        padding: 3rem 3rem;
+      }
+      .icons-content {
+        margin: 3rem 0rem;
+      }
+      .gradient-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 42%;
+        padding: 20px;
+        /* background: linear-gradient(to right, rgb(0 0 0 / 79%), transparent); */
+        background: linear-gradient(
+          to right,
+          #2f3433 32%,
+          rgba(47, 52, 51, 0.8) 50%,
+          transparent 100%
+        );
+        color: white !important;
+        font-size: 2em;
+        text-align: left;
+        font-family: "IvyModeRegular";
+      }
+      #generatePDF {
+        background-color: #2f3433;
+        border: none;
+        color: #fff !important;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 7px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        outline: none;
+        margin-left: 12px;
+        font-family: "Raleway", sans-serif;
+      }
+      #generatePDF:focus {
+        outline: none;
+      }
+      .profile-image {
+        padding: 60px 0px;
+      }
+      #loading {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border: 1px solid #ffe740;
+        border-radius: 10px;
+        background-color: #ffe740;
+        font-weight: 600;
+        z-index: 1;
+      }
+      button#PrintLayoutButton {
+        display: none;
+      }
+      .aminities-left ul li {
+        border-right: 1px solid #57c4bf !important;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .property-address {
+        padding: 30px 0px 15px 0px;
+        text-transform: uppercase;
+      }
+      .footer h3 img {
+        width: 124px;
+        height: 120px;
+      }
+      .cb:after {
+        content: "";
+        height: 20px;
+        width: 2px;
+        position: absolute;
+        right: -40px;
+        background-color: #dfdfdf;
+      }
+      .profile-image img {
+        border-radius: 50%;
+        border: 4px solid #fff !important;
+        width: 200px;
+        height: 200px;
+      }
+      #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .logo-image {
+        padding-top: 52px;
+        padding-bottom: 80px;
+      }
+      .flex-section {
+        padding-bottom: 45px;
+      }
+      .pr-c {
+        padding-right: 16px;
+      }
+      .flex {
+        display: flex;
+      }
+      .pr-4 {
+        padding-right: 10px;
+      }
+      .image-d {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .image-m {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .pdf-setting .image-a {
+        height: 550px;
+        object-fit: cover;
+      }
+      .pdf-setting .description {
+        height: 545px;
+      }
+      .pdf-setting .image-b {
+        height: 569px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-c {
+        height: 571px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-l {
+        height: 571.1px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-d {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 0px;
+      }
+      .pdf-setting .image-m {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 1px;
+      }
+      .pdf-setting .image-e {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-f {
+        height: 565.5px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-g {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-h {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-i {
+        height: 564px;
+        object-fit: cover;
+      }
+      .pdf-setting .aveen {
+        padding-top: 80px;
+      }
+      .pdf-setting .aveenN {
+        padding-top: 30px;
+      }
+      .pdf-setting .image-last {
+        padding-top: 40px;
+        height: 580px;
+        object-fit: cover;
+      }
+      .pdf-setting .property-address {
+        padding: 60px 0px 25px 0px;
+      }
+      .pdf-setting .logo-image {
+        padding-top: 30px;
+        padding-bottom: 164.6px;
+      }
+      /* .page2-content > div > h2 {
+      margin-bottom: 80px !important;
+      } */
+      .pdf-setting .flex-section {
+        padding-bottom: 60px;
+      }
+      .page2-content td:first-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:first-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td:last-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:last-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td {
+        line-height: 30px;
+        
+        padding-left: 26px;
+      }
+      .page2-content td:first-child table tbody tr td:first-child {
+        display: none;
+      }
+      .page2-content td:last-child table tbody tr td:first-child {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sec1" style="float: left; width: 100%">
+      
+      <div
+        class="container"
+        style="max-width: 800px; margin: auto"
+        id="content"
+      >
+        <div class="page1-content">
+          <div style="padding-bottom: 30px; text-align: center">
+            <div
+              contenteditable="true"
+              style=" font-weight: 500; text-align: left"
+              class="property-address"
+            >
+              <img
+                src="https://rpublik.goyzer.com/uploadedfiles/Group/5121/logo__original.png?v=1.0.0.187"
+                alt="no-img"
+              />
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                text-decoration: underline;
+                font-weight: bold;
+                font-size: 24px;
+                padding-bottom: 30px;
+              "
+              class="playfai"
+            >
+              Tenancy Agreement
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Date:28th of October, 2024
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              No.: 28102024-OC-1104
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Landlord: (Landlord Name 1) holding RUS Passport# xxxx and
+              (Landlord Name 2) holding RUS Passport# xxxx
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Tenant: (Tenant Name) with Emirates ID Number xxx-xxxx-xxxxxxx-x
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Subject of Tenancy: Lease agreement for a Residential Unit in
+              (Building name) , 2 Bedroom Apartment, Unit 1104, (Sector xxx,
+              Plot No.xxx, Building No.x), Al Reem Island, Abu Dhabi, United
+              Arab Emirates.
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Period of Tenancy: 1 Year
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Contract Start: November 01, 2024
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              Contract End: October 31, 2025
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Rent: AED 100,000 (One Hundred Thousand Dirhams Only)
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Terms of Payment: 4 Payment
+            </div>
+            <div
+              contenteditable="true"
+              style=" text-align: left; padding-bottom: 10px"
+              class="playfai"
+            >
+              Security Deposit: 5,000/-
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                
+                font-weight: 500;
+                text-align: left;
+                padding-bottom: 10px;
+                text-decoration: underline;
+              "
+              class="playfai"
+            >
+              TENANT’S OBLIGATIONS
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">1.</div>
+                <div style="text-align: left">
+                  All communications should be strictly done via email to
+                  info@rpublik.com, any other form of communication will be
+                  disregarded.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">2.</div>
+                <div style="text-align: left">
+                  The Property is provided exclusively for residential use by
+                  the Tenant, immediate family, and visitors. The Property must
+                  be used for the purpose indicated in this Agreement and not to
+                  be used for any unlawful or immoral purposes or to operate and
+                  conduct any informal or registered trade business/profession
+                  at the Property or commercial activities.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">3.</div>
+                <div style="text-align: left">
+                  The Tenant undertakes to supply the Landlord with reasonable
+                  access to the Property for periodic inspections and upon
+                  Landlord giving Tenant notice of not less than 48 hours.
+                  Should the Tenant fail to respond to three (3) consecutive
+                  notices, the Landlord shall have the right to access the
+                  Property without the confirmation and in the absence of the
+                  Tenant.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">4.</div>
+                <div style="text-align: left">
+                  Major internal and external maintenance is the sole
+                  responsibility of the Landlord. Major maintenance is described
+                  as maintenance, including but without limitation to aspects of
+                  the structure of the building and include, but is not
+                  exhausted by work required to the roof, drainage, major
+                  plumbing, electrical, and A/C. Minor maintenance (AED 500 and
+                  less) and the repair of damages which are caused by the
+                  default or the negligence of the Tenant, his family, and/or
+                  visitors or items which belong to the Tenant is the
+                  responsibility of the Tenant.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">5.</div>
+                <div style="text-align: left">
+                  Upon move-in, the unit is placed under the Unit Liability
+                  Period for 5 days. During this period, the tenant is expected
+                  to report any maintenance issues or damages to the owner via
+                  email. Any maintenance or damages reported after this (5-day
+                  period) will be the responsibility of the tenant.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">6.</div>
+                <div style="text-align: left">
+                  Carpets are not to be glued onto the tiles. No repairs,
+                  painting, or alterations (internal or external) affecting the
+                  structure and beauty of the Building/Property are to be
+                  carried out by the Tenant without the prior written consent of
+                  the Landlord. Curtain rods are not to be affixed to the
+                  metallic frames of the windows and doors. Tenant to notify the
+                  Landlord or his agent immediately of any defect, damage, or
+                  disrepair to the Premises or the building of which the
+                  Property form a part.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div class="pr-4">7.</div>
+                <div style="text-align: left">
+                  The Tenant shall, throughout the duration of this Agreement,
+                  keep the Property and all objects therein in the same repair
+                  and condition as received by the Landlord and to make good and
+                  repair (or pay the Landlord the cost of the repair of) all
+                  articles damaged by the negligence of, or misuse by the Tenant
+                  and/or visitors. The Tenant shall
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="width: 50%; float: left; padding-right: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+              <div style="width: 50%; float: left; padding-left: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 30px;
+              "
+            >
+              +971 2 4438140 | info@rpublik.com | Addax Tower,4504 P.O.Box 2960
+              | Abu Dhabi, UAE
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 5px;
+              "
+            >
+              www.rpublik.com
+            </div>
+          </div>
+        </div>
+
+        <div class="page2-content">
+          <div
+            contenteditable="true"
+            style=" font-weight: 500; text-align: left"
+            class="property-address"
+          >
+            <img
+              src="https://rpublik.goyzer.com/uploadedfiles/Group/5121/logo__original.png?v=1.0.0.187"
+              alt="no-img"
+            />
+          </div>
+          <div style="padding-bottom: 30px; text-align: left">
+            <div
+              contenteditable="true"
+              style="padding-bottom: 30px"
+              class="playfai"
+            >
+              deliver up the same to the Landlord at the expiry of the Tenancy
+              Agreement or sooner of said terms.
+            </div>
+
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-4">8.</div>
+                <div style="text-align: left">
+                  The Tenant is responsible, at his own expense, to hand over
+                  the Property to the Landlord in the same condition he
+                  initially received it with the exception of regular wear and
+                  tear. The Landlord or his Representative, with or without the
+                  Tenant, shall inspect the Property at the end of the Tenancy
+                  Period or termination date. Following the inspection, the
+                  Landlord or his representative may decide that the repainting
+                  and cleaning of the Property are not required. In such a case,
+                  the Tenant will be notified of such a decision in writing. If
+                  the Landlord or his representative believes that painting or
+                  cleaning is required or if any damage is found, the Landlord
+                  may deduct such amount necessary from the Security Deposit to
+                  cover said repainting or cleaning requirements or to cover the
+                  maintenance and/or repair expenses. It shall be the Tenant’s
+                  responsibility to pay for the difference should the said
+                  amount be higher than the Security Deposit. The decision of
+                  the Landlord or his representative after the aforementioned
+                  inspection will be final.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-4">9.</div>
+                <div style="text-align: left">
+                  The Landlord is not responsible for any damage arising from
+                  any accident occurring whilst the Tenant is occupying said
+                  Property or said Property’s facilities (electrical, fire,
+                  swimming pool, or such) during the time of occupancy. The
+                  Tenant shall be wholly responsible for and shall indemnify the
+                  Landlord against any loss, damages, or injury caused to any
+                  person whomsoever or any Property whatsoever whether directly
+                  or indirectly due to any act, omission, or negligence of the
+                  Tenant and/or visitors in the Property or the Building. The
+                  Tenant shall comply with all safety, fire, and security
+                  regulations/covenants and will not do any act contrary
+                  thereto.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-c">10.</div>
+                <div style="text-align: left">
+                  Insurance of the contents of the Property is the
+                  responsibility of the Tenant. Should the Tenant wish to not
+                  insure the contents of the Property, the Landlord will not
+                  accept any liability for any loss or damage on account of
+                  fire, theft, flood, or accident, or any such event, to the
+                  Property during the Tenancy Period. Building insurance is the
+                  responsibility of the Landlord.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-c">11.</div>
+                <div style="text-align: left">
+                  The Tenant is accepting the Property as-is which denotes that
+                  the Tenant is leasing and the Landlord letting the Property in
+                  whatever condition it presently exists and that the Tenant is
+                  accepting the Property with all faults, whether or not
+                  immediately apparent.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-c">12.</div>
+                <div style="text-align: left">
+                  Not to sublet, take in lodgers or other paying guests, assign
+                  this Tenancy Agreement or part with possession of the whole or
+                  any part of the Property without the prior written approval of
+                  the Landlord and not to exceed the maximum permitted number of
+                  occupants at any time during the term.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-c">13.</div>
+                <div style="text-align: left">
+                  The Tenant will submit a 2-month written notice prior to the
+                  end of the Tenancy Agreement period to the Landlord expressing
+                  his/her intentions to either renew or not renew the Tenancy
+                  Agreement for another term. Should the Landlord not receive
+                  said notice, it shall be deemed that the Tenant wishes to
+                  renew the Tenancy Agreement for an additional period of one
+                  year in accordance with the new rent and terms and conditions
+                  communicated by the Landlord. All Tenancy Agreement renewals
+                  are subject to Landlord’s approval. If the Tenant requests an
+                  early leave (breach of the Tenancy Agreement), it will be at
+                  the consent of the Landlord, in which case a two-month written
+                  notice is required from the Tenant as well as a two-month
+                  penalty fee to be paid in full on the same day as submitting
+                  the written notice. Once the breach of the Tenancy Agreement
+                  is accepted, the two months’ penalty fees are settled in full;
+                  the Tenant shall receive back the rest of the rental payment
+                  Tenant made for any remaining months in this Tenancy
+                  Agreement.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 30px">
+                <div class="pr-c">14.</div>
+                <div style="text-align: left">
+                  If the Tenant vacates or abandons the Property without having
+                  paid the due rent and is not traceable, or without notifying
+                  the Landlord in the circumstances reasonably indicating that
+                  the Tenant may not come back within a reasonable time, then
+                  the Landlord shall have the right to re-enter and re-take
+                  possession of the Property and exercise a lien on all Property
+                  belonging to the Tenant in or around the Property to secure
+                  payment of the
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="width: 50%; float: left; padding-right: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+              <div style="width: 50%; float: left; padding-left: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 30px;
+              "
+            >
+              +971 2 4438140 | info@rpublik.com | Addax Tower,4504 P.O.Box 2960
+              | Abu Dhabi, UAE
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 5px;
+              "
+            >
+              www.rpublik.com
+            </div>
+          </div>
+        </div>
+
+        <div class="page3-content">
+          <div
+            contenteditable="true"
+            style=" font-weight: 500; text-align: left"
+            class="property-address"
+          >
+            <img
+              src="https://rpublik.goyzer.com/uploadedfiles/Group/5121/logo__original.png?v=1.0.0.187"
+              alt="no-img"
+            />
+          </div>
+          <div style="padding-bottom: 30px; text-align: left">
+            <div
+              contenteditable="true"
+              style="padding-bottom: 30px"
+              class="playfai"
+            >
+              due rent or any other monies reserved hereunder.
+            </div>
+
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-4">15.</div>
+                <div style="text-align: left">
+                  At the time of vacating, the Tenant undertakes not to remove
+                  any fixture or materials affixed to Property; electrical
+                  wiring, water pipes, sanitary installations, etc., which may
+                  cause damage to the Property.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-4">16.</div>
+                <div style="text-align: left">
+                  The Tenant acknowledges it has received all of the necessary
+                  keys to the Property and agrees that it shall not make copies
+                  of keys without the consent of the Landlord and will be
+                  charged for each key not returned upon vacating the Property
+                  (such fee to be paid directly or deducted from the Security
+                  Deposit).
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">17.</div>
+                <div style="text-align: left">
+                  Upon expiry of the Tenancy Agreement or upon termination date,
+                  any belongings of the Tenant that may be left behind in the
+                  Property shall immediately become the Property of the
+                  Landlord, and the Landlord shall have the right to dispose of
+                  said belongings without any notice to the Tenant. Tenant shall
+                  not have any right of claim for said belongings as of the said
+                  expiry Tenancy Agreement or upon termination date.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">18.</div>
+                <div style="text-align: left">
+                  If the tenant wishes to not renew the contract, he/she is
+                  liable to comply with accordance to the move out procedure by
+                  allowing the move-out inspection of the apartment and
+                  furniture. It will be the tenant’s responsibility to submit
+                  all clearances of utilities and closure of accounts prior to
+                  the move-out. An NOC will only be provided once the
+                  inspection, utility clearances and account closures are
+                  submitted.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">19.</div>
+                <div style="text-align: left">
+                  To comply with all laws, ordinances, rules, and orders of all
+                  governmental, municipal, quasi-governmental authorities, and
+                  any other persons having authority over the building relating
+                  to the cleanliness, use, occupancy fire safety, security, and
+                  general preservation of the Property or the building.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">20.</div>
+                <div style="text-align: left">
+                  During the period of tenancy, the tenant is solely responsible
+                  for the payment of all utilities including ADDC (Abu Dhabi
+                  Distribution Company), District Cooling (where applicable if a
+                  unit receives dedicated bill), Satellite and TV, Telephone and
+                  Internet facilities, and any other utilities sourced and
+                  required by the Tenant. The Tenant will supply the Landlord
+                  with a copy of the ADDC statement upon opening the ADDC
+                  account. The Landlord has no liability for payment of the
+                  same. At the time of vacating the Property, the Tenant should
+                  ensure prompt and final payment for all current or pending
+                  utilities and provide the receipts for the same, which will
+                  include the final ADDC and District Cooling and other bills.
+                  Should the Tenant vacate leaving unpaid utility bills, the
+                  Landlord reserves the right to deduct such amount from the
+                  Security Deposit to cover the costs of the payment for such
+                  unpaid items. It shall be the Tenant’s responsibility to pay
+                  for the difference should the said amount be higher than the
+                  Security Deposit.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">21.</div>
+                <div style="text-align: left">
+                  The rental payment or payments have been provided by the
+                  Tenant in full and in advance. Should any payment be returned
+                  from the bank for insufficient funds, then a penalty of AED
+                  500 will be charged to the Tenant by the Landlord, and
+                  alternative means of payment must be provided within seven
+                  days of the due date thereof. Failure to supply due payment
+                  will be treated as a breach of Tenancy Agreement by the
+                  Tenant, and Landlord may supply immediate notice in writing to
+                  the Tenant to vacate the Property.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">22.</div>
+                <div style="text-align: left">
+                  In case of a returned cheque of commission or any fees paid to
+                  Republik Real Estate Management LLC, a fee of AED 500 will be
+                  charged to the Tenant due for the returned cheque.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">23.</div>
+                <div style="text-align: left">
+                  This Tenancy Agreement is valid for one year. The full rent
+                  payment is final and non-refundable unless in the case of
+                  breach of the Tenancy Agreement (as per Clause 11). If the
+                  Tenant wishes to renew the Tenancy Agreement, there will be a
+                  renewal fee of 1,000 AED + 5% VAT payable to Republik Real
+                  Estate Management LLC and has to be paid by the Tenant.
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 24px">
+                <div class="pr-c">24.</div>
+                <div style="text-align: left">
+                  If the Tenant acts against any of the conditions made in the
+                  Tenancy Agreement, the Landlord has the right to eject the
+                  Tenant from the Property instantly, and the Tenant
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="width: 50%; float: left; padding-right: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+              <div style="width: 50%; float: left; padding-left: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 30px;
+              "
+            >
+              +971 2 4438140 | info@rpublik.com | Addax Tower,4504 P.O.Box 2960
+              | Abu Dhabi, UAE
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 5px;
+              "
+            >
+              www.rpublik.com
+            </div>
+          </div>
+        </div>
+
+        <div class="page4-content">
+          <div
+            contenteditable="true"
+            style=" font-weight: 500; text-align: left"
+            class="property-address"
+          >
+            <img
+              src="https://rpublik.goyzer.com/uploadedfiles/Group/5121/logo__original.png?v=1.0.0.187"
+              alt="no-img"
+            />
+          </div>
+          <div style="padding-bottom: 30px; text-align: left">
+            <div
+              contenteditable="true"
+              style="padding-bottom: 10px"
+              class="playfai"
+            >
+              loses their rights to the conditions of the Tenancy Agreement.
+            </div>
+
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div style="text-align: left">
+                  Note: (Applicable to New Tenant)
+                </div>
+              </div>
+            </div>
+            <div class="flex-maintain">
+              <div class="flex" style="padding-bottom: 10px">
+                <div style="text-align: left">
+                  Please be advised that no keys (handover) will be given to the
+                  Tenant until all rental cheques, commission cheques, and any
+                  other payments needed have been received by the Landlord and
+                  Republik Real Estate Management LLC, the funds have been
+                  cleared by the bank, and this Tenancy Agreement has been
+                  signed by both parties, the Tenant and the Landlord
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex" style="justify-content: space-between;padding-bottom: 1050px;">
+              <div class="flex" style="padding-bottom: 10px;">
+                <div class="pr-c">Date:</div>
+                <div style="text-align: left"></div>
+              </div>
+              <div class="flex" style="padding-bottom: 10px;">
+                <div class="pr-c">Date:</div>
+                <div style="text-align: left"></div>
+              </div>
+            </div>
+            <div>
+              <div style="width: 50%; float: left; padding-right: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+              <div style="width: 50%; float: left; padding-left: 50px">
+                <div style="border-bottom: 1px solid #000; height: 20px"></div>
+                <div style="height: 20px; text-align: center; padding-top: 5px">
+                  Landlord’s Signature
+                </div>
+              </div>
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 30px;
+              "
+            >
+              +971 2 4438140 | info@rpublik.com | Addax Tower,4504 P.O.Box 2960
+              | Abu Dhabi, UAE
+            </div>
+            <div
+              contenteditable="true"
+              style="
+                width: 100%;
+                float: left;
+                text-align: center;
+                padding-top: 5px;
+              "
+            >
+              www.rpublik.com
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </body>
+</html>

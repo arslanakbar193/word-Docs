@@ -1,0 +1,3497 @@
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tenanacy Agreement</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      :root {
+        --color: #3796c6;
+        --whitecolor: #fff !important;
+        --backgroundcolor: #15eb52;
+        --bodybackground: #e2e2e2;
+      }
+      /* Area Variable - Black */
+
+      * {
+        font-family: "poppins" !important;
+        font-size: 13px !important;
+      }
+
+      .no-focus:focus {
+        outline: none;
+      }
+      .header-text {
+        padding: 3rem 3rem;
+      }
+      .icons-content {
+        margin: 3rem 0rem;
+      }
+      .gradient-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 42%;
+        padding: 20px;
+        /* background: linear-gradient(to right, rgb(0 0 0 / 79%), transparent); */
+        background: linear-gradient(
+          to right,
+          #2f3433 32%,
+          rgba(47, 52, 51, 0.8) 50%,
+          transparent 100%
+        );
+        color: white !important;
+        font-size: 2em;
+        text-align: left;
+        font-family: "IvyModeRegular";
+      }
+      #generatePDF {
+        background-color: #2f3433;
+        border: none;
+        color: #fff !important;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 7px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        outline: none;
+        margin-left: 12px;
+        font-family: "Raleway", sans-serif;
+      }
+      #generatePDF:focus {
+        outline: none;
+      }
+      .profile-image {
+        padding: 60px 0px;
+      }
+      #loading {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border: 1px solid #ffe740;
+        border-radius: 10px;
+        background-color: #ffe740;
+        font-weight: 600;
+        z-index: 1;
+      }
+      button#PrintLayoutButton {
+        display: none;
+      }
+      .aminities-left ul li {
+        border-right: 1px solid #57c4bf !important;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .property-address {
+        padding: 0px 0px 15px 0px;
+        text-transform: uppercase;
+      }
+      .footer h3 img {
+        width: 124px;
+        height: 120px;
+      }
+      .cb:after {
+        content: "";
+        height: 20px;
+        width: 2px;
+        position: absolute;
+        right: -40px;
+        background-color: #dfdfdf;
+      }
+      .profile-image img {
+        border-radius: 50%;
+        border: 4px solid #fff !important;
+        width: 340px;
+        height: 200px;
+      }
+      #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .logo-image {
+        padding-top: 52px;
+        padding-bottom: 80px;
+      }
+      .flex-section {
+        padding-bottom: 45px;
+      }
+      .pr-c {
+        padding-right: 16px;
+      }
+      .flex {
+        display: flex;
+      }
+      .pr-4 {
+        padding-right: 10px;
+      }
+      .image-d {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .image-m {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .pdf-setting .image-a {
+        height: 550px;
+        object-fit: cover;
+      }
+      .pdf-setting .description {
+        height: 545px;
+      }
+      .pdf-setting .image-b {
+        height: 569px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-c {
+        height: 571px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-l {
+        height: 571.1px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-d {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 0px;
+      }
+      .pdf-setting .image-m {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 1px;
+      }
+      .pdf-setting .image-e {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-f {
+        height: 565.5px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-g {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-h {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-i {
+        height: 564px;
+        object-fit: cover;
+      }
+      .pdf-setting .aveen {
+        padding-top: 80px;
+      }
+      .pdf-setting .aveenN {
+        padding-top: 30px;
+      }
+      .pdf-setting .image-last {
+        padding-top: 40px;
+        height: 580px;
+        object-fit: cover;
+      }
+      /* .pdf-setting .property-address {
+        padding: 60px 0px 25px 0px;
+      } */
+      .pdf-setting .logo-image {
+        padding-top: 30px;
+        padding-bottom: 164.6px;
+      }
+      .flex-maintain1 {
+        float: left;
+        width: 100%;
+      }
+      .flex1 {
+        float: left;
+        width: 100%;
+      }
+      .ls {
+        width: 340px;
+        float: left;
+        text-align: left;
+      }
+      .lsc {
+        width: 100px;
+        float: left;
+      }
+      .rsc {
+        width: 87%;
+        float: left;
+      }
+      .ls2 {
+        width: 50px;
+        float: left;
+        text-align: left;
+      }
+      .rs2 {
+        width: 440px;
+        float: left;
+        text-align: left;
+      }
+      .rs {
+        width: 496px;
+        float: left;
+        text-align: left;
+      }
+      .rs2.rs3 {
+        width: 100%;
+      }
+      /* .page2-content > div > h2 {
+      margin-bottom: 80px !important;
+      } */
+      .pdf-setting .flex-section {
+        padding-bottom: 60px;
+      }
+      .page2-content td:first-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:first-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td:last-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:last-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td {
+        line-height: 30px;
+
+        padding-left: 26px;
+      }
+      .page2-content td:first-child table tbody tr td:first-child {
+        display: none;
+      }
+      .page2-content td:last-child table tbody tr td:first-child {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sec1" style="float: left; width: 100%">
+      <div
+        class="container"
+        style="max-width: 800px; margin: auto"
+        id="content"
+      >
+        <div class="page1-content">
+          <div style="padding-bottom: 20px; text-align: center">
+            <div
+              style="font-weight: 500; text-align: center"
+              class="property-address"
+            >
+              <img
+                src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yOTAxL2Nyb3AucG5nLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuQ2VudGVy.watermark"
+                alt="no-img"
+              />
+            </div>
+            <div
+              style="
+                font-size: 18px !important;
+                text-align: center;
+                padding-top: 10px;
+                font-weight: 600;
+                text-decoration: underline;
+                padding-bottom: 10px;
+              "
+              class="playfai"
+            >
+              RESERVATION AGREEMENT
+            </div>
+            <div
+              style="
+                display: flex;
+                padding-bottom: 10px;
+                text-align: left;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Date:
+              <div
+                style="
+                  width: 340px;
+                  border-bottom: 1px solid #000;
+                  padding-left: 10px;
+                  margin-left: 10px;
+                  font-weight: 600;
+                "
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                padding-bottom: 15px;
+                text-align: left;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              A. Seller
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Name:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  min-height: 27px;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                "
+              >
+                GFH REAL ESTATE L.L.C
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                License No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                767302
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Address & PO Box:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                Office 108, Parcel ID 315-0 Umm Hurair 2, Bur Dubai & P.O. Box
+                213725
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Telephone/Mobile No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                971-04-5533606 / 971-55-5527315
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                padding-top: 10px;
+                text-align: left;
+                font-weight: 600;
+                clear: both;
+              "
+              class="no-focus"
+            >
+              B. Purchaser/s
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+            <div
+              style="
+                display: flex;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                font-weight: 600;
+                clear: both;
+              "
+              class="no-focus"
+            >
+              Purchaser One:
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Name:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                GFH REAL ESTATE L.L.C
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Nationality/Country of Incorporation:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Passport/License No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Address & PO Box:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Telephone/Mobile No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                971-04-5533606 / 971-55-5527315
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Email Address:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                font-weight: 600;
+                clear: both;
+              "
+              class="no-focus"
+            >
+              Purchaser Two:
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Name:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                GFH REAL ESTATE L.L.C
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Nationality/Country of Incorporation:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Passport/License No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Address & PO Box:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Telephone/Mobile No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                971-04-5533606 / 971-55-5527315
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Passport/License No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                font-weight: 600;
+                clear: both;
+              "
+              class="no-focus"
+            >
+              C. Property Details:
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Project:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                GFH REAL ESTATE L.L.C
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Unit No:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Phase/Cluster:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Type:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Bedrooms:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                971-04-5533606 / 971-55-5527315
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                No of Car Parking Spaces:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              ></div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Built Up Area (sqft):
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                  
+                "
+              >
+                Plot Area (sqft):
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Purchase Price:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                AED
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                First Instalment Payment (Deposit):
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                AED
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 4px 10px;
+                  width: 340px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Estimated Completion Date:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 4px 10px;
+                  text-align: left;
+                  float: left;
+                  width: 56%;
+                  border-left: 1px solid #000;
+                  min-height: 27px;
+                "
+              >
+                1-Jul-2025
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: left;
+                font-weight: 600;
+                clear: both;
+              "
+              class="no-focus"
+            >
+              D. Payment Schedule:
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+
+            <div
+              style="
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                >
+                  SR No.
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                >
+                  Due Date
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                >
+                  Milestone
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                >
+                  Payment Percentage.
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                >
+                  Amount (AED)
+                </div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Booking Date
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1st Instalment (Deposit)
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+
+            <div style="display: flex;justify-content: space-between;align-items: end;">
+              <div
+                style="
+                  display: flex;
+                  padding-top: 40px;
+                  padding-bottom: 0px;
+                  text-align: left;
+                  font-weight: 600;
+                "
+                class="no-focus"
+              >
+                Purchaser's Initials
+                <div
+                  style="
+                    width: 200px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 600;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div><img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL2luZnJhY3JvcC5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"/></div>
+            </div>
+
+            <div
+              style="
+                margin-top: 20px;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Booking Date
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1st Instalment (Deposit)
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  table="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  1-Sep-2024
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  2nd Instalment
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  15%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div style="border-top: 1px solid #000; text-align: center">
+                <div
+                  style="
+                    text-align: center;
+                    width: 10%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 15%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 26%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Total
+                </div>
+                <div
+                  style="
+                    text-align: center;
+                    width: 27%;
+                    display: inline-block;
+                    border-right: 1px solid #000;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  100%
+                </div>
+                <div
+                  style="text-align: center; width: 19%; display: inline-block"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Sale Price
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                clear: both;
+                font-weight: 600;
+                text-align: left;
+                margin-top: 20px;
+              "
+            >
+              E. Booking Terms:
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              1. Upon the Purchaser signing this Reservation Agreement (the
+              "Agreement"), the Purchaser agrees to purchase the Property from
+              the Seller in accordance with the Payment Schedule and to enter
+              into a Sale and Purchase Agreement ("SPA") in the Seller's
+              standard form (such form being subject to change by the Seller),
+              for the purchase of the Property in accordance with and subject to
+              the terms of this Agreement
+            </div>
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              2. The Purchaser shall provide complete and accurate contact
+              information, as requested in this Agreement, and submit it to the
+              Seller on the signing hereof. The Seller shall not be responsible
+              for the Purchaser providing incorrect contact details and the
+              Seller shall not be liable for any loss expense fee incurred as a
+              result of the Purchaser providing incorrect details.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              2. The Purchaser shall provide complete and accurate contact
+              information, as requested in this Agreement, and submit it to the
+              Seller on the signing hereof. The Seller shall not be responsible
+              for the Purchaser providing incorrect contact details and the
+              Seller shall not be liable for any loss expense fee incurred as a
+              result of the Purchaser providing incorrect details.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              3. The Purchaser shall not be permitted to terminate this
+              Agreement, except with the written consent of the Seller (at the
+              complete discretion of the Seller). If the Seller gives the
+              Purchaser consent to terminate this Agreement, the Purchaser will
+              forfeit the Deposit to the Seller, and the Seller will retain the
+              Deposit and any other payments, in accordance with the applicable
+              laws of Dubai.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              4. The Purchaser must provide the following to the Seller on the
+              date of signing this Agreement: (i) the Deposit; and (if required
+              by the Seller) (ii) the Purchaser’s share of the fees for
+              registration of the Agreement and the SPA at the relevant
+              authority ("Registration Fees"). All payments must be made to the
+              Seller’s bank account (notified to the Purchaser in writing) as
+              directed by the Seller. All cheques must be made out in the name
+              of the Seller and drawn from a bank licensed by the UAE Central
+              Bank and in the AED currency.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              5. The Purchaser is required to provide all documents requested by
+              the Seller, to the satisfaction of the Seller, no later than
+              fourteen (14) days from the date of this Agreement. The Purchaser
+              agrees to provide further documentation if requested by the Seller
+              within five (5) business days of suchrequest
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              6. The Seller shall not be obliged to accept the Purchaser's offer
+              to enter into this Agreement, and may at any time and at its
+              complete discretion reject the offer to enter into this Agreement
+              without being required to provide the Purchaser with an
+              explanation.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              7. The Seller will inform the Purchaser by e-mail whether the
+              Agreement and Purchaser's Offer is accepted or rejected by the
+              Seller (in its absolute discretion) ("Seller's Notification").
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              8. If this Agreement is entered into and accepted by the Seller,
+              the Purchaser must, immediately upon being notified of this by the
+              Seller:
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              (a) collect from the Seller the SPA for the Property and return
+              the signed SPA to the Seller (if not already done so); (b) pay (if
+              not already done so) all monies that are outstanding, in
+              accordance with the Payment Schedule and this Agreement , which
+              can be offset by the Deposit if the Seller and the Purchaser so
+              agree and, if requested by the Seller, provide postdated cheques
+              for all payments in accordance with the Payment Schedule; and (c)
+              provide (if not already done so) the Seller with payment of the
+              Purchaser’s share of the Registration Fees. The Purchaser agrees
+              that the Registration Fees are not refundable or transferable and
+              that should there be any delays in payment of the Registration
+              Fees, the Purchaser shall be responsible for all penalties and
+              charges whether assessed against the Seller and/or the Purchaser.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              9. If the Seller rejects the Purchaser's offer to enter into this
+              Agreement in accordance with clause 6, the Deposit and/or other
+              payments made by the Purchaser will be refunded/returned to the
+              Purchaser (and no interest shall be due in respect thereof). The
+              Purchaser must produce/present to the Seller original receipts in
+              respect of the Deposit and the Registration Fees (if not held by
+              the Seller) and a form of identification acceptable to the Seller
+              before any refund is made.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              10. If the Purchaser: (a) despite the Seller notifying the
+              Purchaser of acceptance pursuant to Clause 8, fails to comply with
+              its obligations in respect of the SPA for the Property and return
+              such and provide any and all other documentation and fails to
+              comply with its payment obligations as required by the Seller and
+              this Agreement within five (5) business days of the date of the
+              Seller's Notification; or (b) breaches any other provision within
+              this Agreement, then the Seller will provide the Purchaser with
+              notice of such breach or failure and the Seller shall be entitled,
+              without
+            </div>
+
+            <div style="display: flex;justify-content: space-between;align-items:end;">
+              <div
+                style="
+                  display: flex;
+                  padding-top: 20px;
+                  padding-bottom: 0px;
+                  text-align: left;
+                  font-weight: 600;
+                "
+                class="no-focus"
+              >
+                Purchaser's Initials
+                <div
+                  style="
+                    width: 200px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 600;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div><img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL2luZnJhY3JvcC5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"/></div>
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              prejudice to any other rights under this Agreement, to immediately
+              terminate this Agreement upon such written notice and release the
+              Property from the Seller’s sales database and be free to sell the
+              Property to any other purchaser. In such event, the Seller will be
+              entitled to retain the Deposit as a pre-agreed estimate of its
+              damages for the Purchaser’s failure and/or breach. The Purchaser
+              shall be liable for and indemnify the Seller against all costs,
+              expenses and losses incurred by the Seller due to the Purchaser’s
+              failure and/or breach.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              11. The Purchaser shall sign the SPA not later than ten (10)
+              business days from receipt of the Seller's Notification. For the
+              avoidance of doubt, the signature of the Purchaser on SPA shall
+              not affect the rights of the Seller. If the Purchaser fails to
+              sign the SPA within the prescribed period for any reason
+              whatsoever, this Agreement shall automatically terminate upon the
+              expiry of said period and the Deposit shall be forfeited to the
+              Seller, without need for notice or any further proceedings, legal
+              or otherwise. The Seller may, at its sole discretion, extend the
+              aforesaid period for further period(s), in which case automatic
+              termination of this Agreement and the right to forfeit the Deposit
+              will apply on the first day following the extendedperiod.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              12. Without prejudice to the Seller’s other rights under this
+              Agreement, where the Purchaser fails to pay any amount due under
+              this Agreement on its due date, the Purchaser shall pay a late
+              payment fee in the amount of 1% per month calculated from the due
+              date of any payment up until the date upon which payment is
+              actually received (excluding the actual date of receipt from the
+              late payment fee calculation), as compensation for such delay. The
+              Seller may charge a fee in an amount determined by the Seller as
+              an administrative fee in relation to each returnedcheque
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              13. The Purchaser shall pay the Deposit by means of payment
+              acceptable to the Seller on the date of signing hereof (or on any
+              other date specified by the Seller in writing for this purpose).
+              The Seller may, at its sole discretion, request the Purchaser to
+              pay the Deposit by more than one means of payment (such as, and
+              without limitation, to pay a portion of the Deposit by cheque and
+              the balance to be effected by wire transfer to the Seller’s bank
+              account), the Deposit (or any paid portion thereof) is not
+              refundable to the Purchaser for any reason whatsoever unless this
+              Agreement is terminated by the Seller in accordance with clause 9.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              14. The Seller may terminate this Agreement immediately if: (a)If
+              any amount is paid by cheque and the cheque is not settled by the
+              bank, (b) if the pre-registration/registration charges and fees
+              have not been settled by the Purchaser in a timely manner and (c)
+              or if the Deposit has not been received by the Seller in full
+              within the time period of five (5) business days, without the need
+              for any notice or any further proceedings (legal or otherwise) or
+              court judgment and any amounts received by the Seller pursuant to
+              this Agreement shall be forfeited in full by the Seller. Such
+              termination shall be without prejudice to the Seller’s right to
+              recover the Deposit amount in full and/or cheque value from the
+              Purchaser or any additional amount as compensation. The Seller
+              may, at its sole discretion, allow the Purchaser to substitute the
+              returned cheque by another form of payment acceptable to the
+              Seller or extend the time period for the full payment of the
+              Deposit and/or pre- registration/registration charges.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              15. All sums payable under this Agreement by the Purchaser to the
+              Seller shall be deemed to be exclusive of valued added tax and any
+              other government taxes, statutory or similar charges (altogether
+              "Taxes"). If any Taxes are levied, the Purchaser shall pay such
+              Taxes in addition to the sum or other consideration payable under
+              this Agreement, regardless of any deduction the Purchaser is
+              required to make under applicable law
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              16. Any notices to be served by the Seller on the Purchaser may be
+              served by the Seller by hand and/or by e-mail and/or courier
+              and/or post at the contact details of the Purchaser set out in the
+              Particulars (or such other contact details as the Purchaser may
+              advise the Seller by written notice signed by the Purchaser sent
+              by courier).
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              17. The Purchaser shall keep the terms of this Reservation
+              Agreement, the terms of the SPA and any other information provided
+              by the Seller (and/or its affiliates) in respect of the Property
+              confidential, and this clause shall survive expiry, rejection or
+              cancellation of this Agreement.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              18. The Purchaser warrants to the Seller that the information
+              contained in this Agreement is true and complete and the monies
+              applied towards the Deposit, other payments and Registration Fees
+              (if applicable) are derived from legitimate sources and are not
+              related to proceeds of crime.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              19. Any rejection and/or cancellation of this Agreement by the
+              Seller shall be immediate and shall not require any court or other
+              order or follow any legal or other process or other formality, and
+              shall be without any compensation to the Purchaser. The Purchaser
+              agrees and consents to the Seller’s rights to reject and cancel
+              this Agreement as set out herein.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              20. General: (i) all capitalised terms shall have the meaning
+              given to them in this Agreement or in the Particulars; (ii) where
+              there is more than one Purchaser, they shall be jointly and
+              severally liable, and notices shall only be sent to the contact
+              details set out in the Particulars; (iii) the Agreement is
+              personal to the Purchaser and may not be assigned without the
+              prior written consent of the Seller; (iv) the Seller may assign
+              this Agreement to any of its affiliates without notice and the
+              Purchaser hereby agrees and consents to such assignment.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 40px">
+              21. This Reservation Agreement shall be governed by the laws of
+              Dubai and any legal action or proceeding with respect to this
+              Agreement shall be subject to the jurisdiction of the DubaiCourts.
+            </div>
+
+            <div style="clear: both; text-align: left; padding-bottom: 30px">
+              I / We, the above-named Purchaser(s), hereby agree to be bound by
+              this terms and conditions contained in the Agreement and request
+              the Seller to reserve the Property in my/our favour. I / We hereby
+              confirm that the details provided by me/us in this Agreement are
+              true and accurate.
+            </div>
+
+            <div style="display: flex;justify-content: space-between;align-items: end;">
+              <div
+                style="
+                  display: flex;
+                  padding-top: 20px;
+                  padding-bottom: 0px;
+                  text-align: left;
+                  font-weight: 600;
+                "
+                class="no-focus"
+              >
+                Purchaser's Initials
+                <div
+                  style="
+                    width: 200px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 600;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div><img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL2luZnJhY3JvcC5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"/></div>
+            </div>
+
+            
+            <div
+              contenteditable="true"
+              style="
+                font-size: 24px;
+                padding-bottom: 30px;
+                text-align: left;
+                padding-top: 30px;
+                clear: both;
+                padding-bottom: 30px;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Purchaser 1:
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                Name:
+                <div
+                  style="
+                    width: 400px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                Date:
+                <div
+                  style="
+                    width: 300px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                signature:
+                <div
+                  style="
+                    width: 728px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              
+            </div>
+
+            <div
+              contenteditable="true"
+              style="
+                font-size: 24px;
+                padding-bottom: 30px;
+                text-align: left;
+                padding-top: 30px;
+                clear: both;
+                padding-bottom: 30px;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Purchaser 2:
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                Name:
+                <div
+                  style="
+                    width: 400px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                Date:
+                <div
+                  style="
+                    width: 300px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                signature:
+                <div
+                  style="
+                    width: 728px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              
+            </div>
+
+
+            <div
+              contenteditable="true"
+              style="
+                font-size: 24px;
+                padding-bottom: 30px;
+                text-align: left;
+                padding-top: 30px;
+                clear: both;
+                padding-bottom: 30px;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+            Seller’s Representative:
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                Name:
+                <div
+                  style="
+                    width: 400px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                Date:
+                <div
+                  style="
+                    width: 300px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  padding-bottom: 15px;
+                  text-align: left;
+                  font-weight: 400;
+                "
+                class="no-focus"
+              >
+                signature:
+                <div
+                  style="
+                    width: 728px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 400;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              
+            </div>
+
+
+            <div style="display: flex;justify-content: space-between;align-items: end;padding-top: 950px;">
+              <div
+                style="
+                  display: flex;
+                  padding-top: 20px;
+                  padding-bottom: 0px;
+                  text-align: left;
+                  font-weight: 600;
+                "
+                class="no-focus"
+              >
+                Purchaser's Initials
+                <div
+                  style="
+                    width: 200px;
+                    border-bottom: 1px solid #000;
+                    padding-left: 10px;
+                    margin-left: 10px;
+                    font-weight: 600;
+                  "
+                  contenteditable="true"
+                  class="no-focus"
+                ></div>
+              </div>
+              <div><img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81MjIwL2luZnJhY3JvcC5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"/></div>
+            </div>
+
+            
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

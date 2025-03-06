@@ -1,0 +1,372 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Layout</title>
+    <style>
+        /* Add your styles here (if needed) */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border: 0;
+            cellspacing: 0;
+            cellpadding: 0;
+        }
+    </style>
+</head>
+<body>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f4f4f4;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-radius: 10px; overflow: hidden;">
+                    <tr>
+                        <td style="padding: 20px; text-align: center; background-color: #0078d4; color: #fff; font-size: 24px;">
+                            Just Listed
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 20px; text-align: center;">
+                            <img src="https://via.placeholder.com/600x300" alt="Property Image" width="100%" style="border-radius: 10px; max-width: 600px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 20px;">
+                            <h2 style="font-size: 22px; color: #333;">Luxury Apartment in Downtown</h2>
+                            <p style="font-size: 16px; color: #555;">This 1-bedroom apartment offers stunning views of the city skyline. Located in the heart of Downtown Dubai, this is your chance to live near iconic landmarks like Burj Khalifa.</p>
+                            <p style="font-size: 18px; color: #333; font-weight: bold;">Price: AED 4,000,000</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 20px; text-align: center; background-color: #f1f1f1;">
+                            <a href="mailto:info@example.com" style="text-decoration: none; background-color: #0078d4; color: #fff; padding: 12px 24px; border-radius: 5px; font-size: 16px;">Contact Agent</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Sales Unit Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" />
+    <style type="text/css">
+       * {
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif !important;
+            }
+      @media print and (-webkit-min-device-pixel-ratio: 0) {
+        .printdecheadingcrome {
+          top: -16px;
+          position: relative;
+        }
+        .printdeschrome {
+          position: relative !important;
+          bottom: 22px !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: none;"><img alt="" src="https://img.goyzer.com/images/L3VmLzUwNzUvdW5pdC8yODM3Ny9JTUctODMxNC5qcGVnLjUwNzUuU2FsZS4wYnkwLjY1OTQ2LjQ3YnJhbmNoLkNlbnRlcg==.watermark" class="img-fluid" crossorigin="anonymous" /></div>
+    <button class="btn3" id="generateJPG" style="margin-bottom: 5px;">
+      Generate JPG
+      </button>
+    <table
+    id="tab"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      align="center"
+      width="946"
+      style="
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;"
+    >
+      <tbody>
+        
+        <tr>
+          <td
+            valign="top"
+            align="middle"
+            style="
+              margin-top: 15px;
+              width: 950px;
+              font-family: arial;
+              height: 21px;
+              color: #333333;
+              font-size: 11px;
+            "
+          >
+           <span class="just-status" style="display: inline-block;background-color: #fffb00;padding: 10px 32px;font-size: 22px;margin-top: 80px;margin-left: 45px;letter-spacing: 2px;font-weight: 600;">Just {{Unit Status}}</span> 
+          </td>
+          <td
+            align="right"
+            style="
+              font-family: arial;
+              color: #333333;
+              font-size: 12px;
+              font-weight: bold;
+            "
+          >
+            <img
+              src="{{QR Code Sale URL}}"
+              alt="QR Code"
+              style="width: 70px; height: 70px; border-radius: 4px"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td
+            valign="top"
+            align="middle"
+            style="
+              margin-top: 15px;
+              width: 950px;
+              font-family: arial;
+              height: 21px;
+              color: #333333;
+              font-size: 11px;
+            "
+          >
+            <span style="display: inline-block;padding: 10px 32px;font-size: 22px;letter-spacing: 2px;font-weight: 600;text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px;text-align: center;color: #fff;">{{Community}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        
+        <tr>
+          <td
+            valign="top"
+            align="middle"
+            style="
+              margin-top: 15px;
+              width: 950px;
+              font-family: arial;
+              height: 21px;
+              color: #333333;
+              font-size: 11px;
+            "
+          >
+            <img
+              src="{{Listing Agent Picture}}"
+              alt="Agent Picture"
+              style="width: 100px; height: 100px; border-radius: 50%"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td
+            valign="top"
+            align="middle"
+            style="
+              margin-top: 15px;
+              width: 950px;
+              font-family: arial;
+              height: 21px;
+              color: #333333;
+              font-size: 11px;
+            "
+          >
+            <span style="display: inline-block;padding: 10px 32px;font-size: 18px;letter-spacing: 2px;font-weight: 600;text-align: center;color: #fff;text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px;">{{Listing Agent Name}}</span>
+          </td>
+        </tr>
+        
+        <tr >
+          <td
+            valign="top"
+            align="middle"
+            style="
+              margin-top: 15px;
+              width: 950px;
+              font-family: arial;
+              height: 21px;
+              color: #333333;
+              font-size: 11px;
+            "
+          >
+            <span style="display: inline-block;padding: 10px 32px;font-size: 22px;letter-spacing: 2px;font-weight: 600;text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px;text-align: center;color: #fff;">{{Listing Agent Designation}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr >
+          <td  align="middle" style="padding-bottom: 50px;">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg"
+              height="36px"
+              viewbox="0 -960 960 960"
+              width="36px"
+              fill="#FFFFFF">
+              <path
+                d="M80-200v-240q0-27 11-49t29-39v-112q0-50 35-85t85-35h160q23 0 43 8.5t37 23.5q17-15 37-23.5t43-8.5h160q50 0 85 35t35 85v112q18 17 29 39t11 49v240h-80v-80H160v80H80Zm440-360h240v-80q0-17-11.5-28.5T720-680H560q-17 0-28.5 11.5T520-640v80Zm-320 0h240v-80q0-17-11.5-28.5T400-680H240q-17 0-28.5 11.5T200-640v80Zm-40 200h640v-80q0-17-11.5-28.5T760-480H200q-17 0-28.5 11.5T160-440v80Zm640 0H160h640Z"
+              ></path>
+            </svg>
+            <div style="font-size: 18px;display: inline-block;">
+              <div style="font-size: 18px;display: inline-block;font-weight: 600;text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px;text-align: center;color: #fff;border-right:1px solid #fff;padding-right: 20px;margin-right: 20px;vertical-align:baseline;">{{Bedrooms}} Bedroom</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="35px"
+              viewbox="0 -960 960 960"
+              width="35px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M480.06-486.67q30.27 0 51.77-21.56 21.5-21.55 21.5-51.83 0-30.27-21.56-51.77-21.55-21.5-51.83-21.5-30.27 0-51.77 21.56-21.5 21.55-21.5 51.83 0 30.27 21.56 51.77 21.55 21.5 51.83 21.5ZM480-168q129.33-118 191.33-214.17 62-96.16 62-169.83 0-114.86-73.36-188.1-73.36-73.23-179.97-73.23T300.03-740.1q-73.36 73.24-73.36 188.1 0 73.67 63 169.83Q352.67-286 480-168Zm0 88Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
+              ></path>
+            </svg>
+            <div style="font-size: 18px;display: inline-block;font-weight: 600;text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px;text-align: center;color: #fff;border-right:1px solid #fff;padding-right: 20px;margin-right: 20px;vertical-align:baseline;">{{Property}}</div>
+            <div style="font-size: 18px;display: inline-block;font-weight: 600;text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px;text-align: center;color: #fff;vertical-align:baseline">
+              AED <strong>{{Selling Price}}</strong>
+            </div>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+    <script>
+    $(document).ready(function() {
+      function getImage(event) {
+              event.preventDefault(); 
+              var content = document.querySelector("#tab");
+              var padding = 0;
+      
+              html2canvas(content, {
+                useCORS: true,
+                scale: 1,
+              }).then((canvas) => {
+                var newCanvas = document.createElement("canvas");
+                newCanvas.width = canvas.width + padding * 2;
+                newCanvas.height = canvas.height + padding * 2;
+      
+                var ctx = newCanvas.getContext("2d");
+                ctx.fillStyle = "#ffffff"; 
+                ctx.fillRect(0, 0, newCanvas.width, newCanvas.height);
+                ctx.drawImage(canvas, padding, padding);
+                const imgData = newCanvas.toDataURL("image/jpeg");
+                const link = document.createElement("a");
+                link.href = imgData;
+                link.download = "image.jpg";
+                link.click();
+              });
+            }
+      // $(document).on("click", "#EmailLayoutButton", function(e) {
+      //   e.preventDefault();
+      //   $("#SendLinkLayoutButton").trigger("click");
+      // });
+      // Get the image source
+      var imgSrc = $('.img-fluid').attr('src');
+      console.log(imgSrc);
+                
+                // Set it as the background image of the #content div
+                $('#tab').css('background-image', 'url(' + imgSrc + ')');
+    
+//                 var $unitval = $("#unitval");
+
+// // If text is 'Just Available', change to 'Just Listed'
+// if ($unitval.text().trim() === "Just Available") {
+//     $unitval.text("Just Listed");
+// }
+
+// // If text is 'Just Sold', change background and text color
+// if ($unitval.text().trim() === "Just Sold") {
+//     $unitval.css({
+//         "background-color": "red",
+//         color: "#fff"
+//     });
+// }
+
+// // If text is 'Just Leased', change text to 'Just Rented' and update color
+// if ($unitval.text().trim() === "Just Leased") {
+//     $unitval.text("Just Rented").css({
+//         "background-color": "red",
+//         color: "#fff"
+//     });
+// }
+
+    });
+  </script>
+  </body>
+</html>

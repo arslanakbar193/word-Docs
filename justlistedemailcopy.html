@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html data-lt-installed="true">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sold Final Listed</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet" />
+        <style>
+            * {
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif !important;
+            }
+            html,
+            body,
+            dl,
+            dt,
+            dd,
+            ul,
+            ol,
+            li,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            pre,
+            form,
+            fieldset,
+            input,
+            textarea,
+            p,
+            blockquote {
+            margin: 0;
+            padding: 0;
+            }
+            fieldset,
+            img {
+            border: 0;
+            }
+            address,
+            caption,
+            cite,
+            code,
+            dfn,
+            em,
+            strong,
+            th,
+            var {
+            font-style: normal;
+            font-weight: normal;
+            }
+            ol,
+            ul,
+            li {
+            list-style: none;
+            display: inline;
+            }
+            caption,
+            th {
+            text-align: left;
+            }
+            q:before,
+            q:after {
+            content: "";
+            }
+            abbr,
+            acronym {
+            border: 0;
+            }
+            article,
+            aside,
+            figure,
+            footer,
+            header,
+            nav,
+            section {
+            display: block;
+            }
+            section {
+            padding: 15px 0 0;
+            }
+            a:hover,
+            a:active,
+            a:focus {
+            color: #333;
+            text-decoration: none;
+            }
+            img,
+            a {
+            margin: 0;
+            padding: 0;
+            outline: none !important;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+            }
+            /*img:hover{opacity:0.7;}*/
+            .frame {
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            overflow: hidden;
+            }
+            .no_pad {
+            padding-left: 0;
+            padding-right: 0;
+            }
+            *:focus {
+            outline: none;
+            }
+            .page_wrap {
+            width: 90%;
+            margin: 0 auto;
+            }
+            .owl-carousel {
+            direction: ltr;
+            }
+            li:last-child {
+            margin-bottom: 0;
+            }
+            ::-webkit-input-placeholder {
+            /*Chrome/Opera/Safari*/
+            color: #767676;
+            }
+            ::-moz-placeholder {
+            /*Firefox 19+*/
+            color: #767676;
+            opacity: 1;
+            }
+            :-moz-placeholder {
+            /*Firefox 18-*/
+            color: #767676;
+            opacity: 1;
+            }
+            :-ms-input-placeholder {
+            /*IE 10+*/
+            color: #767676;
+            }
+            textarea {
+            width: 100;
+            resize: none;
+            }
+            /*Bootstrap*/
+            .navbar {
+            border-radius: 0;
+            margin: 0;
+            border: 0;
+            border-bottom: 1px solid #dddfe4;
+            background-color: #fcfcfc;
+            z-index: 3;
+            min-height: 90px;
+            }
+            .navbar .navbar-toggle {
+            background-color: #ccc;
+            margin-top: 25px;
+            }
+            .navbar .navbar-nav li.active a {
+            color: #28be68;
+            background-color: transparent;
+            border-bottom: 2px solid #28be68;
+            }
+            .navbar .navbar-nav ul.dropdown-menu li a {
+            background-color: #fcfcfc;
+            color: #333;
+            border: none;
+            padding: 7px 10px;
+            }
+            .navbar .navbar-header .icon-bar {
+            background-color: #fcfcfc;
+            }
+            .navbar .navbar-nav > .active > a:focus,
+            .navbar .navbar-nav > .active > a:hover,
+            .navbar .navbar-nav li a:hover,
+            .navbar .navbar-nav > li > a:focus,
+            .navbar .navbar-nav > .open > a,
+            .navbar .navbar-nav > .open > a,
+            .navbar .navbar-nav > .open > a:focus,
+            .navbar .navbar-nav > .open > a:hover {
+            color: #28be68;
+            background-color: transparent; /*display:block; Only if want to open on hover*/
+            }
+            .navbar .navbar-nav > li > a {
+            color: #333;
+            padding: 10px 0;
+            margin: 0 25px;
+            font-size: 16px;
+            }
+            .navbar .navbar-nav > li > a span {
+            color: #333;
+            padding: 0;
+            margin-left: 5px;
+            font-weight: normal;
+            }
+            .modal .close {
+            opacity: 1;
+            }
+            .modal .close span {
+            color: #ccc;
+            font-weight: normal;
+            font-family: serif;
+            font-size: 40px;
+            line-height: normal;
+            }
+            .modal-open {
+            position: fixed;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            width: 100%;
+            padding-right: 0 !important;
+            }
+            .sweet-alert {
+            position: fixed;
+            overflow: hidden;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            }
+            body.stop-scrolling {
+            height: auto;
+            overflow: auto;
+            }
+            /*END-Bootstrap*/
+            html {
+            font-size: 62.5%;
+            }
+            body {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+            font-family: "Times New Roman (Headings CS)", sans-serif;
+            color: #333;
+            background-color: #fcfcfc; /*background:#333 url("../../../wp-content/uploads/images/bg1.jpg") no-repeat center center fixed; -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover;*/
+            overflow-x: hidden;
+            }
+            h1 {
+            font-size: 40px;
+            font-size: 4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            h2 {
+            font-size: 35px;
+            font-size: 3.5rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            h3 {
+            font-size: 30px;
+            font-size: 3rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            h4 {
+            font-size: 22px;
+            font-size: 2.5rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            h5 {
+            font-size: 20px;
+            font-size: 2rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            h6 {
+            font-size: 18px;
+            font-size: 1.8rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            p {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 10px;
+            }
+            span {
+            font-weight: 700;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #ff0000;
+            }
+            li {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            }
+            label {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            }
+            a {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            text-decoration: none;
+            transition: all 0.2s ease 0s;
+            cursor: pointer;
+            }
+            input,
+            textarea,
+            select,
+            select option,
+            button {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            margin-bottom: 15px;
+            }
+            section table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            padding: 0;
+            margin: 0 0 30px;
+            }
+            section table tr td {
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-weight: normal;
+            line-height: normal;
+            font-style: normal;
+            font-variant: normal;
+            font-family: "Times New Roman (Headings CS)";
+            color: #333;
+            padding: 1px 1px;
+            margin: 0;
+            border: 1px solid #333;
+            }
+            .btn1,
+            .btn1:focus,
+            .btn1:active {
+            font-family: "Times New Roman (Headings CS)";
+            font-size: 14px;
+            font-size: 1.4rem;
+            background: none;
+            background-image: none;
+            text-align: center;
+            border-radius: 5px;
+            color: #fcfcfc;
+            background-color: #00a65a;
+            transition: all 0.5s ease 0s;
+            display: inline-block;
+            border: 1px solid transparent;
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            line-height: 1.42857143;
+            }
+            .btn1:hover {
+            background-color: #2f3952;
+            border-color: #fcfcfc;
+            color: #fcfcfc;
+            }
+            .btn2 {
+            background-color: #edeeef;
+            color: #222d32;
+            }
+            .btn2:hover {
+            background-color: #222d32;
+            color: #edeeef;
+            }
+            .btn3 {
+            background-color: #2f3952;
+            color: #fcfcfc;
+            }
+            .btn3:hover {
+            background-color: #fcfcfc;
+            color: #2f3952;
+            border-color: #2f3952;
+            }
+            .btn4 {
+            background-color: #00c0ef;
+            }
+            .btn4:hover {
+            background-color: #fcfcfc;
+            color: #2f3952;
+            border-color: #2f3952;
+            }
+            div.center {
+            text-align: center;
+            }
+            .e404 h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            }
+            .e404 p {
+            text-align: center;
+            margin-bottom: 30px;
+            }
+            .gototop {
+            display: none;
+            position: fixed;
+            overflow: hidden;
+            text-align: center;
+            z-index: 999;
+            background-color: #ddd;
+            color: #fcfcfc;
+            width: 45px;
+            line-height: 45px;
+            right: 25px;
+            bottom: 90px;
+            border-radius: 50%;
+            cursor: pointer;
+            }
+            .gototop:hover {
+            background-color: #837e7e;
+            color: #fcfcfc;
+            }
+            .search {
+            background-color: #f2f2f2;
+            }
+            .search h6 {
+            color: #0c4d9f;
+            }
+            .search p {
+            color: #333;
+            font-size: 14px;
+            }
+            .container-fluid {
+            width: 946px;
+            margin: 0 auto;
+            }
+            /*my work*/
+            section table {
+            border: none;
+            }
+            section table tr td {
+            border: none;
+            }
+            /* radio button */
+            .sec1 .inputGroup {
+            background-color: #fff;
+            display: block;
+            margin: 3px 0;
+            position: relative;
+            }
+            .sec1 .inputGroup label {
+            padding: 0 8px;
+            width: 100%;
+            display: block;
+            text-align: left;
+            color: #3c454c;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 200ms ease-in;
+            overflow: hidden;
+            }
+            .sec1 .inputGroup label:before {
+            width: 5px;
+            height: 5px;
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            opacity: 0;
+            z-index: -1;
+            }
+            .sec1 .inputGroup label:after {
+            width: 32px;
+            height: 32px;
+            content: "";
+            border: 2px solid #d1d7dc;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+            background-repeat: no-repeat;
+            background-position: 2px 3px;
+            z-index: 2;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: all 200ms ease-in;
+            }
+            .sec1 .inputGroup input:checked ~ label {
+            color: #333;
+            }
+            .sec1 .inputGroup input:checked ~ label:before {
+            transform: translate(-10%, -10%) scale3d(56, 56, 1);
+            opacity: 1;
+            }
+            .sec1 .inputGroup input:checked ~ label:after {
+            background-color: #5562eb;
+            border-color: #5562eb;
+            }
+            .sec1 .inputGroup input {
+            width: 32px;
+            height: 32px;
+            order: 1;
+            z-index: 2;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            visibility: hidden;
+            }
+            /* radio button */
+            strong {
+            font-weight: 700;
+            }
+            /* .flex{height:1300px; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden;} */
+            .flex2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            }
+            .border9 {
+            margin: 0 0 30px;
+            position: relative;
+            }
+            .border9:before {
+            position: absolute;
+            background: #ffffff;
+            height: 3px;
+            content: "";
+            width: 210px;
+            bottom: -3px;
+            left: 0;
+            }
+            .input {
+            margin: 0;
+            }
+            .sec1 {
+            border-top: 0px solid #ffffff;
+            padding: 0px 0 0;
+            }
+            .sec1 .b p {
+            text-align: right;
+            margin: 0;
+            }
+            .sec1 .b p:first-child {
+            font-weight: 700;
+            }
+            .sec1 .b p:nth-of-type(2) {
+            font-weight: 700;
+            }
+            .sec1 .bg {
+            background-color: #d8d8d8;
+            }
+            .sec1 .bg2 {
+            background-color: #d8d8d8;
+            color: #ff0000;
+            }
+            .sec1 span {
+            font-size: 20px;
+            }
+            .sec1 input[type="text"] {
+            margin: 0;
+            width: 100%;
+            }
+            .sec1 .main img {
+            height: 946px;
+            width: 100%;
+            object-fit: cover;
+            display: none;
+            }
+            .sec1 .main {
+            position: relative;
+            }
+            .sec1 .main .i1 {
+            padding-top: 72px;
+            /* position: absolute; */
+            width: 100%;
+            outline: none;
+            border: none;
+            text-align: center;
+            }
+            .sec1 .main .i2 {
+            padding-top: 40px;
+            /* position: absolute; */
+            width: 100%;
+            /* padding: 0px 20px; */
+            outline: none;
+            border: none;
+            text-align: center;
+            background-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            font-weight: 600;
+            font-size: 22px;
+            }
+            .sec1 .main .agent {
+            padding-top: 310px;
+            /* position: absolute; */
+            width: 100%;
+            padding-bottom: 100px;
+            }
+            .sec1 .main .agenti img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 6px solid #ffffff !important;
+            display: inline-block !important;
+            }
+            /* .sec1 .main .agent .i3 {
+            background-color: transparent;
+            position: absolute;
+            width: 420px;
+            outline: none;
+            border: none;
+            text-align: left;
+            margin-top: 30px;
+            top: 0;
+            left: 0;
+            margin-left: 204px;
+            }
+            .sec1 .main .agent .i4 {
+            background-color: transparent;
+            position: absolute;
+            width: 420px;
+            outline: none;
+            border: none;
+            text-align: left;
+            margin-top: 62px;
+            top: 0;
+            left: 0;
+            margin-left: 200px;
+            } */
+            .sec1 .main .i5 {
+            min-width: 80px;
+            max-width: 250px;
+            }
+            .sec1 .main .i6 {
+            min-width: 80px;
+            max-width: 250px;
+            }
+            .sec1 .main .i8 {
+            min-width: 80px;
+            max-width: 250px;
+            }
+            /* https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/5304/justlisted.jpeg&group=2677&module=1&watermarktype=Default&position=0  https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxLzI0LmpwZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LkNlbnRlcg==.watermark     https://img.goyzer.com/images/watermark.aspx?imageurl=/uf/2677/unit/5220/3.jpg&group=2677&module=3&watermarktype=Default&position=Center*/
+            #content{
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            }
+        </style>
+    </head>
+    <body style="margin: 0px; padding: 0px; background-color: #f4f4f4;">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" style="font-family: Arial, sans-serif; background-color: #ffffff; background-size: cover; background-position: center center; background-repeat: no-repeat; margin: 20px auto; border-collapse: collapse;">
+            <tbody>
+                <tr>
+                    <td align="center">
+                    <!-- Outer Container -->
+                    <table width="1000" cellspacing="0" cellpadding="0" border="0" style="background-color: #ffffff; margin: 20px auto; border-collapse: collapse;">
+                        <tbody style="position: relative;">
+                          <tr>
+                            <td>
+                              <div style="position: relative;">
+                                <div><img style="height: 918px;object-fit: cover;" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81NDI4L1doYXRzQXBwX0ltYWdlXzIwMjQtMTItMTFfYXRfMTZfMzhfMjktM2FkNDNiMzUuanBnLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuQ2VudGVy.watermark"/></div>
+                                <div style="position: absolute;top:0px;left:0px;"><span style="background-color: #fffb00; padding: 10px 32px; display: inline-block; margin-left: 50px;">Just {{Unit Status}}</span><img src="{{QR Code Sale URL}}" alt="QR Code" style="width: 70px; height: 70px; border-radius: 4px;" /><span></span></div>
+                                <div style="position: absolute;top:0px;left:0px;">{{Community}}</div>
+                              </div>
+                            </td>
+                          </tr>
+                            <tr style="position: absolute;top: 59px;left: 190px;">
+                                <td style="text-align: center; font-size: 22px; font-weight: bold;">
+                                
+                                </td>
+                                <td style="text-align: right; padding: 10px;">
+                                
+                                </td>
+                            </tr>
+                            <tr style="position: absolute;top: 128px;left: 277px;">
+                                <td colspan="2" style="text-align: center; font-size: 22px; color: #ffffff; text-shadow: rgba(0, 0, 0, 0.82) 2px 2px 4px; padding: 10px;">
+                               
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center; padding: 20px;">
+                                <a href="{{FloorPlan1URL}}" target="_blank" style="visibility: hidden;">
+                                <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81NDI4L1doYXRzQXBwX0ltYWdlXzIwMjQtMTItMTFfYXRfMTZfMzhfMjktM2FkNDNiMzUuanBnLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuQ2VudGVy.watermark" alt="{{Floor Plan 1 Title}}" style="width: 100%; max-width: 560px; border: none;" />
+                                </a>
+                                </td>
+                            </tr> 
+                             <tr>
+                                <td colspan="2" style="text-align: center; padding: 20px 10px; color: #ffffff;">
+                                <table cellspacing="0" cellpadding="5" border="0" style="width: 100%; max-width: 500px; margin: 0px auto; text-align: center;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                            <img src="{{Listing Agent Picture}}" alt="Agent Picture" style="width: 100px; height: 100px; border-radius: 50%;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size: 22px; font-weight: bold; color: white; font-family: 'Playfair Display', serif;">
+                                            {{Listing Agent Name}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size: 18px; color: white;">
+                                            {{Listing Agent Designation}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            <img src="{{Listing Agent Picture}}" alt="Agent Picture" style="width: 100px; height: 100px; border-radius: 50%;" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="color: white; padding: 20px 10px 50px;" cellspacing="0" cellpadding="10" border="0">
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

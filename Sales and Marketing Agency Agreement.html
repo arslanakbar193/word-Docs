@@ -1,0 +1,2342 @@
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tenanacy Agreement</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      :root {
+        --color: #3796c6;
+        --whitecolor: #fff !important;
+        --backgroundcolor: #15eb52;
+        --bodybackground: #e2e2e2;
+      }
+      /* Area Variable - Black */
+
+      * {
+        font-family: "poppins" !important;
+        font-size: 16px !important;
+      }
+
+      .no-focus:focus {
+        outline: none;
+      }
+      .header-text {
+        padding: 3rem 3rem;
+      }
+      .icons-content {
+        margin: 3rem 0rem;
+      }
+      .gradient-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 42%;
+        padding: 20px;
+        /* background: linear-gradient(to right, rgb(0 0 0 / 79%), transparent); */
+        background: linear-gradient(
+          to right,
+          #2f3433 32%,
+          rgba(47, 52, 51, 0.8) 50%,
+          transparent 100%
+        );
+        color: white !important;
+        font-size: 2em;
+        text-align: left;
+        font-family: "IvyModeRegular";
+      }
+      #generatePDF {
+        background-color: #2f3433;
+        border: none;
+        color: #fff !important;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 7px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        outline: none;
+        margin-left: 12px;
+        font-family: "Raleway", sans-serif;
+      }
+      #generatePDF:focus {
+        outline: none;
+      }
+      .profile-image {
+        padding: 60px 0px;
+      }
+      #loading {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border: 1px solid #ffe740;
+        border-radius: 10px;
+        background-color: #ffe740;
+        font-weight: 600;
+        z-index: 1;
+      }
+      button#PrintLayoutButton {
+        display: none;
+      }
+      .aminities-left ul li {
+        border-right: 1px solid #57c4bf !important;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .property-address {
+        padding: 100px 0px 15px 0px;
+        text-transform: uppercase;
+      }
+      .footer h3 img {
+        width: 124px;
+        height: 120px;
+      }
+      .cb:after {
+        content: "";
+        height: 20px;
+        width: 2px;
+        position: absolute;
+        right: -40px;
+        background-color: #dfdfdf;
+      }
+      .profile-image img {
+        border-radius: 50%;
+        border: 4px solid #fff !important;
+        width: 200px;
+        height: 200px;
+      }
+      #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .logo-image {
+        padding-top: 52px;
+        padding-bottom: 80px;
+      }
+      .flex-section {
+        padding-bottom: 45px;
+      }
+      .pr-c {
+        padding-right: 16px;
+      }
+      .flex {
+        display: flex;
+      }
+      .pr-4 {
+        padding-right: 10px;
+      }
+      .image-d {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .image-m {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .pdf-setting .image-a {
+        height: 550px;
+        object-fit: cover;
+      }
+      .pdf-setting .description {
+        height: 545px;
+      }
+      .pdf-setting .image-b {
+        height: 569px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-c {
+        height: 571px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-l {
+        height: 571.1px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-d {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 0px;
+      }
+      .pdf-setting .image-m {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 1px;
+      }
+      .pdf-setting .image-e {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-f {
+        height: 565.5px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-g {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-h {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-i {
+        height: 564px;
+        object-fit: cover;
+      }
+      .pdf-setting .aveen {
+        padding-top: 80px;
+      }
+      .pdf-setting .aveenN {
+        padding-top: 30px;
+      }
+      .pdf-setting .image-last {
+        padding-top: 40px;
+        height: 580px;
+        object-fit: cover;
+      }
+      .pdf-setting .property-address {
+        padding: 60px 0px 25px 0px;
+      }
+      .pdf-setting .logo-image {
+        padding-top: 30px;
+        padding-bottom: 164.6px;
+      }
+      .flex-maintain1 {
+        float: left;
+        width: 100%;
+      }
+      .flex1 {
+        float: left;
+        width: 100%;
+      }
+      .ls {
+        width: 300px;
+        float: left;
+        text-align: left;
+      }
+      .lsc {
+        width: 100px;
+        float: left;
+      }
+      .rsc {
+        width: 87%;
+        float: left;
+      }
+      .ls2 {
+        width: 50px;
+        float: left;
+        text-align: left;
+      }
+      .rs2 {
+        width: 440px;
+        float: left;
+        text-align: left;
+      }
+      .rs {
+        width: 496px;
+        float: left;
+        text-align: left;
+      }
+      .rs2.rs3 {
+        width: 100%;
+      }
+      /* .page2-content > div > h2 {
+      margin-bottom: 80px !important;
+      } */
+      .pdf-setting .flex-section {
+        padding-bottom: 60px;
+      }
+      .page2-content td:first-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:first-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td:last-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:last-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td {
+        line-height: 30px;
+
+        padding-left: 26px;
+      }
+      .page2-content td:first-child table tbody tr td:first-child {
+        display: none;
+      }
+      .page2-content td:last-child table tbody tr td:first-child {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sec1" style="float: left; width: 100%">
+      <div
+        class="container"
+        style="max-width: 800px; margin: auto"
+        id="content"
+      >
+        <div class="page1-content">
+          <div style="padding-bottom: 30px; text-align: center">
+            <div
+              style="font-weight: 500; text-align: center"
+              class="property-address"
+            >
+              <img
+                src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yOTAxL2Nyb3AucG5nLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuQ2VudGVy.watermark"
+                alt="no-img"
+              />
+            </div>
+            <div
+              style="
+                font-size: 40px !important;
+                padding-bottom: 30px;
+                text-align: center;
+                padding-top: 300px;
+                font-weight: 400;
+              "
+              class="playfai"
+            >
+              SALES AND PROPERTY <br />
+              MARKETING AGENCY AGREEMENT
+            </div>
+            <div
+              style="
+                font-size: 24px !important;
+                padding-bottom: 30px;
+                font-weight: 400;
+                text-align: center;
+                padding-top: 300px;
+              "
+              class="playfai"
+            >
+              BETTER HOMES LLC (“PRINCIPAL”)
+            </div>
+            <div
+              style="
+                font-size: 24px !important;
+                padding-bottom: 30px;
+                font-weight: 400;
+                text-align: center;
+              "
+              class="playfai"
+            >
+              AND
+            </div>
+            <div
+              style="
+                font-size: 24px !important;
+                padding-bottom: 300px;
+                font-weight: 400;
+              "
+              class="playfai"
+            >
+              <span
+                style="
+                  width: 200px;
+                  border-bottom: 1px solid #000;
+                  display: inline-block;
+                  text-align: left;
+                "
+                contenteditable="true"
+                class="no-focus"
+              ></span>
+              <span style="font-size: 24px !important">("SUB-AGENT")</span>
+            </div>
+          </div>
+        </div>
+        <div class="page2-content">
+          <div
+            contenteditable="true"
+            style="font-size: 24px; padding-bottom: 30px; text-align: left"
+            class="no-focus"
+          >
+            THIS AGREEMENT is made on [Date]
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 30px"
+            class="playfai"
+          >
+            PARTIES
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">(1)</div>
+              <div style="text-align: left">
+                BETTER HOMES LLC, a limited liability company with commercial
+                registration no. 223306 duly incorporated in Dubai whose
+                registered office is at P.O. Box 29726, Dubai, United Arab
+                Emirates (Principal); and
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">(2)</div>
+              <div style="text-align: left" class="no-focus">
+                , a limited liability company with commercial registration no.
+                [insert no] duly incorporated in Dubai whose registered office
+                is at [insert address] (Agent), represented by (insert name,
+                contact number and email address)
+              </div>
+            </div>
+          </div>
+
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            (each of the Principal and the Agent being a party and together the
+            Principal and the Agent are the parties)
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            PREAMBLE
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 30px"
+            class="playfai"
+          >
+            Whereas the Principal has been appointed Exclusive Sale Agent for
+            the sale of units in California Village, Dubai, United Arab Emirates
+            (The Project)
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            The Principal is a duly licensed and regulated property brokerage
+            and management firm providing its services to the real estate sector
+            in the United Arab Emirates and in particular the exclusive agent
+            for the Project.
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            The Agent is also a duly licensed and regulated property brokerage
+            firm providing its services to the real estate sector in the United
+            Arab Emirates.
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            The Principal wishes to further appoint the Agent as its sub-agent
+            for the marketing of the Project, under the terms of this Agreement
+            to prospective buyers and investors.
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            The Agent has agreed to market the Project on the Principal’s behalf
+            pursuant to the terms of this Agreement.
+          </div>
+          <div
+            contenteditable="true"
+            style="text-align: left; padding-bottom: 20px"
+            class="playfai"
+          >
+            THE PARTIES AGREE:
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">1.</div>
+              <div style="text-align: left">Definitions and interpretation</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">1.1</div>
+              <div style="text-align: left">
+                In this Agreement, unless otherwise provided:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">AED</div>
+              <div class="rs" style="text-align: left">
+                means UAE Dirhams, the lawful currency of the UAE;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">Agreement</div>
+              <div class="rs" style="text-align: left">
+                means the main body of this Agreement, its schedules and
+                appendices, as each may be amended from time to time in
+                accordance with their terms;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="pr-4 ls" style="padding-left: 38px">
+                Commencement Date
+              </div>
+              <div class="rs" style="text-align: left">
+                means the date of this Agreement;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">
+                Confidential Information
+              </div>
+              <div class="rs" style="text-align: left">
+                means any information that the Agent has or acquires that is
+                confidential in nature concerning the Principal, including all
+                know-how, trade secrets, financial, commercial, technical,
+                tactical or strategic information of any kind, information
+                relating to its business, affairs, plans, customers, clients,
+                suppliers and products or any of the foregoing in respect of any
+                Affiliate of the Principal;/div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">
+                Data Protection Laws
+              </div>
+              <div class="rs" style="text-align: left">
+                means any applicable law relating to the processing, privacy
+                and/or use of Personal Data, as applicable to either party,
+                including:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(a)</div>
+                <div class="rs2">
+                  the UAE Federal Decree-Law No. 45 of 2021 on the Protection of
+                  Personal Data;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-top: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(b)</div>
+                <div class="rs2">
+                  the UAE Federal Decree-Law No. 31 of 2021 (UAE Penal Code);
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 20px; padding-bottom: 10px"
+          >
+            <div class="flex" style="justify-content: center">1</div>
+          </div>
+        </div>
+
+        <div class="page3-content">
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-top: 20px">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(c)</div>
+                <div class="rs2">
+                  the UAE Federal Law No. 15 of 2020 on Consumer Protection;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-top: 20px">
+            <div class="flex1" style="padding-bottom: 10px">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(d)</div>
+                <div class="rs2">any laws which implement any such laws;</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-top: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(e)</div>
+                <div class="rs2">
+                  any laws that replace, extend, re-enact, consolidate or amend
+                  any of the foregoing; and
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-top: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(e)</div>
+                <div class="rs2">
+                  any laws that replace, extend, re-enact, consolidate or amend
+                  any of the foregoing; and
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain1"
+            style="clear: both; padding-top: 20px; padding-bottom: 20px"
+          >
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="rs2 rs3">
+                  all guidance, guidelines and codes of practice issued by any
+                  relevant UAE Data Office relating to such Data Protection Laws
+                  (in each case whether or not legally binding);
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">
+                Force Majeure
+              </div>
+              <div style="text-align: left" class="rs">
+                has the meaning given in clause 15;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">
+                Intellectual Property
+              </div>
+              <div style="text-align: left" class="rs">
+                means copyright, patents, know-how, trade secrets, trade marks,
+                trade names, design rights, rights in get-up, database rights,
+                chip topography rights, mask works, utility models, domain names
+                and all similar rights and, in each case:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-bottom: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(a)</div>
+                <div class="rs2">whether registered or not;</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-bottom: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(b)</div>
+                <div class="rs2">
+                  including any applications to protect or register such rights;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-bottom: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(c)</div>
+                <div class="rs2">
+                  including all renewals and extensions of such rights or
+                  applications;
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-bottom: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(d)</div>
+                <div class="rs2">whether vested, contingent or future; and</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both; padding-bottom: 20px">
+            <div class="flex1" style="">
+              <div class="ls pr-4" style="height: 1px"></div>
+              <div style="text-align: left" class="rs">
+                <div class="ls2">(e)</div>
+                <div class="rs2">wherever existing;</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">SPA</div>
+              <div style="text-align: left" class="rs">
+                means the sale and purchase agreement for the Property signed by
+                the Purchaser and Developer, as amended from time to time and
+                provided by the Principal to the Agent
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="ls pr-4" style="padding-left: 38px">Term</div>
+              <div style="text-align: left" class="rs">
+                has the meaning given in clause 2;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="ls pr-4" style="padding-left: 38px">Territory</div>
+              <div style="text-align: left" class="rs">
+                means the countries, territories or areas specified in Schedule
+                1;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="ls pr-4" style="padding-left: 38px">UAE</div>
+              <div style="text-align: left" class="rs">
+                means the United Arab Emirates;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="ls pr-4" style="padding-left: 38px">VAT</div>
+              <div style="text-align: left" class="rs">
+                means value added tax, as prescribed under the UAE Federal
+                Decree-Law No. 8 of 2017 on Value Added Tax and any equivalent
+                or similar tax; and
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 15px">
+              <div class="pr-4">1.2</div>
+              <div style="text-align: left">In this Agreement:</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="lsc pr-4" style="padding-left: 43px">1.2.1</div>
+              <div style="text-align: left" class="rsc">
+                the background section and any clause, schedule or other
+                headings in this Agreement are included for convenience only and
+                shall have no effect on the interpretation of this Agreement;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="lsc pr-4" style="padding-left: 43px">1.2.2</div>
+              <div style="text-align: left" class="rsc">
+                a reference to a ‘party’ includes that party’s personal
+                representatives, successors and permitted assigns;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="lsc pr-4" style="padding-left: 43px">1.2.3</div>
+              <div style="text-align: left" class="rsc">
+                a reference to a ‘person’ includes a natural person, corporate
+                or unincorporated body (in each case whether or not having
+                separate legal personality) and that person’s personal
+                representatives, successors and permitted assigns;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 15px">
+              <div class="lsc pr-4" style="padding-left: 43px">1.2.4</div>
+              <div style="text-align: left" class="rsc">
+                a reference to a ‘company’ includes any company, corporation or
+                other body corporate, wherever and however incorporated or
+                established;
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 15px; padding-bottom: 0px"
+          >
+            <div class="flex" style="justify-content: center">2</div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 38px">1.2.5</div>
+              <div style="text-align: left" class="rsc">
+                a reference to a gender includes each other gender;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 38px">1.2.6</div>
+              <div style="text-align: left" class="rsc">
+                words in the singular include the plural and vice versa;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 38px">1.2.7</div>
+              <div style="text-align: left" class="rsc">
+                any words that follow ‘include’, ‘includes’, ‘including’, ‘in
+                particular’ or any similar words and expressions shall be
+                construed as illustrative only and shall not limit the sense of
+                any word, phrase, term, definition or description preceding
+                those words;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 38px">1.2.8</div>
+              <div style="text-align: left" class="rsc">
+                a reference to ‘writing’ or ‘written’ includes any method of
+                reproducing words in a legible and nontransitory form;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 38px">1.2.9</div>
+              <div style="text-align: left" class="rsc">
+                a reference to any legislation or legislative provision is a
+                reference to it as amended, extended, reenacted or consolidated
+                from time to time except to the extent that any such amendment,
+                extension or re-enactment would increase or alter the liability
+                of a party under this Agreement.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 29px">2.</div>
+              <div style="text-align: left">Commencement and term</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">2.1</div>
+              <div style="text-align: left">
+                This Agreement shall commence on the Commencement Date and
+                (subject to earlier termination pursuant to clauses 10 or 15)
+                shall continue until written notice to terminate of not less
+                than one month for each Year (subject to a maximum of three
+                months) has been given by either party to the other (Term).
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 29px">3.</div>
+              <div style="text-align: left">Appointment and scope</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">3.1</div>
+              <div style="text-align: left">
+                The Principal appoints the Agent as its non-exclusive agent for
+                the marketing of properties in the Project in the Territory for
+                the Term, and the Agent accepts that appointment, on and subject
+                to the terms of this Agreement.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">3.2</div>
+              <div style="text-align: left">
+                The Principal shall be entitled to, at any time, during the
+                Term, appoint any other person as agent for the marketing of the
+                Project in the Territory.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">3.3</div>
+              <div style="text-align: left">
+                The Agent shall have the authority to market to and negotiate
+                and obtain orders from, but not execute or otherwise conclude
+                contracts with, Customers for sales of properties in the
+                Project.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 33px">4</div>
+              <div style="text-align: left">
+                Rights and duties of the Principal
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">4.1</div>
+              <div style="text-align: left">
+                Throughout the Term the Principal shall:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 46px">4.1.1</div>
+              <div style="text-align: left" class="rsc">
+                act dutifully and in good faith towards the Agent;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 46px">4.1.2</div>
+              <div style="text-align: left" class="rsc">
+                supply the Agent with promotional, marketing and sales materials
+                to the extent the Principal (acting reasonably) considers these
+                to be required for the Agent to be able to appropriately market
+                the Project in the Territory;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 30px">
+              <div class="lsc pr-4" style="padding-left: 46px">4.1.3</div>
+              <div style="text-align: left" class="rsc">
+                provide the Agent with such information as is reasonably
+                required to verify commissions
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">4.2</div>
+              <div style="text-align: left">
+                The Principal has right to accept or reject any offers made by
+                Purchasers introduce by the Agent.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">4.3</div>
+              <div style="text-align: left">
+                The Principal shall inform the Agent, within a reasonable time,
+                whether it accepts, refuses or otherwise intends not to execute
+                an SPA with any Customer the Agent has procured for the
+                Principal.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="cpr" style="padding-right: 38px">5</div>
+              <div style="text-align: left">Rights and duties of the Agent</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="cpr" style="padding-right: 28px">5.1</div>
+              <div style="text-align: left">
+                Throughout the Term the Agent shall:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 30px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.1</div>
+              <div style="text-align: left" class="rsc">
+                Accept the engagement of the Principal and will use its best
+                endeavours to secure Purchasers’ for the Project
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 30px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.2</div>
+              <div style="text-align: left" class="rsc">
+                look after the interests of the Principal and act dutifully and
+                in good faith towards the Principal, Customers and prospective
+                customers;
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 20px; padding-bottom: 10px"
+          >
+            <div class="flex" style="justify-content: center">3</div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.3</div>
+              <div style="text-align: left" class="rsc">
+                comply with the Principal’s instructions in relation to the
+                marketing of the Project and otherwise in its dealings with
+                Customers and prospective customers and shall comply with all
+                policies of the Principal as the Principal may notify to the
+                Agent from time to time;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.4</div>
+              <div style="text-align: left" class="rsc">
+                conduct all necessary Anti Money Laundering checks, including
+                complete KYC checks, against all Purchasers introduced to the
+                Project.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.5</div>
+              <div style="text-align: left" class="rsc">
+                comply with relevant laws and regulations, and obtain and
+                maintain all licences, permits, consents, approvals and
+                registrations as may from time to time be necessary for the
+                marketing of the Project and generally in its performance of
+                this Agreement. The Agent shall indemnify the Principal against
+                any and all liabilities incurred by the Principal as a result of
+                any breach by the Agent of this clause 5.1.5;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.6</div>
+              <div style="text-align: left" class="rsc">
+                maintain an up to date and accurate list of Customers and
+                prospective customers and send it to the Principal promptly on
+                request;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.7</div>
+              <div style="text-align: left" class="rsc">
+                not make any statement or give any representation, warranty or
+                guarantee in respect of the Project;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.8</div>
+              <div style="text-align: left" class="rsc">
+                only use marketing, promotional or sales materials supplied or
+                otherwise approved in writing by the Principal ;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.9</div>
+              <div style="text-align: left" class="rsc">
+                pay all expenses incurred by it in connection with its
+                performance of its obligations under this Agreement and, at its
+                own expense, maintain such of its own systems, facilities,
+                offices, storage premises, sales outlets and other premises, in
+                each case as are reasonably required to effectively perform its
+                obligations under this Agreement;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.1.10</div>
+              <div style="text-align: left" class="rsc">
+                comply with the reasonable instructions of the Principal in
+                connection with any dispute, claims or proceedings in connection
+                with the Project or any Customer, but shall not otherwise be
+                involved in or take any action in connection with any such
+                dispute, claims or proceedings other than with the prior written
+                consent of the Principal; and
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">5.2</div>
+              <div style="text-align: left">
+                The obligations of the Agent under clause 5.1 are in addition,
+                and without prejudice, to the further record keeping and
+                reporting obligations of the Agent (and audit rights of the
+                Principal)
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">5.3</div>
+              <div style="text-align: left">
+                Throughout the Term the Agent shall not:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.3.1</div>
+              <div style="text-align: left" class="rsc">
+                give any representations on behalf of or in the name of the
+                Developer
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.3.2</div>
+              <div style="text-align: left" class="rsc">
+                claim to be acting as an employee of, or on behalf of, the
+                Principal or the Developer
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.3.3</div>
+              <div style="text-align: left" class="rsc">
+                sign an agreement for the sale of any units in the Project
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">5.3.4</div>
+              <div style="text-align: left" class="rsc">
+                receive any money in the name of the Developer or the Principal
+                for the sale of any unit in the Project
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 34px">6</div>
+              <div style="text-align: left">Commission</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">6.1</div>
+              <div style="text-align: left">
+                The Principal shall pay to the Agent a commission of 2% of the
+                net sale price for any successful sale concluded in the Project
+                to a Purchaser introduced by the Agent.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">6.2</div>
+              <div style="text-align: left">
+                The Agent will not be entitled to a commission where the
+                Purchaser was (i) not introduced by the Agent or (ii) the
+                Principal was already in touch with the Purchaser for the
+                purpose of sales in the Project.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">6.3</div>
+              <div style="text-align: left">
+                The Principal will pay the Agent within 60 days of receiving the
+                commission invoice, ensuring the following have been complete:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">6.3.1</div>
+              <div style="text-align: left" class="rsc">
+                SPA is signed between the Purchaser and the Developer
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">6.3.2</div>
+              <div style="text-align: left" class="rsc">
+                All payments have been made by the Purchaser, including the 15%
+                initial payment, 4% DLD fee and the administration fee
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">6.3.3</div>
+              <div style="text-align: left" class="rsc">
+                The unit is registered under the Dubai Land Department
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 20px; padding-bottom: 10px"
+          >
+            <div class="flex" style="justify-content: center">4</div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">6.3.4</div>
+              <div style="text-align: left" class="rsc">
+                The Agent has raised the invoice to claim the commission from
+                the Principal
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">6.3.5</div>
+              <div style="text-align: left" class="rsc">
+                The Principal has received the commission for the sale of the
+                specific unit from the developer
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">6.3.6</div>
+              <div style="text-align: left" class="rsc">
+                All Anti Money Laundering (AML) and Know Your Customer (KYC)
+                documents have been completed and received by the Principal
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">6.4</div>
+              <div style="text-align: left">
+                All commissions are calculated plus VAT.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">6.5</div>
+              <div style="text-align: left">
+                The Principal and the Developer may at times change the
+                commission structure and will inform the Agent in writing of the
+                same.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 37px">7</div>
+              <div style="text-align: left">Intellectual property</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">7.1</div>
+              <div style="text-align: left">
+                The Agent acknowledges and agrees that:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.1.1</div>
+              <div style="text-align: left" class="rsc">
+                the Intellectual Property provided to the Agent by or on behalf
+                of the Principal and all goodwill associated with that and/or
+                the Principal’s business; and
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.1.2</div>
+              <div style="text-align: left" class="rsc">
+                the Intellectual Property in any materials created or developed
+                by or on behalf of the Agent in connection with this Agreement,
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div
+                class="lsc pr-4"
+                style="padding-left: 38px; height: 1px"
+              ></div>
+              <div style="text-align: left" class="rsc">
+                are the property of the Principal (Principal’s Intellectual
+                Property) and that the Agent has no right in any of it.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">7.2</div>
+              <div style="text-align: left">The Agent shall:</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.2.1</div>
+              <div style="text-align: left" class="rsc">
+                use the Principal’s Intellectual Property only in accordance
+                with the Principal’s instructions and for the purposes of, and
+                during the Term of, this Agreement;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.2.2</div>
+              <div style="text-align: left" class="rsc">
+                not take or omit to take or authorise any action or omission
+                whereby any of the Principal’s Intellectual Property or the
+                Principal’s ownership of it might be jeopardised or invalidated;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.2.3</div>
+              <div style="text-align: left" class="rsc">
+                not use any trade marks, trade names, logos or other branding on
+                or in connection with the Project in the Territory other than as
+                previously approved by the Principal in writing;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.2.4</div>
+              <div style="text-align: left" class="rsc">
+                not remove or alter any trade marks, trade names, logos or other
+                branding or identification marks that have been included on or
+                with the Project and/or their marketing;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 46px">7.2.5</div>
+              <div style="text-align: left" class="rsc">
+                immediately inform the Principal of any actual or threatened
+                infringement of the Principal’s Intellectual Property of which
+                it becomes aware; and
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="cpr" style="padding-right: 32px">8</div>
+              <div style="text-align: left">Data protection</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">8.1</div>
+              <div style="text-align: left">
+                Each party agrees that, in the performance of their respective
+                obligations under this Agreement, it shall comply with the
+                provisions of the Data Protection Laws.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="cpr" style="padding-right: 32px">9</div>
+              <div style="text-align: left">Confidentiality</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">9.1</div>
+              <div style="text-align: left">
+                The Agent agrees that it may use the Confidential Information
+                only in the exercise of its rights and performance of its
+                obligations under this Agreement and that during the Term and
+                thereafter it shall not use or disclose the Confidential
+                Information except in accordance with this clause 9.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">9.2</div>
+              <div style="text-align: left">
+                The Agent may disclose the Confidential Information:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 48px">9.2.1</div>
+              <div style="text-align: left" class="rsc">
+                to those of its employees, officers, professional advisers or
+                representatives who need to know the Confidential Information in
+                order to exercise the Agent’s rights and perform its obligations
+                under this Agreement, provided that the Agent shall ensure that
+                each of its employees, officers, professional advisers or
+                representatives to whom such Confidential Information is
+                disclosed is aware of its confidential nature and complies with
+                this clause 9 as if it were a party; and
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 20px; padding-bottom: 10px"
+          >
+            <div class="flex" style="justify-content: center">5</div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 48px">9.2.2</div>
+              <div style="text-align: left" class="rsc">
+                to the extent required by law, to any court, any governmental,
+                regulatory or supervisory authority (including any recognised
+                investment exchange) or any other authority of competent
+                jurisdiction.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">9.3</div>
+              <div style="text-align: left">
+                The Agent shall indemnify and keep indemnified and hold harmless
+                the Principal from and against any losses, damages, liability,
+                costs (including legal fees) and expenses which the Princip
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">9.4</div>
+              <div style="text-align: left">
+                Any breach of this clause 9 by the Agent shall be deemed a
+                material breach of this Agreement that is not remediable and
+                entitle the Principal to immediately terminate this Agreement by
+                notice under clause Error! Reference source not found..
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 32px">10</div>
+              <div style="text-align: left">Termination</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">10.1</div>
+              <div style="text-align: left">
+                The Term of this Agreement will be 1 year from the commencement
+                date
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">10.2</div>
+              <div style="text-align: left">
+                The Principal may terminate this Agreement at any time by giving
+                15 days written notice to the Agent for any reason whatsoever.
+                The termination will not prejudice any correct claims made for
+                commission by the Agent under 6 prior to the termination.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">10.3</div>
+              <div style="text-align: left">
+                If the Agent is in breach of this agreement, and the breach is
+                capable of remedy, the Agent shall remedy the breach within 5
+                working days. If the Agent fails to remedy the breach, the
+                Principal will be entitled to the remedy of damages to the value
+                or amount equal to the damages, without the need for court order
+                or legal proceedings
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">10.4</div>
+              <div style="text-align: left">
+                On termination and without prejudice to any additional
+                obligations of the Agent:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-5" style="padding-left: 50px">10.4.1</div>
+              <div style="text-align: left" class="rsc">
+                all rights and licences granted to the Agent under this
+                Agreement shall cease and the Agent shall cease to market the
+                Project;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-5" style="padding-left: 50px">10.4.2</div>
+              <div style="text-align: left" class="rsc">
+                all marketing materials which are or should be in the Agent’s
+                possession shall be returned, or disposed of, by the Agent as
+                instructed by the Principal;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-5" style="padding-left: 50px">10.4.3</div>
+              <div style="text-align: left" class="rsc">
+                the Agent shall return or (at the Principal’s request) destroy
+                all Confidential Information and other property of the Principal
+                then in its possession or control, and certify in writing that
+                this has been done;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-5" style="padding-left: 50px">10.4.4</div>
+              <div style="text-align: left" class="rsc">
+                the Agent shall return or (at the Principal’s request) destroy
+                all marketing, promotional and sales material relating to the
+                Project in its possession or control, and certify in writing
+                that this has been done; and
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">10.5</div>
+              <div style="text-align: left">
+                The provisions of all clauses shall survive termination of this
+                Agreement, however occurring
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 37px">11</div>
+              <div style="text-align: left">Non-Solicitation</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">11.1</div>
+              <div style="text-align: left">
+                The Agent agrees that they shall not enter in to any direct
+                agreement or transaction with the Developer for a period of 12
+                months for the purpose of selling units within the Project.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">11.2</div>
+              <div style="text-align: left">
+                In the event that the Agent does sell any units directly through
+                the Developer, the Principal will be entitled, from the Agent,
+                to an amount equal to the Commission and Marketing Fee agreed
+                between the Principal and Developer in the exclusive sales and
+                marketing agreement.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 34px">12</div>
+              <div style="text-align: left">Limitation of liability</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">12.1</div>
+              <div style="text-align: left">
+                The extent of the parties’ liability under or in connection with
+                this Agreement (regardless of whether such liability arises in
+                tort, contract or in any other way and whether or not caused by
+                negligence or misrepresentation) shall be as set out in this
+                clause 12
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="pr-4">12.2</div>
+              <div style="text-align: left">
+                Notwithstanding any other provision of this Agreement, the
+                liability of the parties shall not be excluded or limited in any
+                way in respect of the following:
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.2.1</div>
+              <div style="text-align: left" class="rsc">
+                death or personal injury caused by negligence;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.2.2</div>
+              <div style="text-align: left" class="rsc">
+                fraud or fraudulent misrepresentation; or
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 20px; padding-bottom: 10px"
+          >
+            <div class="flex" style="justify-content: center">6</div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.2.3</div>
+              <div style="text-align: left" class="rsc">
+                any other losses which cannot be excluded or limited by
+                applicable law.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">12.3</div>
+              <div style="text-align: left">
+                Subject to clause 12.2, the Principal shall not be liable for
+                any consequential, indirect or special loss
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">12.4</div>
+              <div style="text-align: left">
+                Subject to clause 12.2, the Principal shall not be liable for
+                any of the following (whether direct or indirect):
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.1</div>
+              <div style="text-align: left" class="rsc">loss of profit;</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.2</div>
+              <div style="text-align: left" class="rsc">loss of revenue;</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.3</div>
+              <div style="text-align: left" class="rsc">
+                loss or corruption of data;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.4</div>
+              <div style="text-align: left" class="rsc">
+                loss or damage to equipment
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.5</div>
+              <div style="text-align: left" class="rsc">loss of use;</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 20px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.6</div>
+              <div style="text-align: left" class="rsc">
+                loss of production;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.7</div>
+              <div style="text-align: left" class="rsc">loss of contract;</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.8</div>
+              <div style="text-align: left" class="rsc">
+                loss of commercial opportunity;
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.9</div>
+              <div style="text-align: left" class="rsc">
+                harm to reputation or loss of goodwill; or
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain1" style="clear: both">
+            <div class="flex1" style="padding-bottom: 25px">
+              <div class="lsc pr-4" style="padding-left: 50px">12.4.10</div>
+              <div style="text-align: left" class="rsc">
+                wasted expenditure.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 25px">
+              <div class="cpr" style="padding-right: 36px">13</div>
+              <div style="text-align: left">Dispute resolution</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">13.1</div>
+              <div style="text-align: left">
+                Any dispute arising between the parties out of or in connection
+                with this Agreement shall be dealt with in accordance with the
+                provisions of this clause 13.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">13.2</div>
+              <div style="text-align: left">
+                The dispute resolution process may be initiated at any time by
+                either party serving a notice in writing on the other party that
+                a dispute has arisen. The notice shall include reasonable
+                information as to the nature of the dispute
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">13.3</div>
+              <div style="text-align: left">
+                If a dispute has not been resolved within [14] days of
+                notification by the aggrieved party, the matter shall be
+                resolved in accordance with clause 20 and clause 21.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 36px">14</div>
+              <div style="text-align: left">Entire agreement</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">14.1</div>
+              <div style="text-align: left">
+                The parties agree that this Agreement constitutes the entire
+                agreement between them and supersedes all previous agreements,
+                understandings and arrangements between them, whether in writing
+                or oral in respect of its subject matter
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">14.2</div>
+              <div style="text-align: left">
+                Each party acknowledges that it has not entered into this
+                Agreement in reliance on, and shall have no remedies in respect
+                of, any representation or warranty that is not expressly set out
+                in this Agreement.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">14.3</div>
+              <div style="text-align: left">
+                Nothing in this Agreement purports to limit or exclude any
+                liability for fraud
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 36px">15</div>
+              <div style="text-align: left">Variation</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4" style="height: 1px"></div>
+              <div style="text-align: left; padding-left: 25px">
+                No variation of this Agreement shall be valid or effective
+                unless it is in writing, refers to this Agreement and is duly
+                signed or executed by, or on behalf of, each party.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="cpr" style="padding-right: 32px">16</div>
+              <div style="text-align: left">Assignment</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">16.1</div>
+              <div style="text-align: left">
+                The Agent may not assign, sub-contract or encumber any right or
+                obligation under this Agreement, in whole or in part, without
+                the Principal’s prior written consent
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 20px">
+              <div class="pr-4">16.2</div>
+              <div style="text-align: left">
+                The Principal may at any time assign, sub-contract or encumber
+                any right or obligation under this Agreement, in whole or in
+                part.
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex-maintain"
+            style="clear: both; padding-top: 20px; padding-bottom: 10px"
+          >
+            <div class="flex" style="justify-content: center">7</div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4" style="height: 1px"></div>
+              <div style="text-align: left; padding-left: 25px">
+                The parties are independent businesses and are not partners or
+                employer and employee and this Agreement does not establish any
+                joint venture, trust, fiduciary or other relationship between
+                them, other than the contractual relationship expressly provided
+                for in it. The parties are only principal and agent to the
+                extent and in respect of the matters expressly set out in this
+                Agreement. Save as expressly provided for in this Agreement,
+                none of the parties shall have, nor shall represent that they
+                have, any authority to make any commitments on the other party’s
+                behalf.
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="cpr" style="padding-right: 30px">18</div>
+              <div style="text-align: left">Costs and expenses</div>
+            </div>
+          </div>
+
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4"></div>
+              <div
+                style="text-align: left; padding-left: 20px"
+                style="height: 1px"
+              >
+                Each party shall pay its own costs and expenses incurred in
+                connection with the negotiation, preparation, signature and
+                performance of this Agreement (and any documents referred to in
+                it).
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="cpr" style="padding-right: 30px">19</div>
+              <div style="text-align: left">Language</div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">19.1</div>
+              <div style="text-align: left">
+                The language of this Agreement is English. All documents,
+                notices, waivers, variations and other written communications
+                relating to this Agreement shall be in English.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">19.2</div>
+              <div style="text-align: left">
+                If this Agreement and any document relating to it is translated,
+                the English version shall prevail.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="cpr" style="padding-right: 30px">20</div>
+              <div style="text-align: left">Governing law</div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4" style="height: 1px"></div>
+              <div style="text-align: left; padding-left: 24px">
+                This Agreement and any dispute or claim arising out of, or in
+                connection with, it, its subject matter or formation (including
+                non-contractual disputes or claims) shall be governed by, and
+                construed in accordance with, the federal laws of the United
+                Arab Emirates as implemented in the Emirate of Dubai.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">21</div>
+              <div style="text-align: left; padding-left: 10px">
+                Jurisdiction
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4" style="height: 1px"></div>
+              <div style="text-align: left; padding-left: 24px">
+                Subject to clause 13, the parties irrevocably agree that the
+                DIFC (Dubai International Financial Centre) shall have exclusive
+                jurisdiction to settle any dispute or claim arising out of, or
+                in connection with, this Agreement, its subject matter or
+                formation (including non-contractual disputes or claims).
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4">22</div>
+              <div style="text-align: left; padding-left: 10px">Notices</div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4" style="height: 1px"></div>
+              <div style="text-align: left; padding-left: 24px">
+                Any notices given by the Parties may be delivered by hand, by
+                registered post, via a recognised courier or via electronic
+                mail. Notices will be in English and will be deemed received (i)
+                if delivered by hand, a signed deliver receipt, (ii) if
+                delivered through a courier or registered post, upon timed
+                delivery record by the delivery service, or (iii) if via
+                electronic mail, upon receipt of an acknowledgement by the
+                receiver to the sender that the mail has been received.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain" style="clear: both">
+            <div class="flex" style="padding-bottom: 30px">
+              <div class="pr-4"></div>
+              <div style="text-align: left; padding-left: 22px">
+                AGREED by the parties on the date set out at the head of this
+                Agreement
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex"
+            style="
+              justify-content: space-between;
+              border-top: 1px solid;
+              border-left: 1px solid #000;
+              border-right: 1px solid #000;
+            "
+          >
+            <div class="flex">
+              <div style="padding: 12px 20px">Signed by</div>
+              <div
+                class="no-focus"
+                style="width: 200px"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div style="border-left: 1px solid #000;padding-left: 10px;padding-right: 10px;">
+              <div
+                class="no-focus"
+                style="
+                  width: 180px;
+                  border-bottom: 1px dotted #000;
+                  height: 24px;
+                "
+                contenteditable="true"
+              ></div>
+            </div>
+          </div>
+          <div
+            class="flex"
+            style="
+              justify-content: space-between;
+              border-top: 1px solid;
+              border-left: 1px solid #000;
+              border-right: 1px solid #000;
+            "
+          >
+            <div class="flex">
+              <div style="padding: 12px 20px">for and on behalf of</div>
+              <div
+                class="no-focus"
+                style="width: 200px"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div
+              style="
+                width: 201px;
+                border-left: 1px solid #000;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+              "
+            >
+              <div class="no-focus" contenteditable="true" style="height: 24px">
+                Authorised Signatory
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex"
+            style="
+              justify-content: space-between;
+              border-top: 1px solid;
+              border-left: 1px solid #000;
+              border-right: 1px solid #000;
+              border-bottom:1px solid #000;
+            "
+          >
+            <div class="flex">
+              <div style="padding: 12px 20px">Betterhomes LLC</div>
+              <div
+                class="no-focus"
+                style="width: 200px"
+                contenteditable="true"
+              ></div>
+            </div>
+            <div style="display: flex;border-left: 1px solid #000;width:201px">
+              <div class="no-focus" contenteditable="true"></div>
+            </div>
+          </div>
+          <div style="clear: both;padding-top: 30px;padding-bottom: 30px;">And</div>
+          <div
+          class="flex"
+          style="
+            justify-content: space-between;
+            border-top: 1px solid;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+          "
+        >
+          <div class="flex">
+            <div style="padding: 12px 20px">Signed by</div>
+            <div
+              class="no-focus"
+              style="width: 200px"
+              contenteditable="true"
+            ></div>
+          </div>
+          <div style="border-left: 1px solid #000;padding-left: 10px;padding-right: 10px;">
+            <div
+              class="no-focus"
+              style="
+                width: 180px;
+                border-bottom: 1px dotted #000;
+                height: 24px;
+              "
+              contenteditable="true"
+            ></div>
+          </div>
+        </div>
+        <div
+          class="flex"
+          style="
+            justify-content: space-between;
+            border-top: 1px solid;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+          "
+        >
+          <div class="flex">
+            <div style="padding: 12px 20px">for and on behalf of</div>
+            <div
+              class="no-focus"
+              style="width: 200px"
+              contenteditable="true"
+            ></div>
+          </div>
+          <div
+            style="
+              width: 201px;
+              border-left: 1px solid #000;
+              align-items: center;
+              display: flex;
+              justify-content: center;
+            "
+          >
+            <div class="no-focus" contenteditable="true" style="height: 24px">
+              Authorised Signatory
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex"
+          style="
+            justify-content: space-between;
+            border-top: 1px solid;
+            border-left: 1px solid #000;
+            border-right: 1px solid #000;
+            border-bottom:1px solid #000;
+          "
+        >
+          <div class="flex">
+            <div style="padding: 12px 20px">Betterhomes LLC</div>
+            <div
+              class="no-focus"
+              style="width: 200px"
+              contenteditable="true"
+            ></div>
+          </div>
+          <div style="display: flex;border-left: 1px solid #000;width:201px">
+            <div class="no-focus" contenteditable="true"></div>
+          </div>
+        </div>
+
+        <div style="clear: both;padding-top: 30px;padding-bottom: 30px;">8</div>
+
+          
+
+         
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <style>
+            :root {
+            --themecolor: #3497c7;
+            }
+            body,
+            input {
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            }
+            .table-width {
+            width: 100%;
+            border-collapse: collapse;
+            }
+            p {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 14px;
+            }
+            .seticon img {
+            position: relative;
+            top: 3px;
+            margin-right: 8px;
+            }
+            #generatePDF {
+            background-color: #2e2f43;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 7px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            outline: none;
+            }
+            #generatePDF:focus {
+            outline: none;
+            }
+            #loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid #ffe740;
+            border-radius: 10px;
+            background-color: #ffe740;
+            font-weight: 600;
+            z-index: 1;
+            }
+            button#PrintLayoutButton {
+            display: none;
+            }
+            .profile-img img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 130px;
+            width: 130px;
+            }
+            .amin tbody tbody tr td {
+            padding-bottom: 6px;
+            font-weight: 100 !important;
+            }
+            .amin{
+            font-weight: 100 !important;
+            width: 100%;
+            }
+            .amin > table{
+            width:100%;
+            }
+            #map_canvas_view{
+            height: 270px !important;
+            }
+            .btn3{
+            background-color:#2e2f43;
+            border:none;
+            color:#fff;
+            font-weight:bold;
+            border-radius:4px;
+            padding:7px 15px;
+            font-size:14px;
+            cursor:pointer;
+            margin-bottom:10px;
+            margin-left: 10px;
+            outline:none;}
+            button#PrintLayoutButton{display:none;}
+            .container{max-width:1440px !important;}
+        </style>
+    </head>
+    <body data-lt-tmp-id="lt-776263" spellcheck="false" data-gramm="false">
+        <lt-highlighter contenteditable="false" data-lt-linked="1" style="display: none;"><lt-div spellcheck="false" class="lt-highlighter__wrapper" style="overflow: visible !important; width: 1151.25px !important; height: 44.9609px !important; transform: none !important; transform-origin: 575.625px 22.4805px 0px !important; zoom: 1 !important;"><lt-div class="lt-highlighter__scroll-element" style="top: 0px !important; left: 0px !important; width: 1443px !important; height: 2538px !important;"><canvas class="lt-highlighter__canvas" width="120" height="16" style="display: none; top: 10px !important; left: 82px !important;"></canvas><canvas class="lt-highlighter__canvas" width="50" height="21" style="display: none; top: 1400px !important; left: 496px !important;"></canvas><canvas class="lt-highlighter__canvas" width="47" height="17" style="display: none; top: 2512px !important; left: 256px !important;"></canvas><canvas class="lt-highlighter__canvas" width="85" height="41" style="display: none; top: 1166px !important; left: 1333px !important;"></canvas></lt-div></lt-div></lt-highlighter>
+        <div style="margin: 0px auto; width: 1440px;">
+        <button id="generatePDF">Generate PDF</button><button class="btn3" onclick="getImage(event)" id="#generateJPG">Generate JPG</button>
+        <div class="image_box" style="width: 1440px;">
+        <div id="loading">Generating PDF, please wait...</div>
+        <div id="content" style="width: 100%; float: left;">
+        <div style="position: relative; clear: both; display: block; break-after: page;">
+        <div style="display: inline-block; width: 68%; height: 680px; object-fit: cover;">
+        <img alt="" href="{{MarketingImageURL}}" /><img src="{{MarketingImageURL}}" alt="{{Marketing Image Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="display: inline-block; width: 30.5%; padding-left: 14px;">
+        <div style="display: block; width: 100%; height: 330px; margin-bottom: 20px;">
+        <img alt="" href="{{Image1URL}}" /><img src="{{Image1URL}}" alt="{{Image1 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="display: block; width: 100%; height: 330px;">
+        <img alt="" href="{{Image2URL}}" /><img src="{{Image2URL}}" alt="{{Image2 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        </div>
+        <div style="position: relative; float: left; width: 100%; margin-bottom: 5px; margin-top: 5px;">
+        <div style="display: block; float: left; margin-right: 0px; width: 180px; margin-top: 0px;">
+        <img alt="" style="width: 100%;" src="{{CompanyLogoURL}}" />
+        <!-- {{Company Logo}}&nbsp; -->
+        </div>
+        <div class="    display: flex;
+        flex-direction: column;
+        ">
+        <div style="display: flex; padding-left: 30px; justify-content: space-between;">
+        <div style="position: relative; float: left;">
+        <h1 style="position: relative; float: left; margin-top: 5px;">
+        {{PromotionalTitle}}
+        </h1>
+        </div>
+        <div style="position: relative; float: right; margin-right: 0px; padding-left: 20px;">
+        <h1 style="position: relative; float: right; color: var(--themecolor); margin-top: 5px;">
+        AED {{Selling Price}} {{Rent Per Anum}}
+        </h1>
+        </div>
+        </div>
+        <div>
+        <div style="position: relative; float: left; width: 80px; background-color: var(--themecolor); color: #ffffff; text-transform: uppercase; padding: 10px; border-radius: 20px; margin-left: 30px; text-align: center;">
+        For Sale
+        </div>
+        <div style="position: relative; float: left; margin-left: 15px;">
+        <h2 style="margin-top: 4px; font-size: 1.7rem;">
+        {{Property}}, {{Community}}, {{City}}
+        </h2>
+        </div>
+        <div style="position: relative; float: right; margin-right: 6px; font-size: 16px; top: 15px;">
+        <strong>Ref: {{Reference Number}}</strong>
+        </div>
+        </div>
+        </div>
+        </div>
+        <p style="font-size: 16px; margin-right: 0px; color: #999999; float: right; width: 100%; margin-top: 5px; margin-bottom: 5px; text-align: right;">
+        {{Company Name}} | {{Company Website}}
+        </p>
+        <p style="font-size: 16px; margin-right: 0px; color: #999999; float: right; width: 100%; text-align: right;">
+        {{Listing Agent Name}} | +{{Listing Agent Mobile}}&nbsp; | {{Listing Agent Email}}
+        </p>
+        </div>
+        <!-- 2nd Page -->
+        <div id="page-2" style="position: relative; clear: both; display: block; break-after: page;">
+        <div style="position: relative; float: left; width: 100%; margin-top: 6px;">
+        <div style="position: relative; float: left; width: 40%;">
+        <div style="position: relative; margin-top: 0px; width: 100%; background-color: #ebebed; border-radius: 12px; padding: 6px 20px; box-sizing: border-box; float: left; display: flex; align-items: center; justify-content: space-between;">
+        <div style="float: left; display: flex; align-items: center;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/bedroom-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        {{Bedrooms}}
+        </span>
+        </div>
+        <div style="float: left; display: flex; align-items: center; margin-left: 15px;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/bathroom-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        {{Bathrooms}}
+        </span>
+        </div>
+        <div style="float: left; display: flex; align-items: center; margin-left: 15px;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/car-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        {{Parkings}}
+        </span>
+        </div>
+        <div style="float: left; display: flex; align-items: center; margin-left: 15px;">
+        <span style="position: relative; width: 30px; float: left;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/size-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; position: relative; font-weight: 600; padding-left: 5px; font-size: 14px;">
+        {{Builtup Area}}
+        </span>
+        </div>
+        </div>
+        <div style="clear: both;"></div>
+        <h3 style="font-size: 1rem; margin-bottom: 6px; margin-top: 10px;">
+        Property Details
+        </h3>
+        <p style="color: #999999; font-size: 13px; height: auto; overflow: auto;">{{Property Description}}</p>
+        <!-- <h3 style="font-size: 1rem; margin-bottom: 5px; margin-top: 10px;">
+        Facilities and Amenities
+        </h3>
+        <div style="position: relative; width: 100%; height: 140px; overflow: hidden auto;" class="seticon">
+        <div style="display: inline-block; width: 100%;">
+        <span style="float: left; margin-left: 5px; margin-top: 3px; width: 100%; font-size: 13px; color: #999999;" class="amin">{{CommaSeparatedAmenities}}</span>
+        </div>
+        </div> -->
+        <h3 style="font-size: 1rem; margin-bottom: 12px; margin-top: 0px;">
+        Location
+        </h3>
+        <div style="position: relative; width: 100%;">
+        <div id="map_canvas_view" style="width: 100%; height: 246px;"></div>
+        </div>
+        </div>
+        <div style="float: right; width: 58%; position: relative;">
+        <div style="position: relative; width: 100%; height: 510px;">
+        <img alt="" href="{{Image3URL}}" /><img src="{{Image3URL}}" alt="{{Image3 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; width: 100%; display: block; margin-top: 15px;">
+        <div style="position: relative; display: inline-block; width: 49%; height: 260px;">
+        <img alt="" href="{{Image4URL}}" /><img src="{{Image4URL}}" alt="{{Image4 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; display: inline-block; width: 48.5%; margin-left: 15px; height: 260px;">
+        <img alt="" href="{{Image5URL}}" /><img src="{{Image5URL}}" alt="{{Image5 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        </div>
+        <div style="position: relative; width: 100%; display: block; margin-top: 10px;">
+        <div style="position: relative; display: inline-block; width: 32%; height: 200px; margin-left: 0px;">
+        <img alt="" href="{{Image6URL}}" /><img src="{{Image6URL}}" alt="{{Image6 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; display: inline-block; width: 32%; height: 200px; margin-left: 11px;">
+        <img alt="" href="{{Image7URL}}" /><img src="{{Image7URL}}" alt="{{Image7 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        <div style="position: relative; display: inline-block; width: 32%; height: 200px; margin-left: 13px;">
+        <img alt="" href="{{Image8URL}}" /><img src="{{Image8URL}}" alt="{{Image8 Title}}" style="width: 100%; height: 100%; border-radius: 10px;" />
+        </div>
+        </div>
+        </div>
+        <div style="position: relative; float: left; width: 100%; padding: 0px; margin-top: 0px;">
+        <div style="float: right; width: 140px; margin-right: 0px; margin-bottom: 0px; margin-top: 12px;">
+        </div>
+        <div class="b17" style="float: left; width: 150px; margin-left: 0px;">
+        <h3 style="margin-bottom: 0px; text-align: center;" width="150" height="150px" class="profile-img">
+        {{Agent Picture}}
+        </h3>
+        </div>
+        <div style="position: relative; float: left; margin-left: 20px; margin-top: 15px;">
+        <p style="color: #000000; font-size: 18px;">{{Contact Name}}</p>
+        <p style="font-size: 15px; opacity: 0.9; color: #000000;">
+        {{Agent Designation}}
+        </p>
+        <div style="position: relative; float: left; width: 100%;">
+        <span style="float: left; width: 25px; margin-left: -5px;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/phone-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; padding-left: 10px; margin-top: 5px; opacity: 0.5; font-size: 12px; color: #000000;">
+        {{Contact Mobile}}
+        </span>
+        </div>
+        <div style="clear: both;"></div>
+        <div style="position: relative; float: left; width: 100%; margin-top: 3px;">
+        <span style="float: left; width: 25px; margin-left: -5px;">
+        <img alt="" src="https://bh.goyzer.com/uploadedFiles/EmailAttachments/2c8a39b8-4a8d-4ddf-9ce5-3b7adfdc16f5/email-icon.png" style="width: 100%;" />
+        </span>
+        <span style="float: left; padding-left: 10px; margin-top: 5px; opacity: 0.5; font-size: 12px; color: #000000;">
+        <a href="{{Contact Email}}"><span style="color: #000000;">Make an enquiry</span></a>
+        </span>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- 3rd Page -->
+        <div class="container13">
+        <div>
+        <label id="longitude" style="display: none;">{{Longitude}}</label>
+        <label id="latitude" style="display: none;">{{Latitude}}</label>
+        <label id="masklocation" value="False" style="display: none;">False</label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <script>
+            /*for jpg*/
+            function getImage(event) {
+                event.preventDefault(); // prevent default button behavior
+                var content = document.querySelector('#content');
+    
+                // Define the padding/margin size (in pixels)
+                var padding = 40;
+    
+                html2canvas(content, {
+                    useCORS: true,
+                    scale: 1
+                }).then(canvas => {
+                    // Create a new canvas with extra space
+                    var newCanvas = document.createElement('canvas');
+                    newCanvas.width = canvas.width + padding * 2;
+                    newCanvas.height = canvas.height + padding * 2;
+    
+                    var ctx = newCanvas.getContext('2d');
+                    ctx.fillStyle = "#ffffff"; // Set the background color (optional)
+                    ctx.fillRect(0, 0, newCanvas.width, newCanvas.height); // Fill the new canvas with white background
+    
+                    // Draw the original canvas onto the new canvas with padding
+                    ctx.drawImage(canvas, padding, padding);
+    
+                    // Convert the new canvas to an image
+                    const imgData = newCanvas.toDataURL('image/jpeg');
+                    const link = document.createElement('a');
+                    link.href = imgData;
+                    link.download = 'image.jpg';
+                    link.click();
+                });
+            }
+            
+            /*for pdf*/
+            $(document).ready(function () {
+                $("#generatePDF").click(function () {
+                    const { jsPDF } = window.jspdf;
+                    var $button = $(this);
+                    var $loading = $("#loading");
+        
+                    // Disable the button and show the loading indicator
+                    $button.prop("disabled", true);
+                    $loading.show();
+        
+                    // Create a new jsPDF instance
+                    var doc = new jsPDF("p", "mm", "a4");
+        
+                    // Capture the content as a canvas
+                    html2canvas(document.querySelector("#content"), {
+                        useCORS: true,
+                        allowTaint: false,
+                        scale: 1,
+                    })
+                    .then(function (canvas) {
+                        var imgData = canvas.toDataURL("image/png");
+                        var imgWidth = 190; // Full width of A4 size page
+                        var pageHeight = 290; // Full height of A4 size page
+                        var imgHeight = (canvas.height * imgWidth) / canvas.width;
+                        var heightLeft = imgHeight;
+                        var position = 10;
+        
+                        // Add the first image to the PDF
+                        doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+        
+                        // Add new pages if necessary
+                        while (heightLeft > 0) {
+                            position = heightLeft - imgHeight;
+                            doc.addPage();
+                            doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
+                            heightLeft -= pageHeight;
+                        }
+        
+                        // Save the PDF
+                        doc.save("Brochure.pdf");
+        
+                        // Re-enable the button and hide the loading indicator
+                        $button.prop("disabled", false);
+                        $loading.hide();
+                    })
+                    .catch(function (error) {
+                        // In case of an error, re-enable the button and hide the loading indicator
+                        $button.prop("disabled", false);
+                        $loading.hide();
+                        console.error("PDF generation error: ", error);
+                    });
+                });
+            });
+        </script>
+        <!-- JS -->
+    </body>
+</html>

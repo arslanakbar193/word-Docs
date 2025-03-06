@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wavy Gradient Hover Effect</title>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+  rel="stylesheet"
+/>
+  <style>
+    *{
+      font-family:"poppins";
+    }
+    .button {
+  width: 170px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+    .button-4 {
+  background-color: transparent;
+  border: 3px solid #ff0251;
+  color: #ff0251;
+  transition: .3s;
+}
+.button-4:hover {
+  animation: pulse 1s infinite;
+  transition: .3s;
+}
+.btn {
+  position: relative;
+  color: white;
+  width: 256px;
+  height: 64px;
+  line-height: 64px;
+  transition: all 0.3s;
+  
+}
+.btn span {
+    transition: all 0.3s;
+    tranform: scale(1, 1);
+  }
+
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+ 
+
+div[class*="container"] {
+  text-align: center;
+  width: 100%;
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-1 {
+  background: #333;
+}
+.container-2 {
+  background: #4e598c;
+}
+.btn-two::before, .btn-two::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+	height: 100%;
+  bottom: 0;
+	left: 0;
+	z-index: 1;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.btn-two:hover::after {
+  animation-name: rotatecw;
+  animation-duration: 2s;
+}
+.btn-two:hover::before {
+  animation-name: rotateccw; 
+  animation-duration: 3s;
+}
+.btn-two:hover::after, .btn-two:hover::before {
+  left: 96px;
+  width: 64px;
+  
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatecw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotateccw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(.9);
+  }
+    100% {
+    transform: scale(1);
+  }
+}
+div[class*="container"] {
+    text-align: center;
+    width: 100%;
+    height: 140px;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+.container-2 {
+    background: #4e598c;
+}
+
+.button1 {
+            position: relative;
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #00d4ff, #7b2ff7, #ff0076);
+            background-size: 300% 300%;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        /* Gradient border using ::before */
+        .button1::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            z-index: -1;
+            background: linear-gradient(90deg, #ff0076, #00d4ff, #7b2ff7, #ff0076);
+            background-size: 300% 300%;
+            border-radius: 50px;
+            animation: gradientBorderAnimation 4s linear infinite;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Gradient animation on hover */
+        .button1:hover::before {
+            opacity: 1;
+        }
+
+        /* Pulsing and gradient animation */
+        .button1:hover {
+            animation: gradientAnimation 3s infinite, pulse 1s infinite;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Rotating edges using ::after */
+        .button1::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .button1:hover::after {
+            animation: rotatecw 2s linear infinite;
+        }
+
+        /* Gradient animation keyframes */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Gradient border animation keyframes */
+        @keyframes gradientBorderAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Pulse effect keyframes */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        /* Rotate clockwise */
+        @keyframes rotatecw {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .block {
+            position: relative;
+            margin: 50px auto 0;
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(45deg, #00d4ff, #7b2ff7, #ff0076);
+            border-radius: 10px;
+            cursor:pointer;
+}
+
+.block:hover:before, .block:hover:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+  border-radius: 10px;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.block:after {
+	filter: blur(20px);
+}
+.block span{
+  color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    width: 100%;
+    padding-top: 12px;
+    text-align: center;
+    font-size: 24px;
+}
+.block span:before{
+  content: "✨";
+}
+
+.actionButton:disabled {
+            cursor: not-allowed;
+            background: #ddd;
+            color: #aaa;
+            border: 3px solid #ccc;
+        }
+
+        /* Loader Animation */
+         .loader {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading .loader {
+            display: block;
+        }
+
+        .loading span {
+            visibility: hidden;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+  </style>
+</head>
+<body>
+  <div class="icon-container">
+    <div class="button button-4">Generate</div>
+    
+  </div>
+  <div class="container-2">
+    <div class="btn btn-two">
+      <span>Generate</span>
+    </div>
+  </div>
+  <div style="text-align: center;margin-top: 20px;">
+    <button class="button1">Generate</button>
+  </div>
+  
+
+  <div class="block"  id="actionButton"><span>Generate</span> <div class="loader"></div></block>
+  <script>
+    const button = document.getElementById('actionButton');
+
+    button.addEventListener('click', () => {
+        // Add loading state
+        button.disabled = true;
+        button.classList.add('loading');
+
+        // Simulate data loading (replace with real logic as needed)
+        setTimeout(() => {
+            // Remove loading state
+            button.disabled = false;
+            button.classList.remove('loading');
+        }, 3000); // Simulate 3-second load time
+    });
+</script>
+</body>
+</html>

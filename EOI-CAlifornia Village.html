@@ -1,0 +1,966 @@
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tenanacy Agreement</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+      :root {
+        --color: #3796c6;
+        --whitecolor: #fff !important;
+        --backgroundcolor: #15eb52;
+        --bodybackground: #e2e2e2;
+      }
+      /* Area Variable - Black */
+
+      * {
+        font-family: "poppins" !important;
+        font-size: 16px !important;
+      }
+
+      .no-focus:focus {
+        outline: none;
+      }
+      .header-text {
+        padding: 3rem 3rem;
+      }
+      .icons-content {
+        margin: 3rem 0rem;
+      }
+      .gradient-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 42%;
+        padding: 20px;
+        /* background: linear-gradient(to right, rgb(0 0 0 / 79%), transparent); */
+        background: linear-gradient(
+          to right,
+          #2f3433 32%,
+          rgba(47, 52, 51, 0.8) 50%,
+          transparent 100%
+        );
+        color: white !important;
+        font-size: 2em;
+        text-align: left;
+        font-family: "IvyModeRegular";
+      }
+      #generatePDF {
+        background-color: #2f3433;
+        border: none;
+        color: #fff !important;
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 7px 15px;
+        font-size: 12px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        outline: none;
+        margin-left: 12px;
+        font-family: "Raleway", sans-serif;
+      }
+      #generatePDF:focus {
+        outline: none;
+      }
+      .profile-image {
+        padding: 60px 0px;
+      }
+      #loading {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border: 1px solid #ffe740;
+        border-radius: 10px;
+        background-color: #ffe740;
+        font-weight: 600;
+        z-index: 1;
+      }
+      button#PrintLayoutButton {
+        display: none;
+      }
+      .aminities-left ul li {
+        border-right: 1px solid #57c4bf !important;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .property-address {
+        padding: 100px 0px 15px 0px;
+        text-transform: uppercase;
+      }
+      .footer h3 img {
+        width: 124px;
+        height: 120px;
+      }
+      .cb:after {
+        content: "";
+        height: 20px;
+        width: 2px;
+        position: absolute;
+        right: -40px;
+        background-color: #dfdfdf;
+      }
+      .profile-image img {
+        border-radius: 50%;
+        border: 4px solid #fff !important;
+        width: 200px;
+        height: 200px;
+      }
+      #content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .logo-image {
+        padding-top: 52px;
+        padding-bottom: 80px;
+      }
+      .flex-section {
+        padding-bottom: 45px;
+      }
+      .pr-c {
+        padding-right: 16px;
+      }
+      .flex {
+        display: flex;
+      }
+      .pr-4 {
+        padding-right: 10px;
+      }
+      .image-d {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .image-m {
+        padding-bottom: 4px;
+        padding-top: 4px;
+      }
+      .pdf-setting .image-a {
+        height: 550px;
+        object-fit: cover;
+      }
+      .pdf-setting .description {
+        height: 545px;
+      }
+      .pdf-setting .image-b {
+        height: 569px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-c {
+        height: 571px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-l {
+        height: 571.1px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-d {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 0px;
+      }
+      .pdf-setting .image-m {
+        height: 566px;
+        object-fit: cover;
+        padding-bottom: 5px;
+        padding-top: 1px;
+      }
+      .pdf-setting .image-e {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-f {
+        height: 565.5px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-g {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-h {
+        height: 565px;
+        object-fit: cover;
+      }
+      .pdf-setting .image-i {
+        height: 564px;
+        object-fit: cover;
+      }
+      .pdf-setting .aveen {
+        padding-top: 80px;
+      }
+      .pdf-setting .aveenN {
+        padding-top: 30px;
+      }
+      .pdf-setting .image-last {
+        padding-top: 40px;
+        height: 580px;
+        object-fit: cover;
+      }
+      .pdf-setting .property-address {
+        padding: 60px 0px 25px 0px;
+      }
+      .pdf-setting .logo-image {
+        padding-top: 30px;
+        padding-bottom: 164.6px;
+      }
+      .flex-maintain1 {
+        float: left;
+        width: 100%;
+      }
+      .flex1 {
+        float: left;
+        width: 100%;
+      }
+      .ls {
+        width: 300px;
+        float: left;
+        text-align: left;
+      }
+      .lsc {
+        width: 100px;
+        float: left;
+      }
+      .rsc {
+        width: 87%;
+        float: left;
+      }
+      .ls2 {
+        width: 50px;
+        float: left;
+        text-align: left;
+      }
+      .rs2 {
+        width: 440px;
+        float: left;
+        text-align: left;
+      }
+      .rs {
+        width: 496px;
+        float: left;
+        text-align: left;
+      }
+      .rs2.rs3 {
+        width: 100%;
+      }
+      /* .page2-content > div > h2 {
+      margin-bottom: 80px !important;
+      } */
+      .pdf-setting .flex-section {
+        padding-bottom: 60px;
+      }
+      .page2-content td:first-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:first-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td:last-child table tbody tr {
+        position: relative;
+      }
+      .page2-content td:last-child table tbody tr:after {
+        position: absolute;
+        content: "";
+        height: 7px;
+        width: 7px;
+        background-color: black;
+        border-radius: 50%;
+        left: 0px;
+        top: 11px;
+      }
+      .page2-content td {
+        line-height: 30px;
+
+        padding-left: 26px;
+      }
+      .page2-content td:first-child table tbody tr td:first-child {
+        display: none;
+      }
+      .page2-content td:last-child table tbody tr td:first-child {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sec1" style="float: left; width: 100%">
+      <div
+        class="container"
+        style="max-width: 800px; margin: auto"
+        id="content"
+      >
+        <div class="page1-content">
+          <div style="padding-bottom: 20px; text-align: center">
+            <div
+              style="font-weight: 500; text-align: center"
+              class="property-address"
+            >
+              <img
+                src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yOTAxL2Nyb3AucG5nLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuQ2VudGVy.watermark"
+                alt="no-img"
+              />
+            </div>
+            <div
+              style="
+                font-size: 18px !important;
+                text-align: center;
+                padding-top: 15px;
+                font-weight: 600;
+                text-decoration: underline;
+                padding-bottom: 15px;
+              "
+              class="playfai"
+            >
+              EXPRESSION OF INTEREST (“EOI”)
+            </div>
+            <div
+              style="
+                display: flex;
+                padding-bottom: 15px;
+                text-align: left;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Date:
+              <div
+                style="
+                  width: 200px;
+                  border-bottom: 1px solid #000;
+                  padding-left: 10px;
+                  margin-left: 10px;
+                  font-weight: 600;
+                "
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+            <div
+              style="
+                display: flex;
+                padding-bottom: 15px;
+                text-align: left;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Seller:
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+            <div
+              style="
+                display: flex;
+                padding-bottom: 15px;
+                text-align: left;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Security Check:
+              <span style="font-weight: 400; padding-left: 10px">AED</span>
+              <div
+                style="
+                  width: 200px;
+                  border-bottom: 1px solid #000;
+                  padding-left: 10px;
+                  margin-left: 10px;
+                  font-weight: 600;
+                "
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+            <div
+              style="
+                display: flex;
+                padding-bottom: 15px;
+                text-align: left;
+                font-weight: 600;
+              "
+              class="no-focus"
+            >
+              Purchaser Information
+              <div
+                style="padding-left: 10px; margin-left: 10px; font-weight: 600"
+                contenteditable="true"
+                class="no-focus"
+              ></div>
+            </div>
+            <div style="border: 1px solid #000; float: left; width: 100%">
+              <div
+                style="width: 50%; float: left; text-align: left; padding: 10px"
+              >
+                <div style="font-weight: 600">Name (for individuals):</div>
+                <div contenteditable="true" class="no-focus"></div>
+              </div>
+              <div style="width: 50%; float: left; text-align: left">
+                <div
+                  style="
+                    display: flex;
+                    padding: 10px;
+                    border-left: 1px solid #000;
+                  "
+                >
+                  <div style="font-weight: 600">Passport No:</div>
+                  <div
+                    contenteditable="true"
+                    class="no-focus"
+                    style="min-width: 200px"
+                  ></div>
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    padding: 10px;
+                    border-left: 1px solid #000;
+                  "
+                >
+                  <div style="font-weight: 600">Nationality:</div>
+                  <div
+                    contenteditable="true"
+                    class="no-focus"
+                    style="min-width: 200px"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+                float: left;
+                width: 100%;
+              "
+            >
+              <div
+                style="
+                  width: 100%;
+                  float: left;
+                  text-align: left;
+                  padding: 10px;
+                "
+              >
+                <div style="font-weight: 600">
+                  License/Certificate of Incorporation (for legal entities):
+                </div>
+                <div contenteditable="true" class="no-focus"></div>
+              </div>
+            </div>
+            <div
+              style="
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+                float: left;
+                width: 100%;
+              "
+            >
+              <div
+                style="width: 50%; float: left; text-align: left; padding: 10px"
+              >
+                <div
+                  style="font-weight: 600"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Mobile No:
+                </div>
+              </div>
+              <div style="width: 50%; float: left; text-align: left">
+                <div style="display: flex; padding: 10px">
+                  <div style="font-weight: 600">Email Address:</div>
+                  <div
+                    contenteditable="true"
+                    class="no-focus"
+                    style="min-width: 200px"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+                float: left;
+                width: 100%;
+              "
+            >
+              <div
+                style="
+                  width: 100%;
+                  float: left;
+                  text-align: left;
+                  padding: 10px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div
+                  style="font-weight: 600"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  Address:
+                </div>
+              </div>
+
+              <div
+                style="
+                  width: 50%;
+                  float: left;
+                  text-align: left;
+                  padding: 10px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div
+                  style="font-weight: 600"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  P.O Box:
+                </div>
+              </div>
+              <div style="width: 50%; float: left; text-align: left">
+                <div style="display: flex; padding: 10px; padding-bottom: 0px">
+                  <div style="font-weight: 600">City:</div>
+                  <div
+                    contenteditable="true"
+                    class="no-focus"
+                    style="min-width: 200px"
+                  ></div>
+                </div>
+              </div>
+              <div
+                style="
+                  width: 100%;
+                  float: left;
+                  text-align: left;
+                  padding: 10px;
+                  padding-bottom: 0px;
+                "
+              >
+                <div
+                  style="font-weight: 600"
+                  contenteditable="true"
+                  class="no-focus"
+                >
+                  country:
+                </div>
+              </div>
+            </div>
+            <div
+              style="
+                display: flex;
+                clear: both;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-weight: 600;
+              "
+            >
+              Property Details:
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 10px;
+                  width: 200px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Project Name:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 10px;
+                  text-align: left;
+                  float: left;
+                  width: 74%;
+                  border-left: 1px solid #000;
+                "
+              >
+                California Village
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 10px;
+                  width: 200px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Phase:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 10px;
+                  text-align: left;
+                  float: left;
+                  width: 74%;
+                  border-left: 1px solid #000;
+                "
+              >
+                2
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 10px;
+                  width: 200px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Type:
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 10px;
+                  text-align: left;
+                  float: left;
+                  width: 74%;
+                  border-left: 1px solid #000;
+                "
+              >
+                California Village
+              </div>
+            </div>
+            <div
+              style="
+                float: left;
+                width: 100%;
+                border-top: 1px solid #000;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+              "
+            >
+              <div
+                style="
+                  padding: 10px;
+                  width: 200px;
+                  float: left;
+                  text-align: left;
+                "
+              >
+                Bedrooms
+              </div>
+              <div
+                contenteditable="true"
+                class="no-focus"
+                style="
+                  padding: 10px;
+                  text-align: left;
+                  float: left;
+                  width: 74%;
+                  border-left: 1px solid #000;
+                "
+              >
+                California Village
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page2-content">
+          <div
+            contenteditable="true"
+            style="
+              font-size: 24px;
+              padding-bottom: 30px;
+              text-align: left;
+              padding-top: 30px;
+              clear: both;
+              padding-bottom: 30px;
+            "
+            class="no-focus"
+          >
+            Expression of Interest (“EOI”) Terms and Conditions:
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">1.</div>
+              <div style="text-align: left">
+                These terms and conditions apply to the offer made by the
+                Purchaser to the Seller for the purchase of the Property by the
+                Purchaser.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">2.</div>
+              <div style="text-align: left" class="no-focus">
+                The Deposit shall be payable by the Purchaser on the date of
+                signing of this EOI. The parties hereto agree that the Deposit
+                will be held by the Seller and shall be applied towards the
+                first instalment of the Purchase Price amounting to Fifteen
+                percent (15%) of the Purchase Price (the “First Instalment”)
+                pursuant to the terms of the offer to purchase/ agreement of
+                sale that will be entered into between the parties if the offer
+                of the Purchaser is accepted by the Seller and the purchase
+                transaction is completed. The receipt of the Deposit by the
+                Seller does not bind the Seller to sell the Property to the
+                Purchaser. The sale of the Property is subject to the Seller's
+                absolute discretion, the agreement by the Purchaser on the
+                Seller's terms and conditions of sale and final approval of the
+                sale of the Property by the Seller.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">3.</div>
+              <div style="text-align: left">
+                If the Purchaser’s offer is accepted by the Seller, the Seller
+                shall invite the Purchaser to sign the offer to purchase of the
+                Property and/or the agreement of sale of the Property as
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              clear: both;
+              padding-top: 10px;
+              padding-bottom: 0px;
+              text-align: right;
+            "
+          >
+            1
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">1.</div>
+              <div style="text-align: left">
+                the Seller deems suitable at its sole discretion and the
+                Seller’s standard terms and conditions of sale shall apply (a
+                copy of the current terms and conditions of sale (offer to
+                purchase and agreement of sale) were made available to the
+                Purchaser prior to the signing of this EOI). The Deposit shall
+                then be applied towards the First Instalment and the balance
+                between the Deposit and the First Instalment will need to be
+                paid by the Purchaser on the date of execution of the offer to
+                purchase/agreement of sale of the Property.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">4.</div>
+              <div style="text-align: left">
+                In the event the offer of the Purchaser to purchase the Property
+                has not been accepted by the Seller, and unless the parties
+                hereto agree otherwise, this EOI shall terminate without the
+                need for any legal proceedings or court judgment and the Deposit
+                shall be refunded by the Seller to the Purchaser without
+                interests. No compensation of any kind shall be payable by the
+                Seller to the Purchaser in respect or in connection thereof.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">5.</div>
+              <div style="text-align: left">
+                The Seller shall have the right, at any time, without any
+                liability whatsoever and without the need for any notice, legal
+                proceedings or court judgment, to reject the offer made by the
+                Purchaser for the purchase of the Property pursuant to this EOI.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">6.</div>
+              <div style="text-align: left">
+                In the event the offer of the Purchaser under this EOI is
+                accepted by the Seller but the Purchaser does not sign the offer
+                to purchase of the Property/agreement of sale of the Property as
+                the Seller may require within two (2) days from the date the
+                Seller invites the Purchaser to do so, or the Purchaser fails to
+                timely pay the balance of the First Instalment in accordance and
+                sign the offer to purchase, then the Seller may at its sole
+                discretion immediately terminate this EOI without the need for
+                any legal proceedings or court judgment.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">7.</div>
+              <div style="text-align: left">
+                This EOI is non-transferable and non-assignable by the Purchaser
+                and any offer to purchase/agreement ofsale shall be issued in
+                the name of the Purchaser only. The Seller shall have all rights
+                to assign at any time this EOI or any part thereof or any
+                benefit, right, obligation or interest thereunder to any of its
+                affiliates or subsidiaries (including to any joint venture
+                company in which the Seller, its parent company or any of their
+                affiliates or subsidiaries is a shareholder) without the need
+                for the Purchaser's consent.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">8.</div>
+              <div style="text-align: left">
+                This EOI will immediately terminate on due and proper execution
+                of the offer to purchase and/or the agreement of sale of the
+                Property by both parties.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">9.</div>
+              <div style="text-align: left">
+                The Purchaser shall keep this EOI confidential and shall not
+                disclose its contents to any third party, other than to the
+                Purchaser'slegal or financial advisors, or as otherwise required
+                by law.
+              </div>
+            </div>
+          </div>
+          <div class="flex-maintain">
+            <div class="flex" style="padding-bottom: 30px; padding-left: 30px">
+              <div class="pr-4">10.</div>
+              <div style="text-align: left">
+                This EOI and the rights of the parties hereto shall be governed
+                by the laws of Dubai and the United Arab Emirates applicable in
+                Dubai. The parties hereto agree that any legal action or
+                proceeding with respect to this EOI shall be subject to the
+                exclusive jurisdiction of the Dubai Courts. For the avoidance of
+                doubt, the DIFC laws and courts are excluded.
+              </div>
+            </div>
+          </div>
+          <div style="
+                float: left;
+                width: 100%;
+                padding-top: 100px;
+              ">
+              <div style="width: 50%; float: left; text-align: left; padding: 10px">
+                <div style="font-weight: 600" contenteditable="true" class="no-focus">
+                  Purchaser’s Signature 
+                </div>
+              </div>
+              <div style="width: 50%; float: left; text-align: left">
+                <div style="display: flex; padding: 10px">
+                  <div style="font-weight: 600">Signed for and on behalf of the Seller</div>
+                </div>
+              </div>
+          </div>
+          <div style="
+                float: left;
+                width: 100%;
+              ">
+              <div style="width: 50%; float: left; text-align: left; padding: 10px">
+                <div style="font-weight: 600" contenteditable="true" class="no-focus">
+                  Name:
+                </div>
+              </div>
+              <div style="width: 50%; float: left; text-align: left">
+                <div style="display: flex; padding: 10px">
+                  <div style="font-weight: 600">Name:</div>
+                  <div contenteditable="true" class="no-focus" style="min-width: 200px"></div>
+                </div>
+              </div>
+            </div>
+            <div style="
+            float: left;
+            width: 100%;
+          ">
+          <div style="width: 50%; float: left; text-align: left; padding: 10px">
+            <div style="font-weight: 600" contenteditable="true" class="no-focus">
+              Date:
+            </div>
+          </div>
+          <div style="width: 50%; float: left; text-align: left">
+            <div style="display: flex; padding: 10px">
+              <div style="font-weight: 600">Date:</div>
+              <div contenteditable="true" class="no-focus" style="min-width: 200px"></div>
+            </div>
+          </div>
+          <div style="
+              clear: both;
+              padding-top: 200px;
+              padding-bottom: 30px;
+              text-align: right;
+            ">
+            2
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" data-lt-installed="true">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SPA Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-size: 15px !important;
+        color: #000;
+        font-family: "Lato" !important;
+      }
+      .color2 {
+        color: #612973;
+      }
+      .fs-large {
+        font-size: 24px;
+      }
+      .custom-margin {
+        position: relative;
+        left: 14rem;
+      }
+      .tenant-info.info-1,
+      .tenant-info.info-2 {
+        width: 38%;
+        float: left;
+        font-weight: bold;
+      }
+      .tenant-info.info-3 {
+        width: 24%;
+        float: left;
+        font-weight: bold;
+      }
+      .border-top1 {
+        border-top: 2px solid #000;
+      }
+      .border-bottom1:last-child {
+        border-bottom: 2px solid #000;
+      }
+      .border-right1 {
+        border-right: 2px solid #000;
+      }
+      .border-left1 {
+        border-left: 2px solid #000;
+      }
+      .border-bottom1 {
+        border-bottom: 2px solid #000;
+      }
+      .yellow {
+        color: #efc21f;
+      }
+      page[size="A4"] {
+        width: 21cm;
+      }
+      div:focus,
+      span:focus,
+      h4 {
+        outline: none;
+      }
+      .service-charge {
+        font-size: 1.3rem;
+        padding: 1rem 0rem;
+        font-weight: bold;
+      }
+      .red {
+        color: red;
+      }
+      .clear {
+        clear: both;
+      }
+      .min-h {
+        height: 20px;
+      }
+      .min-h2 {
+        min-height: 50px;
+      }
+      .min-h3 {
+        min-height: 60px;
+      }
+      .min-h-56 {
+        min-height: 56px;
+      }
+      .mu {
+        font-size: 20px;
+      }
+      .min-setting {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 56px;
+      }
+      .fs-14 {
+        font-size: 14px;
+      }
+      .fs-16 {
+        font-size: 16px;
+      }
+      .uppercase {
+        text-transform: uppercase;
+      }
+      .border-all {
+        border: 2px solid #000;
+        border-bottom: none;
+      }
+      .border-all:last-child {
+        border-bottom: 2px solid #000;
+      }
+      .enn {
+        text-align: left;
+      }
+      .ennn {
+        text-align: center;
+      }
+      .arr {
+        text-align: right;
+      }
+      .custom-margin1 {
+        margin-top: 4rem;
+      }
+      .custom-margin2 {
+        margin-bottom: 2rem;
+      }
+      .custom-margin3 {
+        margin-top: 70rem;
+      }
+      .cm36 {
+        margin-top: 37rem;
+      }
+      .cm35 {
+        margin-top: 35rem;
+      }
+      .cm34 {
+        margin-top: 34rem;
+      }
+      .cm33 {
+        margin-top: 33rem;
+      }
+      .cm32 {
+        margin-top: 32rem;
+      }
+      .cm30 {
+        margin-top: 30rem;
+      }
+      .cm28 {
+        margin-top: 28rem;
+      }
+      .cm25 {
+        margin-top: 25rem;
+      }
+      .cm23 {
+        margin-top: 23rem;
+      }
+      .cm20 {
+        margin-top: 20rem;
+      }
+      .cm14 {
+        margin-top: 14rem;
+      }
+      .cm12 {
+        margin-top: 12rem;
+      }
+      .cm10 {
+        margin-top: 10rem;
+      }
+      .cm8 {
+        margin-top: 8rem;
+      }
+      .cm6 {
+        margin-top: 6rem;
+      }
+      .cm5 {
+        margin-top: 5rem;
+      }
+      .cm4 {
+        margin-top: 4rem;
+      }
+      .cm3 {
+        margin-top: 3rem;
+      }
+      .cm2 {
+        margin-top: 2rem;
+      }
+      .cm1 {
+        margin-top: 1rem;
+      }
+      .cmb1 {
+        margin-bottom: 1rem;
+      }
+      .cmb2 {
+        margin-bottom: 2rem;
+      }
+      .cmb3 {
+        margin-bottom: 3rem;
+      }
+      .cmb4 {
+        margin-bottom: 4rem;
+      }
+      .cmb5 {
+        margin-bottom: 5rem;
+      }
+      .border-all.include-border-bottom {
+        border-bottom: 2px solid #000;
+      }
+      .h-100 {
+        height: 100%;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid mt-2">
+      <div class="container">
+        <div class="row" style="border:2px solid #000;">
+
+          <div class="col-md-12">
+
+            <div class="" style="text-align: center;width: 100%;padding-top: 40px;">
+              <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81Njk0L2FtYWFsLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark" />
+            </div>
+
+            <div class="" style="text-align: center;width: 100%;padding-top: 60px;margin-bottom: 20px;">
+              <p><span style="border-bottom: 2px solid #000;font-weight: 600;">Proposed Payment Terms</span></p>
+            </div>
+
+            <div style="margin-bottom: 14px;float: left;width: 100%;">
+              <div style="float: left;width:42%;text-align: left;">Date</div>
+              <div style="float: left;width:50%;padding: 0px 10px;text-decoration: underline;text-align: left;" contenteditable="true">03-Mar-25</div>
+            </div>
+
+            <div style="margin-bottom: 14px;float: left;width: 100%;">
+              <div style="float: left;width:42%;text-align: left;">Unit No.</div>
+              <div style="float: left;width:50%;padding: 0px 10px;text-decoration: underline;text-align: left;" contenteditable="true">801</div>
+            </div>
+
+            <div style="margin-bottom: 14px;float: left;width: 100%;">
+              <div style="float: left;width:42%;text-align: left;">Deposit Amount Paid</div>
+              <div style="float: left;width:50%;padding: 0px 10px;text-decoration: underline;text-align: left;" contenteditable="true"><span>AED</span><span>-</span></div>
+            </div>
+
+            <div style="margin-bottom: 14px;float: left;width: 100%;">
+              <div style="float: left;width:42%;text-align: left;">Unit Price</div>
+              <div style="float: left;width:50%;padding: 0px 10px;text-decoration: underline;text-align: left;" contenteditable="true"><span>AED</span><span>2,360,888.00</span></div>
+            </div>
+
+            <div style="margin-bottom: 14px;float: left;width: 100%;">
+              <div style="float: left;width:42%;text-align: left;">Unit Area</div>
+              <div style="float: left;width:50%;padding: 0px 10px;text-decoration: underline;text-align: left;" contenteditable="true"><span>Sqft.</span><span>1,216.32</span></div>
+            </div>
+            
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #bfc2c2;
+                    ">Terms</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px;background-color: #bfc2c2;" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">Payment Terms</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #bfc2c2;
+                    ">Date</span>
+                </div>
+              </div>
+              <div class="float-left flex1 ennn border-right1" style="width: 12%; padding: 8px 10px;background-color: #bfc2c2;" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true" >Amount</div>
+              </div>
+              <div class="float-left flex1 ennn border-right1" style="width: 12%; padding: 8px 10px;background-color: #bfc2c2;" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">Amount USD</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px;background-color: #bfc2c2;" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">Remarks</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Deposit - Booking</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">Payment Terms</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">03-Mar-25</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">-</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">-</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">1st Installment - Less Deposit</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">7 days Booking date</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">10%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Mar-25</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">236,088.80</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">64,531.58</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">1st Installment - Less Deposit</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">7 days Booking date</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">4%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Mar-25</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">94,435.52</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">25,812.63</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">DLD 4 %</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">7 days Booking date</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">Admin Fee</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Mar-25</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">5,250.00</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">1,435.01</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">Admin Fee</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">3 months from Reservation</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">10%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Jun-25</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">236,088.80</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">64,531.58 </div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">2nd Installment</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">9 months from Reservation</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">5%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Dec-25</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">118,044.40</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">32,265.79</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">3rd Installment</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12 months from Reservation</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">5%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Mar-26</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">118,044.40</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">32,265.79</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">4th Installment</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">15 months from Reservation</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">5%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Jun-26</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">118,044.40</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">32,265.79</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">5th Installment</div>
+              </div>
+            </div>
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">20 months from Reservation</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">5%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">12-Nov-26</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">118,044.40</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">32,265.79</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">6th Installment</div>
+              </div>
+            </div> 
+            
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 24%" contenteditable="true">
+                <div class="float-left w-100 text-left  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">On Handover</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 15%; padding: 8px 10px" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">60%</div>
+              </div>
+              <div class="float-left border-right1 flex1 ennn" style="width: 12%" contenteditable="true">
+                <div class="float-left w-100  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">31-Dec-27</span>
+                </div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">1,416,532.80</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">387,189.50</div>
+              </div>
+              <div class="float-left flex1" style="width: 25%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold" contenteditable="true">Balance 60% on Handover</div>
+              </div>
+            </div> 
+
+            <div class="four-sections border-all" style="display: flex; width: 100%;">
+              <div class="float-left border-right1 flex1 enn" style="width: 51%" contenteditable="true">
+                <div class="float-left w-100 text-center  font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #fff;
+                    ">Total</span>
+                </div>
+              </div>
+             
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">2,460,573.52</div>
+              </div>
+              <div class="float-left flex1 text-right border-right1" style="width: 12%; padding: 8px 10px" contenteditable="true">
+                <div class="float-left w-100  font-bold" contenteditable="true">672,563.49</div>
+              </div>
+              
+            </div>
+
+          </div>
+
+          <div class="col-md-12">
+
+            <div class="four-sections " style="display: flex; width: 100%;margin-top: 50px;">
+              <div class="float-left border-right1 flex1" style="width: 24%;border-top:2px solid #000;border-left:2px solid #000;border-bottom:2px solid #000;" contenteditable="true">
+                <div class="float-left w-100 text-left font-bold h-100" contenteditable="true">
+                  <span class="h-100" style="
+                      width: 100%;
+                      display: inline-block;
+                      padding: 8px 10px;
+                      background-color: #bfc2c2;
+                    ">Due Now (AED)</span>
+                </div>
+              </div>
+              <div class="float-left border-right1 flex1 text-right" style="width: 15%; padding: 8px 10px;background-color: #bfc2c2;border-top:2px solid #000;border-bottom:2px solid #000;" contenteditable="true">
+                
+                <div class="float-left w-100 text-center font-bold" contenteditable="true">335,774.32</div>
+              </div>
+              
+            </div>
+
+          </div>
+
+          <div class="col-md-12">
+            <div class="col-md-6" style="width: 50%;float: left;text-align: left;padding-top: 30px;padding-left: 0px;">
+              <div style="width:85%;font-weight: 600;text-decoration: underline;border-right:2px solid #000;margin-bottom: 13px;">Payment Mode:</div>
+              <div style="margin-bottom: 13px;">1 &nbsp;&nbsp;&nbsp; Cash - Maximum 10% of the unit value</div>
+              <div style="margin-bottom: 13px;">2 &nbsp;&nbsp;&nbsp; Cheque in name of "Amaal Emirates LLC"</div>
+              <div style="margin-bottom: 13px;">3 &nbsp;&nbsp;&nbsp; Card Swipe / POS Machine</div>
+              <div style="margin-bottom: 13px;">4 &nbsp;&nbsp;&nbsp; Payment through Link - on Request</div>
+              <div style="margin-bottom: 13px;">5 &nbsp;&nbsp;&nbsp; Bank Transfer:</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">Account Name: AMAAL Emirates LLC</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">Bank Name – National Bank of Fujairah</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">Branch – Khalid Bin Al Waleed Road</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">Swift Code- NBFUAEAFDXB</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">IBAN – AE670380000012845087839</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">Account No.- 012845087839</div>
+              <div style="padding-left: 15px;margin-bottom: 13px;">Currency - AED</div>
+            </div>
+            <div class="col-md-6" style="width: 50%;float: left;text-align: left;padding-top: 30px;padding-left: 0px;">
+              <div style="margin-bottom: 30px;">6 &nbsp;&nbsp;&nbsp; Crypto- USDT for initial deposit only</div>
+              <div style="margin-bottom: 30px;padding-left: 50px;">Deposit USDT to Binance</div>
+              <div style="margin-bottom: 30px;padding-left: 70px;">
+                <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC80Njg2L3FyLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"/>
+              </div>
+              <div style="margin-bottom: 30px;float: left;width: 100%;">
+                <div style="float: left;width:30%;">Network</div>
+                <div style="float: left;width:70%;">TRX</div>
+              </div>
+              <div style="margin-bottom: 30px;float: left;width: 100%;">
+                <div style="float: left;width:30%;">Address</div>
+                <div style="float: left;width:70%;">TLB87eKh1ivCxDais1xncTEjTLB8LFwyEu</div>
+              </div>
+              <div style="margin-bottom: 30px;float: left;width: 100%;">Network - TRX</div>
+              <div style="margin-bottom: 30px;float: left;width: 100%;">Address-TLB87eKh1ivCxDais1xncTEjTLB8LFwyEu</div>
+            </div>
+          </div>
+          
+          
+    </div>
+  </body>
+</html>
