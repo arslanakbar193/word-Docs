@@ -74,6 +74,9 @@
       button#PrintLayoutButton {
         display: none;
       }
+      .pdf-setting .pdf-preview{
+        height:420px;
+      }
     </style>
   </head>
   <body>
@@ -240,9 +243,9 @@
                 <span style="font-size: 18px;font-weight: 400;color: #000;">{{Selling Price}}</span>
               </div>
             </div>
-            <div style="width: 100%; float: left">
+            <div style="width: 100%; float: left;" class="pdf-preview">
               <div style="margin-bottom: 10px;margin-top: 15px;font-size: 11px;font-weight: 500;color: #272624;">Property Description</div>
-              <div style="border: 1px solid #000; padding: 10px 10px;height: 320px; overflow: hidden;">
+              <div style="border: 1px solid #000; padding: 10px 10px;">
                 <p style="color: #3f3f3f;font-size: 8px;font-weight: 300;margin-bottom: 5px;">
                   {{Property Description}}
                 </p>
@@ -251,7 +254,7 @@
                 </p>
               </div>
             </div>
-            <div style="float: left; width: 100%; margin-top: 70px">
+            <div style="float: left; width: 100%; margin-top: 20px">
               <div
                 class="image-section"
                 style=" padding-bottom: 7px"
@@ -305,7 +308,7 @@
             class="footer"
             style="float: left; width: 100%; margin-top: 30px"
           >
-            <div style="display: flex; align-items: center">
+            <div style="display: flex; align-items: center;    border: 1px solid black;padding: 12px 12px;">
               <div style="width: 200px; float: left;">
                 <h3
                   style="margin-bottom: 0px; text-align: center;    width: 175px;
