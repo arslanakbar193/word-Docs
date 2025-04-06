@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Listing PDF Converter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .frame-5 {
+      background-color: #ffffff;
+      width: 505px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    
+    .hero-section {
+      display: flex;
+      padding: 30px 0;
+    }
+    
+    .hero-section-left {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .left-top p {
+      color: #272624;
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0;
+    }
+    
+    .left-top div {
+      color: #000000;
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 16px;
+    }
+    
+    .left-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .left-bottom div {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .left-bottom span {
+      color: #272624;
+      font-size: 9px;
+      font-weight: 400;
+    }
+    
+    .hero-section-right {
+      flex: 0 0 auto;
+      margin-left: auto;
+      position: relative;
+    }
+    
+    .property-description-title {
+      color: #272624;
+      font-size: 11px;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+    
+    .property-description {
+      padding: 15px;
+      border: 0.6px solid #d7d7d7;
+      margin: 14px 0 20px 0;
+    }
+    
+    .property-description p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+    
+    .ref-number {
+      color: #a1a1a1;
+      font-size: 8px;
+      font-weight: 400;
+    }
+    
+    .footer-section {
+      margin-top: 20px;
+    }
+    
+    .footer-content {
+      display: flex;
+      gap: 20px;
+      padding: 20px 10px;
+    }
+    
+    .advisor-info {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      justify-content: flex-end;
+    }
+    
+    .advisor-name {
+      color: #272624;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    
+    .advisor-title {
+      color: #272624;
+      font-size: 8px;
+      font-weight: 300;
+    }
+    
+    .contact-info {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .price-tag {
+      position: absolute;
+      bottom: -25px;
+      right: 0;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    
+    .category-tag {
+      position: absolute;
+      top: 0;
+      right: 3px;
+      background-color: #272624;
+      color: #ffffff;
+      font-size: 6px;
+      font-weight: 400;
+      padding: 4px 7px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Property Listing</h1>
+  <button id="downloadPdf">Download PDF</button>
+  
+  <div id="pdfContent" class="frame-5">
+    <div class="hero-section">
+      <div class="hero-section-left">
+        <div class="left-top">
+          <p id="propertyTitle">Loading...</p>
+          <div id="propertyCommunity">Loading...</div>
+        </div>
+        <div class="left-bottom">
+          <div>
+            <span id="bedrooms">Loading...</span>
+            <img id="bedIcon" alt="Bed Icon" style="width: 25px; height: 16px;" />
+          </div>
+          <div>
+            <span id="bathrooms">Loading...</span>
+            <img id="bathroomIcon" alt="Bath Icon" style="width: 25px; height: 16px;" />
+          </div>
+          <div id="bua">BUA<br /><span style="font-weight: 400;">Loading...</span></div>
+          <div id="plot">Plot<br /><span style="font-weight: 400;">Loading...</span></div>
+        </div>
+      </div>
+      <div class="hero-section-right">
+         <img class="mask-group-mg48iN mask-group anima-loading-result" data-id="17:298" id="mask-group-img"
+            alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+         <div class="mask-group-img">
+            <img class="mask-group-2sTTQg mask-group anima-loading-result" data-id="17:310" id="mask-group4-img"
+            alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+            <img class="mask-group-HkkEfU mask-group anima-loading-result" data-id="17:313" id="mask-group5-img"
+               alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+         </div>
+         <div class="aed2990000-mg48iN" data-id="17:279" id="property-price">AED ${propertyDetails.price}</div>
+         <div class="for-sale-mg48iN" data-id="17:295" id="listing-category">${category}</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="property-description-title">Property Description</div>
+      <div class="property-description" id="propertyDescription">
+        Loading...
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <div class="footer-content">
+        <img id="advisorImage" alt="Advisor" style="width: 175px; height: 135px;" />
+        <div class="advisor-info">
+          <div class="advisor-name" id="advisorName">Loading...</div>
+          <div class="advisor-title" id="advisorTitle">Loading...</div>
+          <div class="contact-info">
+            <img id="phoneIcon" alt="Phone" style="width: 11px; height: 10px;" />
+            <span id="advisorPhone">Loading...</span>
+          </div>
+          <div class="contact-info">
+            <img id="messageIcon" alt="Message" style="width: 14px; height: 10px;" />
+            <span id="advisorEmail">Loading...</span>
+          </div>
+          <img id="companyLogo" alt="Logo" style="width: 90px; height: auto; transform: translate(-18px, -10px);" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const propertyDetails = {
+        title: "Unique 6 Bed | Upgraded | Extended | Mega Plot",
+        price: "3,500,000",
+        community: "Alvorda, Arabian Ranches",
+        category: "Sale",
+        RefNo: "123456",
+        BUA: "3,000",
+        plotSize: "4,500",
+        noOfBedrooms: "4",
+        noOfBathrooms: "6",
+        propertyDescription: `Sobha Orbis in Motor City is a premium residential development by Sobha Realty, known for its high-quality craftsmanship and luxury living.
+
+The Orbis offers elegantly designed apartments with contemporary architecture, spacious layouts, and top-tier finishes. Residents will enjoy world-class amenities, including a swimming pool, fitness center, landscaped gardens, and dedicated recreational spaces.
+
+Orbis offers a selection of meticulously designed apartments to cater to various lifestyle preferences. The development features 1-bedroom, 1.5-bedroom, and 2-bedroom units, each crafted with attention to detail and modern aesthetics. The 1-bedroom apartments provide a comfortable living space for individuals or couples, while the 1.5-bedroom units include an additional study area, offering extra flexibility for work or leisure activities. The 2-bedroom apartments are spacious, ideal for families seeking a blend of luxury and functionality. Each unit is designed to maximize space and natural light, ensuring a harmonious living environment.
+
+Sobha's commitment to quality ensures superior construction standards and attention to detail.
+
+Located in Motor City, a dynamic community known for its vibrant lifestyle, green spaces, and motorsport heritage, Sobha Orbis provides an exceptional living experience with easy access to key destinations in Dubai.
+
+Handover: December, 2027.`,
+        advisorName: "Franciska Balc",
+        advisorTitle: "Real Estate Advisor",
+        advisorContactNumber: "+971 58 123 4567",
+        advisorEmail: "franciska@realestate.com",
+        images: {
+          logo: "/images/LOGO_DESERTNOIR+1.png",
+          advisorImage: "/images/Carrie.png",
+          phoneCallIcon: "/images/phonecall.svg",
+          messageIcon: "/images/message.svg",
+          bedIcon: "/images/Group+1+(1).svg",
+          bathroomIcon: "/images/Vector+(4).svg",
+          maskGroup: "/images/Mask+group.png",
+          maskGroup1: "/images/Mask+group-1.png",
+          maskGroup2: "/images/Mask+group-2.png",
+          maskGroup3: "/images/Mask+group-3.png",
+          maskGroup4: "/images/Mask+group-4.png",
+          maskGroup5: "/images/Mask+group-5.png",
+        },
+      };
+
+      // Populate the HTML with property details
+      document.getElementById('propertyTitle').textContent = propertyDetails.title;
+      document.getElementById('propertyCommunity').textContent = propertyDetails.community;
+      document.getElementById('bedrooms').textContent = propertyDetails.noOfBedrooms + ' Bedrooms';
+      document.getElementById('bathrooms').textContent = propertyDetails.noOfBathrooms + ' Bathrooms';
+      document.getElementById('bua').innerHTML = 'BUA<br /><span style="font-weight: 400;">' + propertyDetails.BUA + ' sq ft.</span>';
+      document.getElementById('plot').innerHTML = 'Plot<br /><span style="font-weight: 400;">' + propertyDetails.plotSize + ' sq ft.</span>';
+      document.getElementById('price').textContent = 'AED ' + propertyDetails.price;
+      document.getElementById('category').textContent = 'For ' + propertyDetails.category;
+      document.getElementById('advisorName').textContent = propertyDetails.advisorName;
+      document.getElementById('advisorTitle').textContent = propertyDetails.advisorTitle;
+      document.getElementById('advisorPhone').textContent = propertyDetails.advisorContactNumber;
+      document.getElementById('advisorEmail').textContent = propertyDetails.advisorEmail;
+
+      // Format property description with paragraphs
+      const descriptionElement = document.getElementById('propertyDescription');
+      const paragraphs = propertyDetails.propertyDescription.split('\n');
+      descriptionElement.innerHTML = '';
+      
+      paragraphs.forEach(paragraph => {
+        if (paragraph.trim()) {
+          const p = document.createElement('p');
+          p.style.margin = '10px 0';
+          p.style.lineHeight = '1.5';
+          p.textContent = paragraph.trim();
+          descriptionElement.appendChild(p);
+        }
+      });
+      
+      // Add reference number
+      const refDiv = document.createElement('div');
+      refDiv.className = 'ref-number';
+      refDiv.textContent = 'Ref. ' + propertyDetails.RefNo;
+      descriptionElement.appendChild(refDiv);
+
+      // Set image sources
+      document.getElementById('bedIcon').src = propertyDetails.images.bedIcon;
+      document.getElementById('bathroomIcon').src = propertyDetails.images.bathroomIcon;
+      document.getElementById('mainPropertyImage').src = propertyDetails.images.maskGroup;
+      document.getElementById('advisorImage').src = propertyDetails.images.advisorImage;
+      document.getElementById('phoneIcon').src = propertyDetails.images.phoneCallIcon;
+      document.getElementById('messageIcon').src = propertyDetails.images.messageIcon;
+      document.getElementById('companyLogo').src = propertyDetails.images.logo;
+
+      // Add error handlers for images
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.onerror = function() {
+          this.style.display = 'none';
+        };
+      });
+
+      // PDF download functionality
+      document.getElementById('downloadPdf').addEventListener('click', function() {
+        const element = document.getElementById('pdfContent');
+        const opt = {
+          margin: 0.5,
+          filename: 'property_listing.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { 
+            scale: 2, 
+            useCORS: true, 
+            allowTaint: true 
+          },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().from(element).set(opt).save();
+      });
+    });
+  </script>
+</body>
+</html>

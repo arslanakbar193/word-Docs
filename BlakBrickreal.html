@@ -1,0 +1,1304 @@
+<style>
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  @import url("https://fonts.googleapis.com/css?family=Poppins:500,400,300");
+
+  .screen textarea:focus,
+  .screen input:focus {
+     outline: none;
+  }
+
+  .screen * {
+     -webkit-font-smoothing: antialiased;
+     box-sizing: border-box;
+  }
+
+  .screen div {
+     -webkit-text-size-adjust: none;
+  }
+
+  .component-wrapper a {
+     display: contents;
+     pointer-events: auto;
+     text-decoration: none;
+  }
+
+  .component-wrapper * {
+     -webkit-font-smoothing: antialiased;
+     box-sizing: border-box;
+     pointer-events: none;
+  }
+
+  .component-wrapper a *,
+  .component-wrapper input,
+  .component-wrapper video,
+  .component-wrapper iframe {
+     pointer-events: auto;
+  }
+
+  .component-wrapper.not-ready,
+  .component-wrapper.not-ready * {
+     visibility: hidden !important;
+  }
+
+  .screen a {
+     display: contents;
+     text-decoration: none;
+  }
+
+  .full-width-a {
+     width: 100%;
+  }
+
+  .full-height-a {
+     height: 100%;
+  }
+
+  .container-center-vertical {
+     align-items: center;
+     display: flex;
+     flex-direction: row;
+     height: 100%;
+     pointer-events: none;
+  }
+
+  .container-center-vertical>* {
+     flex-shrink: 0;
+     pointer-events: auto;
+  }
+
+  .container-center-horizontal {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     pointer-events: none;
+     width: 100%;
+  }
+
+  .container-center-horizontal>* {
+     flex-shrink: 0;
+     pointer-events: auto;
+  }
+
+  .auto-animated div {
+     --z-index: -1;
+     opacity: 0;
+     position: absolute;
+  }
+
+  .auto-animated input {
+     --z-index: -1;
+     opacity: 0;
+     position: absolute;
+  }
+
+  .auto-animated .container-center-vertical,
+  .auto-animated .container-center-horizontal {
+     opacity: 1;
+  }
+
+  .overlay-base {
+     display: none;
+     height: 100%;
+     opacity: 0;
+     position: fixed;
+     top: 0;
+     width: 100%;
+  }
+
+  .overlay-base.animate-appear {
+     align-items: center;
+     animation: reveal 0.3s ease-in-out 1 normal forwards;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     opacity: 0;
+  }
+
+  .overlay-base.animate-disappear {
+     animation: reveal 0.3s ease-in-out 1 reverse forwards;
+     display: block;
+     opacity: 1;
+     pointer-events: none;
+  }
+
+  .overlay-base.animate-disappear * {
+     pointer-events: none;
+  }
+
+  @keyframes reveal {
+     from {
+        opacity: 0
+     }
+
+     to {
+        opacity: 1
+     }
+  }
+
+  .animate-nodelay {
+     animation-delay: 0s;
+  }
+
+  .align-self-flex-start {
+     align-self: flex-start;
+  }
+
+  .align-self-flex-end {
+     align-self: flex-end;
+  }
+
+  .align-self-flex-center {
+     align-self: flex-center;
+  }
+
+  .valign-text-middle {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+  }
+
+  .valign-text-bottom {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+  }
+
+  input:focus {
+     outline: none;
+  }
+
+  .listeners-active,
+  .listeners-active * {
+     pointer-events: auto;
+  }
+
+  .hidden,
+  .hidden * {
+     pointer-events: none;
+     visibility: hidden;
+  }
+
+  .smart-layers-pointers,
+  .smart-layers-pointers * {
+     pointer-events: auto;
+     visibility: visible;
+  }
+
+  .listeners-active-click,
+  .listeners-active-click * {
+     cursor: pointer;
+  }
+
+  * {
+     box-sizing: border-box;
+  }
+
+  :root {
+     --black: #000000;
+     --shark: #272624;
+     --font-size-l: 9px;
+     --font-size-m: 8px;
+     --font-size-xl: 10px;
+     --font-size-xxl: 18px;
+     --font-size-xxxl: 20px;
+     --font-size-xxxxl: 24px;
+     --font-size-xxxxxl: 40px;
+     --font-family-poppins: "Poppins", Helvetica;
+  }
+
+  .poppins-normal-shark-24px {
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-xxxxl);
+     font-style: normal;
+     font-weight: 400;
+  }
+
+  .poppins-medium-shark-9px {
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-l);
+     font-style: normal;
+     font-weight: 500;
+  }
+
+  .poppins-normal-shark-9px {
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-l);
+     font-style: normal;
+     font-weight: 400;
+  }
+
+  .poppins-light-shark-8px {
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-m);
+     font-style: normal;
+     font-weight: 300;
+  }
+
+  :root {}
+
+  /* screen - frame-5 */
+  .frame-5 {
+     background-color: #ffffff;
+     /* height: 1372px; */
+     overflow: hidden;
+     overflow-x: hidden;
+     position: relative;
+     width: 505px;
+  }
+
+  .frame-5 .path10-mg48iN {
+     height: 212px;
+     left: -1793px;
+     top: 601px;
+     width: 170px;
+  }
+
+  .frame-5 .text48-mg48iN {
+     background-color: transparent;
+     height: 148px;
+     left: 983px;
+     position: absolute;
+     top: 482px;
+     width: 491px;
+  }
+
+  .frame-5 .infinity-pool-yGUxub {
+     top: 121px;
+  }
+
+  .frame-5 .basement-cinema-yGUxub {
+     background-color: transparent;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 91px;
+     white-space: nowrap;
+     width: 224px;
+  }
+
+  .frame-5 .private-gym-yGUxub {
+     background-color: transparent;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 61px;
+     white-space: nowrap;
+     width: 145px;
+  }
+
+  .frame-5 .private-state-of-the-art-gym-and-sauna-yGUxub {
+     background-color: transparent;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 30px;
+     white-space: nowrap;
+     width: 481px;
+  }
+
+  .frame-5 .infinity-pool-s9HbQq {
+     top: 0px;
+  }
+
+  .frame-5 .text36-mg48iN {
+     background-color: transparent;
+     height: 45px;
+     left: 804px;
+     position: absolute;
+     top: 795px;
+     width: 390px;
+  }
+
+  .frame-5 .title-TpRDhm {
+     background-color: transparent;
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-xxxxxl);
+     font-style: normal;
+     font-weight: 400;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: -0px;
+     white-space: nowrap;
+     width: 133px;
+  }
+
+  .frame-5 .x9900-TpRDhm {
+     background-color: transparent;
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-xxxxxl);
+     font-style: normal;
+     font-weight: 400;
+     height: auto;
+     left: 278px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 1px;
+     white-space: nowrap;
+     width: 108px;
+  }
+
+  .frame-5 .text58-mg48iN {
+     background-color: transparent;
+     height: 122px;
+     left: 808px;
+     position: absolute;
+     top: 765px;
+     width: 654px;
+  }
+
+  .frame-5 .bua-79yGDH {
+     background-color: transparent;
+     height: auto;
+     left: 281px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 95px;
+     white-space: nowrap;
+     width: 48px;
+  }
+
+  .frame-5 .plot-79yGDH {
+     background-color: transparent;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 95px;
+     white-space: nowrap;
+     width: 57px;
+  }
+
+  .frame-5 .beds-79yGDH {
+     background-color: transparent;
+     height: auto;
+     left: 588px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 96px;
+     white-space: nowrap;
+     width: 59px;
+  }
+
+  .frame-5 .us-ps-79yGDH {
+     background-color: transparent;
+     height: auto;
+     left: 39px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: -0px;
+     white-space: nowrap;
+     width: 57px;
+  }
+
+  .frame-5 .text124-mg48iN {
+     background-color: transparent;
+     height: 28px;
+     left: 916px;
+     position: absolute;
+     top: 807px;
+     width: 342px;
+  }
+
+  .frame-5 .sqft-zWtot3 {
+     left: 0px;
+     top: 0px;
+  }
+
+  .frame-5 .sqft-OHUBvj {
+     left: 279px;
+     top: 1px;
+  }
+
+  .frame-5 .clip-path-group-mg48iN {
+     background-color: transparent;
+     height: 24px;
+     left: -1734px;
+     position: absolute;
+     top: 734px;
+     width: 33px;
+  }
+
+  .frame-5 .rectangle-16-mg48iN {
+     background-color: transparent;
+     border: 0.75px solid;
+     border-color: #d9d9d9;
+     height: 299px;
+     left: 46px;
+     position: absolute;
+     top: 463px;
+     width: 508px;
+  }
+
+  .frame-5 .hi-this-is-how-long-mg48iN {
+     background-color: transparent;
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-xxxl);
+     font-style: normal;
+     font-weight: 500;
+     height: auto;
+     /* left: 46px; */
+     letter-spacing: 0.00px;
+     line-height: 23.0px;
+     /* position: absolute; */
+     text-align: left;
+     /* top: 54px; */
+     /* width: 169px; */
+  }
+
+  .frame-5 .aed2990000-mg48iN {
+     /* background-color: transparent; */
+     color: var(--black);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-xxl);
+     font-style: normal;
+     font-weight: 400;
+     position: absolute;
+     bottom: -25px;
+     right: 0;
+     /* height: auto;
+     left: 430px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 390px;
+     width: auto; */
+  }
+
+  .frame-5 .sub-community-community-mg48iN {
+     /* background-color: transparent; */
+     color: var(--black);
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-xl);
+     font-style: normal;
+     font-weight: 300;
+     /* height: auto;
+     left: 46px; */
+     letter-spacing: 0.00px;
+     line-height: 16px;
+     /* position: absolute; */
+     text-align: left;
+     /* top: 150px;
+     width: 164px; */
+  }
+
+  .frame-5 .ref-vi9749-mg48iN {
+     /* background-color: transparent; */
+     color: #a1a1a1;
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-m);
+     font-style: normal;
+     font-weight: 400;
+     text-align: left;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     /* position: absolute;
+    
+     top: 741px;
+     width: 44px; */
+  }
+
+  /* .frame-5 .group-3-mg48iN {
+     background-color: transparent;
+     height: 21px;
+     left: 46px;
+     position: absolute;
+     top: 316px;
+     width: 135px;
+  } */
+
+  /* .frame-5 .bua-7373sq-ft-C9EO0y {
+     background-color: transparent;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 0px;
+     width: 133px;
+  } */
+
+  .frame-5 .span0-xnFPrA {}
+
+  .frame-5 .span1-xnFPrA {}
+
+  /* .frame-5 .group-4-mg48iN {
+     background-color: transparent;
+     height: 21px;
+     left: 48px;
+     position: absolute;
+     top: 354px;
+     width: 139px;
+  } */
+
+  .frame-5 .plot-8544sq-ft-i5KXaY {
+     /* background-color: transparent;
+     height: auto; */
+     /* left: 0px; */
+     letter-spacing: 0.00px;
+     line-height: normal;
+     /* position: absolute;
+     text-align: left;
+     top: 0px;
+     width: 137px; */
+  }
+
+  .frame-5 .span0-Okc64i {}
+
+  .frame-5 .span1-Okc64i {}
+
+  /* .frame-5 .group-1-mg48iN {
+     background-color: transparent;
+     height: 44px;
+     left: 46px;
+     position: absolute;
+     top: 211px;
+     width: 95px;
+  } */
+
+  .frame-5 .x4-bedrooms-uitJMP {
+     /* background-color: transparent;
+     height: auto;
+     left: 0px; */
+     letter-spacing: 0.00px;
+     line-height: normal;
+     /* position: absolute;
+     text-align: left;
+     top: 23px;
+     width: 93px; */
+  }
+
+  .frame-5 .vector-zFGZ8U {
+     height: 3px;
+     left: 2px;
+     top: 9px;
+     width: 28px;
+  }
+
+  .frame-5 .vector-zwrRFU {
+     height: 3px;
+     left: 3px;
+     top: 6px;
+     width: 8px;
+  }
+
+  .frame-5 .vector-rIDyyv {
+     height: 13px;
+     left: -0px;
+     top: -0px;
+     width: 3px;
+  }
+
+  .frame-5 .vector-KKPvYn {
+     height: 4px;
+     left: 28px;
+     top: 14px;
+     width: 2px;
+  }
+
+  .frame-5 .vector-mg48iN {
+     height: 1px;
+     left: 51px;
+     object-fit: cover;
+     top: 266px;
+     width: 1px;
+  }
+
+  /* .frame-5 .group-2-mg48iN {
+     background-color: transparent;
+     height: 34px;
+     left: 46px;
+     position: absolute;
+     top: 265px;
+     width: 98px;
+  } */
+
+  .frame-5 .x6-bathrooms-ynNsJE {
+     /* background-color: transparent;
+     height: auto;
+     left: 0px; */
+     letter-spacing: 0.00px;
+     line-height: normal;
+     /* position: absolute;
+     text-align: left;
+     top: 20px;
+     width: 96px; */
+  }
+
+  .frame-5 .vector-ynNsJE {
+     height: 1px;
+     left: 7px;
+     top: 4px;
+     width: 1px;
+  }
+
+  .frame-5 .vector-7897q1 {
+     /* height: 16px;
+     left: -0px;
+     top: -0px; */
+     width: 25px;
+  }
+
+  .frame-5 .vector-BYGDg7 {
+     height: 1px;
+     left: 8px;
+     top: 4px;
+     width: 1px;
+  }
+
+  .frame-5 .lorem-ipsum-dolor-si-mg48iN {
+     /* background-color: transparent; */
+     color: #3f3f3f;
+     font-family: var(--font-family-poppins);
+     font-size: var(--font-size-m);
+     font-style: normal;
+     font-weight: 300;
+     height: auto;
+     /* left: 60px; */
+     letter-spacing: 0.00px;
+     line-height: 11px;
+     /* position: absolute; */
+     text-align: left;
+     /* top: 474px; */
+     /* width: 475px; */
+     white-space: pre-line; /* ✅ Ensures line breaks are respected */
+     word-wrap: break-word; /* ✅ Ensures long words do not break the layout */
+
+  }
+
+  .border-box {
+     padding: 15px;
+     border: 0.6px solid #d7d7d7;
+     margin: 14px 0px 20px 0px;
+  }
+
+  .frame-5 .property-description-mg48iN {
+     background-color: transparent;
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: 11px;
+     font-style: normal;
+     font-weight: 500;
+     margin-top: 15px;
+     /* height: auto;
+     left: 46px; */
+     /* letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute; */
+     text-align: left;
+     /* top: 438px;
+     width: 115px; */
+  }
+
+  /* .frame-5 .mask-group-mg48iN {
+     height: 218px;
+     left: 223px;
+     top: 55px;
+     width: 330px;
+  } */
+
+  .frame-5 .mask-group-1xZgjM {
+     height: 218px;
+     left: 46px;
+     top: 782px;
+     width: 507px;
+  }
+
+  .frame-5 .mask-group-n06Kgr {
+     height: 171px;
+     left: 297px;
+     top: 1003px;
+     width: 256px;
+  }
+
+  .frame-5 .mask-group-CoOWYm {
+     height: 171px;
+     left: 46px;
+     top: 1003px;
+     width: 245px;
+  }
+
+  /* .frame-5 .mask-group-2sTTQg {
+     height: 111px;
+     left: 390px;
+     top: 276px;
+     width: 163px;
+  } */
+
+  /* .frame-5 .mask-group-HkkEfU {
+     height: 111px;
+     left: 223px;
+     top: 276px;
+     width: 163px;
+  } */
+
+  .frame-5 .path10-1xZgjM {
+     height: 136px;
+     left: 51px;
+     top: 1194px;
+     width: 507px;
+  }
+
+  .frame-5 .franciska-balc-mg48iN {
+     background-color: transparent;
+     color: var(--shark);
+     font-family: var(--font-family-poppins);
+     font-size: 14px;
+     font-style: normal;
+     font-weight: 300;
+     /* height: auto;
+     left: 238px;
+     letter-spacing: 0.00px;
+     line-height: normal; */
+     /* position: absolute; */
+     text-align: left;
+     /* top: 1217px; */
+     /* width: auto; */
+  }
+
+  .frame-5 .property-advisor-mg48iN {
+     /* background-color: transparent;
+     height: auto; */
+     /* left: 238px; */
+     /* letter-spacing: 0.00px; */
+     /* line-height: normal; */
+     /* position: absolute; */
+     text-align: left;
+     /* top: 1235px; */
+     /* width: auto; */
+  }
+
+  /* .frame-5 .x971-58-502-0939-mg48iN {
+     background-color: transparent;
+     height: auto;
+     left: 264px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 1260px;
+     width: auto;
+  } */
+
+  /* .frame-5 .dummyblackbrickpropertycom-mg48iN {
+     background-color: transparent;
+     height: auto;
+     left: 264px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     top: 1277px;
+     width: auto;
+  } */
+
+  .frame-5 .message-mg48iN {
+     /* background-color: transparent; */
+     height: 10px;
+     /* left: 239px; */
+     object-fit: cover;
+     /* position: absolute; */
+     /* top: 1278px; */
+     width: 14px;
+  }
+
+  .frame-5 .phonecall-mg48iN {
+     /* background-color: transparent; */
+     height: 10px;
+     /* left: 239px; */
+     object-fit: cover;
+     /* position: absolute; */
+     /* top: 1260px; */
+     width: 11px;
+  }
+
+  .frame-5 .carrie-mg48iN {
+     /* background-color: transparent; */
+     height: 135px;
+     /* left: 51px; */
+     object-fit: cover;
+     /* position: absolute; */
+     /* top: 1195px; */
+     width: 175px;
+  }
+
+  .frame-5 .logo_desertnoir-1-mg48iN {
+     width: 90px;
+     height: auto;
+     transform: translate(-18px, -10px);
+  }
+  .footer-sec-content {
+display: flex;
+flex-direction: column;
+gap: 7px;
+justify-content: end;
+}
+
+  .frame-5 .rectangle-18-mg48iN {
+     background-color: var(--shark);
+     height: 13px;
+     left: 512px;
+     position: absolute;
+     top: 55px;
+     width: 41px;
+  }
+
+  .frame-5 .for-sale-mg48iN {
+     background-color: #272624;
+     color: #ffffff;
+     font-family: var(--font-family-poppins);
+     font-size: 6px;
+     font-style: normal;
+     font-weight: 400;
+     right: 3px;
+     position: absolute;
+     top: 0;
+     padding: 4px 7px;
+  }
+
+  .frame-5 .infinity-pool {
+     background-color: transparent;
+     height: auto;
+     left: 0px;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     white-space: nowrap;
+     width: 138px;
+  }
+
+  /* .frame-5 .mask-group {
+     background-color: transparent;
+     position: absolute;
+  } */
+
+  .frame-5 .path10 {
+     background-color: transparent;
+     position: absolute;
+  }
+
+  .frame-5 .sqft {
+     background-color: transparent;
+     height: auto;
+     letter-spacing: 0.00px;
+     line-height: normal;
+     position: absolute;
+     text-align: left;
+     white-space: nowrap;
+     width: 59px;
+  }
+
+  /* .frame-5 .vector {
+     background-color: transparent;
+     position: absolute;
+  } */
+
+  /* new css */
+  .hero-section {
+     display: flex;
+     padding-top: 30px;
+     padding-bottom: 30px;
+  }
+
+  .hero-section-left {
+     display: flex;
+     justify-content: space-between;
+     flex-direction: column;
+     width: 33%;
+  }
+
+  .hero-section-right {
+     /* width: 66%; */
+     position: relative;
+     flex: 0 0 auto;
+     margin-left: auto;
+  }
+
+  .left-bottom {
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+  }
+
+  .advisor-container {
+     display: flex;
+     gap: 20px;
+     padding: 20px 10px;
+  }
+
+  .icon-text {
+     display: flex;
+     gap: 15px;
+     margin-top: 8px;
+  }
+
+  .mask-group-img {
+     margin-top: 3px;
+  }
+</style>
+
+
+
+
+
+
+<!DOCTYPE html>
+
+
+
+
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+   <style>
+      /* Add your CSS styles here */
+      body {
+         margin: 0;
+         background: #ffffff;
+         font-family: 'Poppins', sans-serif;
+      }
+      .container-center-horizontal {
+         display: flex;
+         justify-content: center;
+      }
+      .frame-5 {
+         width: 100%;
+         max-width: 595px; /* A4 width in pixels at 72dpi */
+         padding: 20px;
+         box-sizing: border-box;
+      }
+      .hero-section {
+         display: flex;
+         margin-bottom: 20px;
+      }
+      .hero-section-left {
+         flex: 1;
+         padding-right: 10px;
+      }
+      .hero-section-right {
+         flex: 1;
+         position: relative;
+      }
+      .mask-group-img {
+         display: flex;
+         gap: 5px;
+         margin-top: 5px;
+      }
+      .mask-group-img img {
+         width: 50%;
+      }
+      .footer-sec {
+         margin-top: 20px;
+      }
+      .advisor-container {
+         display: flex;
+         margin-top: 20px;
+      }
+      .footer-sec-img {
+         margin-right: 15px;
+      }
+      .footer-sec-img img {
+         width: 80px;
+         height: 80px;
+         border-radius: 50%;
+         object-fit: cover;
+      }
+      .icon-text {
+         display: flex;
+         align-items: center;
+         margin: 5px 0;
+      }
+      .icon-text img {
+         width: 12px;
+         height: 12px;
+         margin-right: 5px;
+      }
+      .border-box {
+         border: 1px solid #ddd;
+         padding: 15px;
+         border-radius: 5px;
+         margin: 15px 0;
+      }
+      #loading {
+         display: none;
+         text-align: center;
+         padding: 20px;
+      }
+      button {
+         background-color: #4CAF50;
+         border: none;
+         color: white;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 20px auto;
+         cursor: pointer;
+         border-radius: 5px;
+      }
+   </style>
+   <!-- Include html2pdf library -->
+   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
+</head>
+
+<body>
+   <input type="hidden" id="anPageName" name="page" value="frame-5">
+   <!-- Static values defined -->
+   <script>
+      const propertyDetails = {
+         title: "Unique 6 Bed | Upgraded | Extended | Mega Plot",
+         price: "3,500,000",
+         community: "Alvorda, Arabian Ranches",
+         category: "Sale",
+         RefNo: "123456",
+         BUA: "3,000",
+         plotSize: "4,500",
+         noOfBedrooms: "4",
+         noOfBathrooms: "6",
+         propertyDescription: `Sobha Orbis in Motor City is a premium residential development by Sobha Realty, known for its high-quality craftsmanship and luxury living.
+         
+         The Orbis offers elegantly designed apartments with contemporary architecture, spacious layouts, and top-tier finishes. Residents will enjoy world-class amenities, including a swimming pool, fitness center, landscaped gardens, and dedicated recreational spaces.
+         
+         Located in Motor City, a dynamic community known for its vibrant lifestyle, green spaces, and motorsport heritage, Sobha Orbis provides an exceptional living experience with easy access to key destinations in Dubai.
+         
+         Handover: December, 2027`,
+         advisorName: "Franciska Balc",
+         advisorTitle: "Real Estate Advisor",
+         advisorContactNumber: "+971 58 123 4567",
+         advisorEmail: "franciska@realestate.com",
+         images: {
+            logo: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/LOGO_DESERTNOIR+1.png",
+            advisorImage: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Carrie.png",
+            phoneCallIcon: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/phonecall.svg",
+            messageIcon: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/message.svg",
+            bedIcon: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Group+1+(1).svg",
+            bathroomIcon: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Vector+(4).svg",
+            maskGroup: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Mask+group.png",
+            maskGroup1: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Mask+group-1.png",
+            maskGroup2: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Mask+group-2.png",
+            maskGroup3: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Mask+group-3.png",
+            maskGroup4: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Mask+group-4.png",
+            maskGroup5: "https://blackbrickwebsite.s3.me-central-1.amazonaws.com/Mask+group-5.png",
+         }
+      };
+
+      window.onload = function () {
+         document.getElementById('property-title').textContent = propertyDetails.title;
+         document.getElementById('property-price').textContent = `AED ${propertyDetails.price}`;
+         document.getElementById('community').textContent = `${propertyDetails.community}`;
+         document.getElementById('ref-no').textContent = `Ref. ${propertyDetails.RefNo}`;
+         document.getElementById('bua').textContent = `${propertyDetails.BUA} sq ft.`;
+         document.getElementById('plot').textContent = `${propertyDetails.plotSize} sq ft.`;
+         document.getElementById('bedrooms').textContent = `${propertyDetails.noOfBedrooms} Bedrooms`;
+         document.getElementById('bathrooms').textContent = `${propertyDetails.noOfBathrooms} Bathrooms`;
+         document.getElementById('property-description').textContent = propertyDetails.propertyDescription;
+         document.getElementById('advisor-name').textContent = propertyDetails.advisorName;
+         document.getElementById('advisor-title').textContent = propertyDetails.advisorTitle;
+         document.getElementById('advisor-contact').textContent = propertyDetails.advisorContactNumber;
+         document.getElementById('advisor-email').textContent = propertyDetails.advisorEmail;
+         document.getElementById('listing-category').textContent = `For ${propertyDetails.category}`;
+
+         const images = propertyDetails.images;
+         if (images) {
+            document.getElementById('mask-group-img').src = propertyDetails.images.maskGroup;
+            document.getElementById('mask-group1-img').src = propertyDetails.images.maskGroup1;
+            document.getElementById('mask-group2-img').src = propertyDetails.images.maskGroup2;
+            document.getElementById('mask-group3-img').src = propertyDetails.images.maskGroup3;
+            document.getElementById('mask-group4-img').src = propertyDetails.images.maskGroup4;
+            document.getElementById('mask-group5-img').src = propertyDetails.images.maskGroup5;
+            document.getElementById('logo-img').src = propertyDetails?.images?.logo;
+            document.getElementById('advisor-img').src = propertyDetails?.images?.advisorImage;
+            document.getElementById('phonecall-svg').src = propertyDetails?.images?.phoneCallIcon;
+            document.getElementById('message-svg').src = propertyDetails?.images?.messageIcon;
+            document.getElementById('bed-svg').src = propertyDetails?.images?.bedIcon;
+            document.getElementById('bath-svg').src = propertyDetails?.images?.bathroomIcon;
+         }
+         
+         // Set up PDF generation button
+         document.getElementById('generatePDF1').addEventListener('click', generatePDF);
+      };
+     
+      // document.getElementById('generatePDF1').addEventListener('click', generatePDF);
+        
+        async function generatePDF() {
+            const element = document.getElementById('content');
+            const loading = document.getElementById('loading');
+            
+            loading.style.display = 'block';
+            
+            try {
+                // Convert images to data URLs
+                const images = element.getElementsByTagName('img');
+                await Promise.all(Array.from(images).map(convertImageToDataURL));
+                
+                const opt = {
+                    margin: 10,
+                    filename: 'property_listing.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: true
+                    },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                
+                await html2pdf().set(opt).from(element).save();
+            } catch (error) {
+                console.error('PDF generation failed:', error);
+                alert('Failed to generate PDF. Please check console for details.');
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+        
+        function convertImageToDataURL(img) {
+            return new Promise((resolve) => {
+                if (img.complete && img.naturalHeight !== 0) {
+                    resolve();
+                    return;
+                }
+                
+                img.onload = resolve;
+                img.onerror = resolve;
+            });
+        }
+   </script>
+
+   <div style="max-width: 505px; margin: auto">
+      <button id="generatePDF1" class="font-regular">Generate PDF</button>
+   </div>
+   <div id="loading" class="font-regular">
+      Generating PDF, please wait...
+   </div>
+
+   <div class="container-center-horizontal" id="content">
+      <div class="frame-5 screen" data-id="17:252">
+         <div class="hero-section">
+            <div class="hero-section-left">
+               <div class="left-top">
+                  <p class="hi-this-is-how-long-mg48iN" data-id="17:278" id="property-title"></p>
+                  <div class="sub-community-community-mg48iN" data-id="17:280" id="community"></div>
+               </div>
+               <div class="left-bottom">
+                  <div class="group-1-mg48iN" data-id="20:16">
+                     <div class="x4-bedrooms-uitJMP poppins-normal-shark-9px" data-id="17:282" id="bedrooms"></div>
+                     <img class="vector-uitJMP vector anima-loading-result" data-id="17:286" id="bed-svg" alt="Vector"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  </div>
+                  <div class="group-2-mg48iN" data-id="20:18">
+                     <div class="x6-bathrooms-ynNsJE poppins-normal-shark-9px" data-id="17:283" id="bathrooms"></div>
+                     <img class="vector-BYGDg7 vector anima-loading-result" data-id="17:294" id="bath-svg" alt="Vector"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  </div>
+                  <div class="group-3-mg48iN" data-id="20:19">
+                     <div class="bua-7373sq-ft-C9EO0y poppins-medium-shark-9px" data-id="17:284">
+                        <span class="span0-xnFPrA poppins-medium-shark-9px">BUA<br></span>
+                        <span class="span1-xnFPrA poppins-normal-shark-9px" id="bua"></span>
+                     </div>
+                  </div>
+                  <div class="group-4-mg48iN" data-id="20:20">
+                     <div class="plot-8544sq-ft-i5KXaY poppins-medium-shark-9px" data-id="17:285">
+                        <span class="span0-Okc64i poppins-medium-shark-9px">Plot<br></span>
+                        <span class="span1-Okc64i poppins-normal-shark-9px" id="plot"></span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="hero-section-right">
+               <img class="mask-group-mg48iN mask-group anima-loading-result" data-id="17:298" id="mask-group-img"
+                  alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               <div class="mask-group-img">
+                  <img class="mask-group-2sTTQg mask-group anima-loading-result" data-id="17:310" id="mask-group4-img"
+                  alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  <img class="mask-group-HkkEfU mask-group anima-loading-result" data-id="17:313" id="mask-group5-img"
+                     alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+               <div class="aed2990000-mg48iN" data-id="17:279" id="property-price"></div>
+               <div class="for-sale-mg48iN" data-id="17:295" id="listing-category"></div>
+            </div>
+         </div>
+
+         <div>
+            <div class="property-description-mg48iN" data-id="17:297">Property Description</div>
+            <div class="border-box">
+               <p class="lorem-ipsum-dolor-si-mg48iN" data-id="17:296" id="property-description"></p>
+               <div class="ref-vi9749-mg48iN" data-id="17:281" id="ref-no"></div>
+            </div>
+         </div>
+
+         <div class="footer-sec">
+            <img class="mask-group-1xZgjM mask-group anima-loading-result" data-id="17:301" id="mask-group1-img"
+               alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               <div class="mask-group-img">
+                  <img class="mask-group-n06Kgr mask-group anima-loading-result" data-id="17:304" id="mask-group2-img"
+                     alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  <img class="mask-group-CoOWYm mask-group anima-loading-result" data-id="17:307" id="mask-group3-img"
+                     alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+
+            <div class="advisor-container">
+               <div class="footer-sec-img">
+                  <img class="carrie-mg48iN anima-loading-result" data-id="17:323" id="advisor-img" alt="Carrie"
+                     onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+               <div class="footer-sec-content">
+                  <div class="franciska-balc-mg48iN" data-id="17:317" id="advisor-name"></div>
+                  <div class="property-advisor-mg48iN poppins-light-shark-8px" data-id="17:318" id="advisor-title"></div>
+                  <div class="icon-text">
+                     <img class="phonecall-mg48iN anima-loading-result" data-id="17:322" id="phonecall-svg"
+                        alt="phonecall" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                     <div class="x971-58-502-0939-mg48iN poppins-light-shark-8px" data-id="17:319" id="advisor-contact"></div>
+                  </div>
+                  <div class="icon-text">
+                     <img class="message-mg48iN anima-loading-result" data-id="17:321" id="message-svg" alt="message"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                     <div class="dummyblackbrickpropertycom-mg48iN poppins-light-shark-8px" data-id="17:320"
+                        id="advisor-email"></div>
+                  </div>
+                  <img class="logo_desertnoir-1-mg48iN anima-loading-result" data-id="17:324" id="logo-img"
+                     alt="LOGO_DESERTNOIR 1" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

@@ -1,465 +1,1130 @@
-<html lang="en" data-lt-installed="true">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LivingAscot</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+<html>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <style>
+<head>
+   <meta charset="utf-8">
+   <!--<meta name=description content="This site was generated with Anima. www.animaapp.com"/>-->
+   <!-- <link rel="shortcut icon" type=image/png href="https://animaproject.s3.amazonaws.com/home/favicon.png" /> -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+   <style>
+      @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+      @import url("https://fonts.googleapis.com/css?family=Poppins:500,400,300");
+
+      .screen textarea:focus,
+      .screen input:focus {
+         outline: none;
+      }
+
+      .screen * {
+         -webkit-font-smoothing: antialiased;
+         box-sizing: border-box;
+      }
+
+      .screen div {
+         -webkit-text-size-adjust: none;
+      }
+
+      .component-wrapper a {
+         display: contents;
+         pointer-events: auto;
+         text-decoration: none;
+      }
+
+      .component-wrapper * {
+         -webkit-font-smoothing: antialiased;
+         box-sizing: border-box;
+         pointer-events: none;
+      }
+
+      .component-wrapper a *,
+      .component-wrapper input,
+      .component-wrapper video,
+      .component-wrapper iframe {
+         pointer-events: auto;
+      }
+
+      .component-wrapper.not-ready,
+      .component-wrapper.not-ready * {
+         visibility: hidden !important;
+      }
+
+      .screen a {
+         display: contents;
+         text-decoration: none;
+      }
+
+      .full-width-a {
+         width: 100%;
+      }
+
+      .full-height-a {
+         height: 100%;
+      }
+
+      .container-center-vertical {
+         align-items: center;
+         display: flex;
+         flex-direction: row;
+         height: 100%;
+         pointer-events: none;
+      }
+
+      .container-center-vertical>* {
+         flex-shrink: 0;
+         pointer-events: auto;
+      }
+
+      .container-center-horizontal {
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         pointer-events: none;
+         width: 100%;
+      }
+
+      .container-center-horizontal>* {
+         flex-shrink: 0;
+         pointer-events: auto;
+      }
+
+      .auto-animated div {
+         --z-index: -1;
+         opacity: 0;
+         position: absolute;
+      }
+
+      .auto-animated input {
+         --z-index: -1;
+         opacity: 0;
+         position: absolute;
+      }
+
+      .auto-animated .container-center-vertical,
+      .auto-animated .container-center-horizontal {
+         opacity: 1;
+      }
+
+      .overlay-base {
+         display: none;
+         height: 100%;
+         opacity: 0;
+         position: fixed;
+         top: 0;
+         width: 100%;
+      }
+
+      .overlay-base.animate-appear {
+         align-items: center;
+         animation: reveal 0.3s ease-in-out 1 normal forwards;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         opacity: 0;
+      }
+
+      .overlay-base.animate-disappear {
+         animation: reveal 0.3s ease-in-out 1 reverse forwards;
+         display: block;
+         opacity: 1;
+         pointer-events: none;
+      }
+
+      .overlay-base.animate-disappear * {
+         pointer-events: none;
+      }
+
+      @keyframes reveal {
+         from {
+            opacity: 0
+         }
+
+         to {
+            opacity: 1
+         }
+      }
+
+      .animate-nodelay {
+         animation-delay: 0s;
+      }
+
+      .align-self-flex-start {
+         align-self: flex-start;
+      }
+
+      .align-self-flex-end {
+         align-self: flex-end;
+      }
+
+      .align-self-flex-center {
+         align-self: flex-center;
+      }
+
+      .valign-text-middle {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+      }
+
+      .valign-text-bottom {
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+      }
+
+      input:focus {
+         outline: none;
+      }
+
+      .listeners-active,
+      .listeners-active * {
+         pointer-events: auto;
+      }
+
+      .hidden,
+      .hidden * {
+         pointer-events: none;
+         visibility: hidden;
+      }
+
+      .smart-layers-pointers,
+      .smart-layers-pointers * {
+         pointer-events: auto;
+         visibility: visible;
+      }
+
+      .listeners-active-click,
+      .listeners-active-click * {
+         cursor: pointer;
+      }
+
       * {
-        font-family: "Poppins", sans-serif;
-      }
-      .no-focus:focus {
-        outline: none;
-      }
-      .gradient-text {
-        position: absolute;
-        right: 0px;
-        width: 40px;
-        padding: 4px 7px;
-        background: #000;
-        color: #fff !important;
-        font-size: 6px;
-        z-index: 1;
-        top: 0px;
-        font-weight: 400;
+         box-sizing: border-box;
       }
 
-      #generatePDF1 {
-        background-color: #2f3433;
-        border: none;
-        color: #fff !important;
-        font-weight: bold;
-        border-radius: 4px;
-        padding: 7px 15px;
-        font-size: 14px;
-        cursor: pointer;
-        margin-bottom: 10px;
-        outline: none;
-        margin-left: 12px;
+      :root {
+         --black: #000000;
+         --shark: #272624;
+         --font-size-l: 9px;
+         --font-size-m: 8px;
+         --font-size-xl: 10px;
+         --font-size-xxl: 18px;
+         --font-size-xxxl: 20px;
+         --font-size-xxxxl: 24px;
+         --font-size-xxxxxl: 40px;
+         --font-family-poppins: "Poppins", Helvetica;
       }
-      #generatePDF1:focus {
-        outline: none;
+
+      .poppins-normal-shark-24px {
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-xxxxl);
+         font-style: normal;
+         font-weight: 400;
       }
-      #loading {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 24px;
-        background-color: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border: 1px solid #ffe740;
-        border-radius: 10px;
-        background-color: #ffe740;
-        font-weight: 600;
-        z-index: 1;
+
+      .poppins-medium-shark-9px {
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-l);
+         font-style: normal;
+         font-weight: 500;
       }
-      button#PrintLayoutButton {
-        display: none;
+
+      .poppins-normal-shark-9px {
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-l);
+         font-style: normal;
+         font-weight: 400;
       }
-    </style>
-  </head>
-  <body>
-    <section class="sec1" style="float: left; width: 100%">
-      <div style="max-width: 800px; margin: auto">
-        <button id="generatePDF1" class="font-regular">Generate PDF</button>
+
+      .poppins-light-shark-8px {
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-m);
+         font-style: normal;
+         font-weight: 300;
+      }
+
+      :root {}
+
+      /* screen - frame-5 */
+      .frame-5 {
+         background-color: #ffffff;
+         /* height: 1372px; */
+         overflow: hidden;
+         overflow-x: hidden;
+         position: relative;
+         width: 505px;
+      }
+
+      .frame-5 .path10-mg48iN {
+         height: 212px;
+         left: -1793px;
+         top: 601px;
+         width: 170px;
+      }
+
+      .frame-5 .text48-mg48iN {
+         background-color: transparent;
+         height: 148px;
+         left: 983px;
+         position: absolute;
+         top: 482px;
+         width: 491px;
+      }
+
+      .frame-5 .infinity-pool-yGUxub {
+         top: 121px;
+      }
+
+      .frame-5 .basement-cinema-yGUxub {
+         background-color: transparent;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 91px;
+         white-space: nowrap;
+         width: 224px;
+      }
+
+      .frame-5 .private-gym-yGUxub {
+         background-color: transparent;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 61px;
+         white-space: nowrap;
+         width: 145px;
+      }
+
+      .frame-5 .private-state-of-the-art-gym-and-sauna-yGUxub {
+         background-color: transparent;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 30px;
+         white-space: nowrap;
+         width: 481px;
+      }
+
+      .frame-5 .infinity-pool-s9HbQq {
+         top: 0px;
+      }
+
+      .frame-5 .text36-mg48iN {
+         background-color: transparent;
+         height: 45px;
+         left: 804px;
+         position: absolute;
+         top: 795px;
+         width: 390px;
+      }
+
+      .frame-5 .title-TpRDhm {
+         background-color: transparent;
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-xxxxxl);
+         font-style: normal;
+         font-weight: 400;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: -0px;
+         white-space: nowrap;
+         width: 133px;
+      }
+
+      .frame-5 .x9900-TpRDhm {
+         background-color: transparent;
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-xxxxxl);
+         font-style: normal;
+         font-weight: 400;
+         height: auto;
+         left: 278px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 1px;
+         white-space: nowrap;
+         width: 108px;
+      }
+
+      .frame-5 .text58-mg48iN {
+         background-color: transparent;
+         height: 122px;
+         left: 808px;
+         position: absolute;
+         top: 765px;
+         width: 654px;
+      }
+
+      .frame-5 .bua-79yGDH {
+         background-color: transparent;
+         height: auto;
+         left: 281px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 95px;
+         white-space: nowrap;
+         width: 48px;
+      }
+
+      .frame-5 .plot-79yGDH {
+         background-color: transparent;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 95px;
+         white-space: nowrap;
+         width: 57px;
+      }
+
+      .frame-5 .beds-79yGDH {
+         background-color: transparent;
+         height: auto;
+         left: 588px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 96px;
+         white-space: nowrap;
+         width: 59px;
+      }
+
+      .frame-5 .us-ps-79yGDH {
+         background-color: transparent;
+         height: auto;
+         left: 39px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: -0px;
+         white-space: nowrap;
+         width: 57px;
+      }
+
+      .frame-5 .text124-mg48iN {
+         background-color: transparent;
+         height: 28px;
+         left: 916px;
+         position: absolute;
+         top: 807px;
+         width: 342px;
+      }
+
+      .frame-5 .sqft-zWtot3 {
+         left: 0px;
+         top: 0px;
+      }
+
+      .frame-5 .sqft-OHUBvj {
+         left: 279px;
+         top: 1px;
+      }
+
+      .frame-5 .clip-path-group-mg48iN {
+         background-color: transparent;
+         height: 24px;
+         left: -1734px;
+         position: absolute;
+         top: 734px;
+         width: 33px;
+      }
+
+      .frame-5 .rectangle-16-mg48iN {
+         background-color: transparent;
+         border: 0.75px solid;
+         border-color: #d9d9d9;
+         height: 299px;
+         left: 46px;
+         position: absolute;
+         top: 463px;
+         width: 508px;
+      }
+
+      .frame-5 .hi-this-is-how-long-mg48iN {
+         background-color: transparent;
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-xxxl);
+         font-style: normal;
+         font-weight: 500;
+         height: auto;
+         /* left: 46px; */
+         letter-spacing: 0.00px;
+         line-height: 23.0px;
+         /* position: absolute; */
+         text-align: left;
+         /* top: 54px; */
+         /* width: 169px; */
+      }
+
+      .frame-5 .aed2990000-mg48iN {
+         /* background-color: transparent; */
+         color: var(--black);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-xxl);
+         font-style: normal;
+         font-weight: 400;
+         position: absolute;
+         bottom: -25px;
+         right: 0;
+         /* height: auto;
+         left: 430px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 390px;
+         width: auto; */
+      }
+
+      .frame-5 .sub-community-community-mg48iN {
+         /* background-color: transparent; */
+         color: var(--black);
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-xl);
+         font-style: normal;
+         font-weight: 300;
+         /* height: auto;
+         left: 46px; */
+         letter-spacing: 0.00px;
+         line-height: 16px;
+         /* position: absolute; */
+         text-align: left;
+         /* top: 150px;
+         width: 164px; */
+      }
+
+      .frame-5 .ref-vi9749-mg48iN {
+         /* background-color: transparent; */
+         color: #a1a1a1;
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-m);
+         font-style: normal;
+         font-weight: 400;
+         text-align: left;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         /* position: absolute;
+        
+         top: 741px;
+         width: 44px; */
+      }
+
+      /* .frame-5 .group-3-mg48iN {
+         background-color: transparent;
+         height: 21px;
+         left: 46px;
+         position: absolute;
+         top: 316px;
+         width: 135px;
+      } */
+
+      /* .frame-5 .bua-7373sq-ft-C9EO0y {
+         background-color: transparent;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 0px;
+         width: 133px;
+      } */
+
+      .frame-5 .span0-xnFPrA {}
+
+      .frame-5 .span1-xnFPrA {}
+
+      /* .frame-5 .group-4-mg48iN {
+         background-color: transparent;
+         height: 21px;
+         left: 48px;
+         position: absolute;
+         top: 354px;
+         width: 139px;
+      } */
+
+      .frame-5 .plot-8544sq-ft-i5KXaY {
+         /* background-color: transparent;
+         height: auto; */
+         /* left: 0px; */
+         letter-spacing: 0.00px;
+         line-height: normal;
+         /* position: absolute;
+         text-align: left;
+         top: 0px;
+         width: 137px; */
+      }
+
+      .frame-5 .span0-Okc64i {}
+
+      .frame-5 .span1-Okc64i {}
+
+      /* .frame-5 .group-1-mg48iN {
+         background-color: transparent;
+         height: 44px;
+         left: 46px;
+         position: absolute;
+         top: 211px;
+         width: 95px;
+      } */
+
+      .frame-5 .x4-bedrooms-uitJMP {
+         /* background-color: transparent;
+         height: auto;
+         left: 0px; */
+         letter-spacing: 0.00px;
+         line-height: normal;
+         /* position: absolute;
+         text-align: left;
+         top: 23px;
+         width: 93px; */
+      }
+
+      .frame-5 .vector-zFGZ8U {
+         height: 3px;
+         left: 2px;
+         top: 9px;
+         width: 28px;
+      }
+
+      .frame-5 .vector-zwrRFU {
+         height: 3px;
+         left: 3px;
+         top: 6px;
+         width: 8px;
+      }
+
+      .frame-5 .vector-rIDyyv {
+         height: 13px;
+         left: -0px;
+         top: -0px;
+         width: 3px;
+      }
+
+      .frame-5 .vector-KKPvYn {
+         height: 4px;
+         left: 28px;
+         top: 14px;
+         width: 2px;
+      }
+
+      .frame-5 .vector-mg48iN {
+         height: 1px;
+         left: 51px;
+         object-fit: cover;
+         top: 266px;
+         width: 1px;
+      }
+
+      /* .frame-5 .group-2-mg48iN {
+         background-color: transparent;
+         height: 34px;
+         left: 46px;
+         position: absolute;
+         top: 265px;
+         width: 98px;
+      } */
+
+      .frame-5 .x6-bathrooms-ynNsJE {
+         /* background-color: transparent;
+         height: auto;
+         left: 0px; */
+         letter-spacing: 0.00px;
+         line-height: normal;
+         /* position: absolute;
+         text-align: left;
+         top: 20px;
+         width: 96px; */
+      }
+
+      .frame-5 .vector-ynNsJE {
+         height: 1px;
+         left: 7px;
+         top: 4px;
+         width: 1px;
+      }
+
+      .frame-5 .vector-7897q1 {
+         /* height: 16px;
+         left: -0px;
+         top: -0px; */
+         width: 25px;
+      }
+
+      .frame-5 .vector-BYGDg7 {
+         height: 1px;
+         left: 8px;
+         top: 4px;
+         width: 1px;
+      }
+
+      .frame-5 .lorem-ipsum-dolor-si-mg48iN {
+         /* background-color: transparent; */
+         color: #3f3f3f;
+         font-family: var(--font-family-poppins);
+         font-size: var(--font-size-m);
+         font-style: normal;
+         font-weight: 300;
+         height: auto;
+         /* left: 60px; */
+         letter-spacing: 0.00px;
+         line-height: 11px;
+         /* position: absolute; */
+         text-align: left;
+         /* top: 474px; */
+         /* width: 475px; */
+         white-space: pre-line; /* ✅ Ensures line breaks are respected */
+         word-wrap: break-word; /* ✅ Ensures long words do not break the layout */
+
+      }
+
+      .border-box {
+         padding: 15px;
+         border: 0.6px solid #d7d7d7;
+         margin: 14px 0px 20px 0px;
+      }
+
+      .frame-5 .property-description-mg48iN {
+         background-color: transparent;
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: 11px;
+         font-style: normal;
+         font-weight: 500;
+         margin-top: 15px;
+         /* height: auto;
+         left: 46px; */
+         /* letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute; */
+         text-align: left;
+         /* top: 438px;
+         width: 115px; */
+      }
+
+      /* .frame-5 .mask-group-mg48iN {
+         height: 218px;
+         left: 223px;
+         top: 55px;
+         width: 330px;
+      } */
+
+      .frame-5 .mask-group-1xZgjM {
+         height: 218px;
+         left: 46px;
+         top: 782px;
+         width: 507px;
+      }
+
+      .frame-5 .mask-group-n06Kgr {
+         height: 171px;
+         left: 297px;
+         top: 1003px;
+         width: 256px;
+      }
+
+      .frame-5 .mask-group-CoOWYm {
+         height: 171px;
+         left: 46px;
+         top: 1003px;
+         width: 245px;
+      }
+
+      /* .frame-5 .mask-group-2sTTQg {
+         height: 111px;
+         left: 390px;
+         top: 276px;
+         width: 163px;
+      } */
+
+      /* .frame-5 .mask-group-HkkEfU {
+         height: 111px;
+         left: 223px;
+         top: 276px;
+         width: 163px;
+      } */
+
+      .frame-5 .path10-1xZgjM {
+         height: 136px;
+         left: 51px;
+         top: 1194px;
+         width: 507px;
+      }
+
+      .frame-5 .franciska-balc-mg48iN {
+         background-color: transparent;
+         color: var(--shark);
+         font-family: var(--font-family-poppins);
+         font-size: 14px;
+         font-style: normal;
+         font-weight: 300;
+         /* height: auto;
+         left: 238px;
+         letter-spacing: 0.00px;
+         line-height: normal; */
+         /* position: absolute; */
+         text-align: left;
+         /* top: 1217px; */
+         /* width: auto; */
+      }
+
+      .frame-5 .property-advisor-mg48iN {
+         /* background-color: transparent;
+         height: auto; */
+         /* left: 238px; */
+         /* letter-spacing: 0.00px; */
+         /* line-height: normal; */
+         /* position: absolute; */
+         text-align: left;
+         /* top: 1235px; */
+         /* width: auto; */
+      }
+
+      /* .frame-5 .x971-58-502-0939-mg48iN {
+         background-color: transparent;
+         height: auto;
+         left: 264px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 1260px;
+         width: auto;
+      } */
+
+      /* .frame-5 .dummyblackbrickpropertycom-mg48iN {
+         background-color: transparent;
+         height: auto;
+         left: 264px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         top: 1277px;
+         width: auto;
+      } */
+
+      .frame-5 .message-mg48iN {
+         /* background-color: transparent; */
+         height: 10px;
+         /* left: 239px; */
+         object-fit: cover;
+         /* position: absolute; */
+         /* top: 1278px; */
+         width: 14px;
+      }
+
+      .frame-5 .phonecall-mg48iN {
+         /* background-color: transparent; */
+         height: 10px;
+         /* left: 239px; */
+         object-fit: cover;
+         /* position: absolute; */
+         /* top: 1260px; */
+         width: 11px;
+      }
+
+      .frame-5 .carrie-mg48iN {
+         /* background-color: transparent; */
+         height: 135px;
+         /* left: 51px; */
+         object-fit: cover;
+         /* position: absolute; */
+         /* top: 1195px; */
+         width: 175px;
+      }
+
+      .frame-5 .logo_desertnoir-1-mg48iN {
+         width: 90px;
+         height: auto;
+         transform: translate(-18px, -10px);
+      }
+      .footer-sec-content {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    justify-content: end;
+}
+
+      .frame-5 .rectangle-18-mg48iN {
+         background-color: var(--shark);
+         height: 13px;
+         left: 512px;
+         position: absolute;
+         top: 55px;
+         width: 41px;
+      }
+
+      .frame-5 .for-sale-mg48iN {
+         background-color: #272624;
+         color: #ffffff;
+         font-family: var(--font-family-poppins);
+         font-size: 6px;
+         font-style: normal;
+         font-weight: 400;
+         right: 3px;
+         position: absolute;
+         top: 0;
+         padding: 4px 7px;
+      }
+
+      .frame-5 .infinity-pool {
+         background-color: transparent;
+         height: auto;
+         left: 0px;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         white-space: nowrap;
+         width: 138px;
+      }
+
+      /* .frame-5 .mask-group {
+         background-color: transparent;
+         position: absolute;
+      } */
+
+      .frame-5 .path10 {
+         background-color: transparent;
+         position: absolute;
+      }
+
+      .frame-5 .sqft {
+         background-color: transparent;
+         height: auto;
+         letter-spacing: 0.00px;
+         line-height: normal;
+         position: absolute;
+         text-align: left;
+         white-space: nowrap;
+         width: 59px;
+      }
+
+      /* .frame-5 .vector {
+         background-color: transparent;
+         position: absolute;
+      } */
+
+      /* new css */
+      .hero-section {
+         display: flex;
+         padding-top: 30px;
+         padding-bottom: 30px;
+      }
+
+      .hero-section-left {
+         display: flex;
+         justify-content: space-between;
+         flex-direction: column;
+         width: 33%;
+      }
+
+      .hero-section-right {
+         /* width: 66%; */
+         position: relative;
+         flex: 0 0 auto;
+         margin-left: auto;
+      }
+
+      .left-bottom {
+         display: flex;
+         flex-direction: column;
+         gap: 15px;
+      }
+
+      .advisor-container {
+         display: flex;
+         gap: 20px;
+         padding: 20px 10px;
+      }
+
+      .icon-text {
+         display: flex;
+         gap: 15px;
+         margin-top: 8px;
+      }
+
+      .mask-group-img {
+         margin-top: 3px;
+      }
+   </style>
+</head>
+
+<body style="margin: 0; background: #ffffff;">
+   <input type="hidden" id="anPageName" name="page" value="frame-5">
+   <!-- Static values defined -->
+   
+
+      <div style="max-width: 505px; margin: auto">
+         <button id="generatePDF1" class="font-regular">Generate PDF</button>
       </div>
       <div id="loading" class="font-regular">
-        Generating PDF, please wait...
+         Generating PDF, please wait...
       </div>
-      <div
-        class="container"
-        style="max-width: 800px; margin: auto; display: flex"
-        id="content"
-      >
-        <div class="header" style="width: 100%">
-          <div class="header-image-top mb-5" style="position: relative">
-            <div style="width: 100%; float: left;display: flex;">
-              <div class="left-section" style="width: 40%; float: left;display: flex;justify-content: space-between;flex-direction: column;">
-                  <div class="left-top">
-                    <div
-                    contenteditable="true"
-                    class="no-focus"
-                    style="font-size: 20px; font-weight: 500; color: #272624"
-                  >
-                    {{PromotionalTitle}}
-                  </div>
-                  <div
-                    contenteditable="true"
-                    class="no-focus"
-                    style="
-                      font-size: 10px;
-                      font-weight: 300;
-                      padding-top: 0px;
-                    "
-                  >
-                    {{Property}}, {{Community}}
-                  </div>
-                  </div>
-                  
-                  <div style="float: left; width: 100%">
-                    <div style="margin-bottom: 0px">
-                      <span
-                        class="no-focus"
-                        contenteditable="true"
-                        style="font-size: 9px; font-weight: 400; color: #272624"
-                        >{{Bedrooms}}</span
-                      >
-                      <span
-                        style="font-size: 9px; font-weight: 400; color: #272624"
-                        >Bedrooms</span
-                      >
-                    </div>
-                    <div style="margin-bottom: 12px">
-                      <img
-                        src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL2JlZC5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"
-                        style="width: 35px"
-                      />
-                    </div>
-                    <div style="margin-bottom: 0px">
-                      <span
-                        class="no-focus"
-                        contenteditable="true"
-                        style="font-size: 9px; font-weight: 400; color: #272624"
-                        >{{Bathrooms}}</span
-                      >
-                      <span
-                        style="font-size: 9px; font-weight: 400; color: #272624"
-                        >Bathrooms</span
-                      >
-                    </div>
-                    <div style="margin-bottom: 18px">
-                      <img
-                        src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3Nob3dlci5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"
-                        style="width: 30px"
-                      />
-                    </div>
-                    <div style="margin-bottom: 0px">
-                      <span
-                        class="no-focus"
-                        contenteditable="true"
-                        style="font-size: 9px; font-weight: 500; color: #272624"
-                        >BUA</span
-                      >
-                    </div>
-                    <div style="margin-bottom: 15px">
-                      <span
-                        style="font-size: 9px; font-weight: 400; color: #272624"
-                        >{{Plot Area}}</span
-                      >
-                    </div>
-                    <div style="margin-bottom: 0px">
-                      <span
-                        class="no-focus"
-                        contenteditable="true"
-                        style="font-size: 9px; font-weight: 500; color: #272624"
-                        >Plot</span
-                      >
-                    </div>
-                    <div style="margin-bottom: 0px">
-                      <span
-                        style="font-size: 9px; font-weight: 400; color: #272624"
-                        >{{Builtup Area}}</span
-                      >
-                    </div>
-                  </div>
-              </div>
-              <div class="right-section" style="width: 60%; float: left">
-                <div style="float: left; width: 100%; position: relative">
-                  <img
-                    class="image-a image-common"
-                    src="{{MarketingImageURL}}"
-                    alt="{{Marketing Image Title}}"
-                    style="
-                      width: 100%;
-                      object-fit: cover;
-                      min-height: 218px;
-                      max-height: 218px;
-                    "
-                  />
-                  <div class="gradient-text">For Sale</div>
-                </div>
-                <div
-                  style="
-                    float: left;
-                    width: 100%;
-                    margin-top: 5px;
-                    display: flex;
-                    justify-content: space-between;
-                  "
-                >
-                  <div style="float: left; width: 49.5%">
-                    <img
-                      class="image-b image-common"
-                      src="{{Image1URL}}"
-                      alt="{{Image1 Title}}"
-                      style="
-                        width: 100%;
-                        object-fit: cover;
-                        min-height: 112px;
-                        max-height: 112px;
-                      "
-                    />
-                  </div>
-                  <div style="float: left; width: 49.5%">
-                    <img
-                      class="image-b image-common"
-                      src="{{Image2URL}}"
-                      alt="{{Image2 Title}}"
-                      style="
-                        width: 100%;
-                        object-fit: cover;
-                        min-height: 112px;
-                        max-height: 112px;
-                      "
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div style="width: 100%; float: left; text-align: right">
-              <div style="padding-top: 10px;">
-                <span style="font-size: 18px;font-weight: 400;color: #000;">AED</span>
-                <span style="font-size: 18px;font-weight: 400;color: #000;">{{Selling Price}}</span>
-              </div>
-            </div>
-            <div style="width: 100%; float: left">
-              <div style="margin-bottom: 10px;margin-top: 15px;font-size: 11px;font-weight: 500;color: #272624;">Property Description</div>
-              <div style="border: 1px solid #000; padding: 10px 10px;height: 320px; overflow: hidden;">
-                <p style="color: #3f3f3f;font-size: 8px;font-weight: 300;margin-bottom: 5px;">
-                  {{Property Description|chars=2000}}
-                </p>
-                <p contenteditable="true" class="no-focus" style="color:#a1a1a1;font-weight: 400;font-size: 8px; margin-bottom: 0px;">
-                  Ref. {{Reference Number}}
-                </p>
-              </div>
-            </div>
-            <div style="float: left; width: 100%; margin-top: 70px">
-              <div
-                class="image-section"
-                style=" padding-bottom: 7px"
-              >
-                <img
-                  class="image-d image-common"
-                  src="{{Image3URL}}"
-                  alt="{{Image3 Title}}"
-                  style="width: 100%; object-fit: cover;height: 230px;"
-                />
-              </div>
-              <div
-                style="
-                  float: left;
-                  width: 100%;
-                  display: flex;
-                  justify-content: space-between;
-                "
-              >
-                <div style="width: 49.5%">
-                  <img
-                    class="image-e image-common"
-                    src="{{Image4URL}}"
-                    alt="{{Image4 Title}}"
-                    style="
-                      width: 100%;
-                      object-fit: cover;
-                      min-height: 180px;
-                      max-height: 180px;
-                    "
-                  />
-                </div>
-                <div style="width: 49.5%">
-                  <img
-                    class="image-e image-common"
-                    src="{{Image5URL}}"
-                    alt="{{Image5 Title}}"
-                    style="
-                      width: 100%;
-                      object-fit: cover;
-                      min-height: 180px;
-                      max-height: 180px;
-                    "
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div
-            class="footer"
-            style="float: left; width: 100%; margin-top: 30px"
-          >
-            <div style="display: flex; align-items: center">
-              <div style="width: 200px; float: left;">
-                <h3
-                  style="margin-bottom: 0px; text-align: center;    width: 175px;
-                  height: 150px;
-                  object-fit: cover;"
-                  class="profile-img"
-                >
-                  {{Agent Picture}}
-                </h3>
-              </div>
-              <div style="width: 280px; float: left;">
-                <p
-                  style="color: #272624;
-                  font-size: 14px;
-                  margin-bottom: 0px;
-                  font-weight: 300;"
-                >
-                  {{Contact Name}}
-                </p>
-                <p
-                  style="color: #272624;
-                  font-size: 8px;
-                  font-weight: 300;
-                  margin-bottom: 6px;"
-                >
-                  {{Agent Designation}}
-                </p>
 
-                <div
-                  style="
-                    position: relative;
-                    float: left;
-                    width: 100%;
-                  "
-                >
-                  <img
-                  style="width:12px"
-                    alt=""
-                    src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3Bob25lLmpwZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"
-                  />
-                  <span
-                    style="
-                     color: #272624;
-                      font-size: 8px;
-                      font-weight: 300;
-                      padding-left: 10px;
-                    "
-                    class="font-regular"
-                    >+{{Contact Mobile}}</span
-                  >
-                </div>
-                <div style="position: relative; float: left; width: 100%;top: -6px;">
-                  <img
-                  style="width:15px"
-                    alt=""
-                    src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL21lc3NhZ2UuanBnLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuMA==.watermark"
-                  />
-                  <span
-                    style="
-                      padding-left: 8px;
-                    "
-                  >
-                    <a href="{{Contact Email}}" style="text-decoration: none"
-                      ><span
-                        style="color: #272624;
-                        font-size: 8px;
-                        font-weight: 300;    position: relative;
-                        top: -2px;"
-                        class="font-regular"
-                        >{{Contact Email}}</span
-                      ></a
-                    >
-                  </span>
-                </div>
-                <div>
-                  <img
-                    style="margin-top: 8px; clear: both;    width: 64px;"
-                    src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL2JsYWNrYnJpY2suanBnLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuMA==.watermark"
-                  />
-                </div>
-              </div>
+
+   <div class="container-center-horizontal" id="content">
+      <div class="frame-5 screen" data-id="17:252">
+         <!-- <div class="rectangle-16-mg48iN" data-id="17:277"></div> -->
+         <div class="hero-section">
+            <div class="hero-section-left">
+               <div class="left-top">
+                  <p class="hi-this-is-how-long-mg48iN" data-id="17:278" id="property-title">${propertyDetails.title}
+                  </p>
+                  <div class="sub-community-community-mg48iN" data-id="17:280" id="community">
+                     ${propertyDetails.community}
+                  </div>
+
+               </div>
+               <div class="left-bottom">
+                  <div class="group-1-mg48iN" data-id="20:16">
+                     <div class="x4-bedrooms-uitJMP poppins-normal-shark-9px" data-id="17:282" id="bedrooms">
+                        ${propertyDetails.noOfBedrooms} Bedrooms</div>
+                     <img class="vector-uitJMP vector anima-loading-result" data-id="17:286" id="bed-svg" alt="Vector"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  </div>
+                  <div class="group-2-mg48iN" data-id="20:18">
+                     <div class="x6-bathrooms-ynNsJE poppins-normal-shark-9px" data-id="17:283" id="bathrooms">
+                        ${propertyDetails.noOfBathrooms} Bathrooms</div>
+                     <!-- <img class="vector-ynNsJE vector anima-loading-result" data-id="17:291" id="bath-svg" alt="Vector" onerror="this.style.visibility='hidden';" style="visibility: visible;"> -->
+                     <img class="vector-7897q1 vector anima-loading-result" data-id="17:292" id="bath-svg" alt="Vector"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                     <img class="vector-BYGDg7 vector anima-loading-result" data-id="17:294" id="bath-svg" alt="Vector"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  </div>
+                  <div class="group-3-mg48iN" data-id="20:19">
+                     <div class="bua-7373sq-ft-C9EO0y poppins-medium-shark-9px" data-id="17:284">
+                        <span class="span0-xnFPrA poppins-medium-shark-9px">BUA<br></span>
+                        <span class="span1-xnFPrA poppins-normal-shark-9px" id="bua">${propertyDetails.BUA} sq
+                           ft.</span>
+                     </div>
+                  </div>
+                  <div class="group-4-mg48iN" data-id="20:20">
+                     <div class="plot-8544sq-ft-i5KXaY poppins-medium-shark-9px" data-id="17:285">
+                        <span class="span0-Okc64i poppins-medium-shark-9px">Plot<br></span>
+                        <span class="span1-Okc64i poppins-normal-shark-9px" id="plot">${propertyDetails.plotSize} sq
+                           ft.</span>
+                     </div>
+                  </div>
+               </div>
+
+
             </div>
-          </div>
-        </div>
+            <div class="hero-section-right">
+               <img class="mask-group-mg48iN mask-group anima-loading-result" data-id="17:298" id="mask-group-img"
+                  alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               <div class="mask-group-img">
+                  <img class="mask-group-2sTTQg mask-group anima-loading-result" data-id="17:310" id="mask-group4-img"
+                  alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  <img class="mask-group-HkkEfU mask-group anima-loading-result" data-id="17:313" id="mask-group5-img"
+                     alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+               <div class="aed2990000-mg48iN" data-id="17:279" id="property-price">AED ${propertyDetails.price}</div>
+               <div class="for-sale-mg48iN" data-id="17:295" id="listing-category">${category}</div>
+            </div>
+         </div>
+
+
+         <div>
+            <div class="property-description-mg48iN" data-id="17:297">Property Description</div>
+            <div class="border-box">
+               <p class="lorem-ipsum-dolor-si-mg48iN" data-id="17:296" id="property-description">
+                  ${propertyDetails.propertyDescription}</p>
+               <div class="ref-vi9749-mg48iN" data-id="17:281" id="ref-no">Ref. ${propertyDetails.RefNo}</div>
+            </div>
+
+         </div>
+
+         <div class="footer-sec">
+
+            <img class="mask-group-1xZgjM mask-group anima-loading-result" data-id="17:301" id="mask-group1-img"
+               alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               <div class="mask-group-img">
+                  <img class="mask-group-n06Kgr mask-group anima-loading-result" data-id="17:304" id="mask-group2-img"
+                     alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                  <img class="mask-group-CoOWYm mask-group anima-loading-result" data-id="17:307" id="mask-group3-img"
+                     alt="Mask group" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+
+            <div class="advisor-container">
+               <div class="footer-sec-img">
+                  <img class="carrie-mg48iN anima-loading-result" data-id="17:323" id="advisor-img" alt="Carrie"
+                     onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+               <div class="footer-sec-content">
+                  <div class="franciska-balc-mg48iN" data-id="17:317" id="advisor-name">${advisorName}</div>
+                  <div class="property-advisor-mg48iN poppins-light-shark-8px" data-id="17:318" id="advisor-title">
+                     ${advisorTitle}</div>
+                  <div class="icon-text">
+                     <img class="phonecall-mg48iN anima-loading-result" data-id="17:322" id="phonecall-svg"
+                        alt="phonecall" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+                     <div class="x971-58-502-0939-mg48iN poppins-light-shark-8px" data-id="17:319" id="advisor-contact">
+                        ${advisorContactNumber}</div>
+                  </div>
+                  <div class="icon-text">
+                     <img class="message-mg48iN anima-loading-result" data-id="17:321" id="message-svg" alt="message"
+                        onerror="this.style.visibility='hidden';" style="visibility: visible;">
+
+                     <div class="dummyblackbrickpropertycom-mg48iN poppins-light-shark-8px" data-id="17:320"
+                        id="advisor-email">
+                        ${advisorEmail}</div>
+                  </div>
+
+                  <img class="logo_desertnoir-1-mg48iN anima-loading-result" data-id="17:324" id="logo-img"
+                     alt="LOGO_DESERTNOIR 1" onerror="this.style.visibility='hidden';" style="visibility: visible;">
+               </div>
+
+
+
+
+
+
+            </div>
+         </div>
+
+
+
+         <!-- <img class="path10-1xZgjM path10 anima-loading-result" data-id="17:316" src="blob:null/2397a0ba-2835-493f-aed1-b339df47c53b" alt="path10" onerror="this.style.visibility='hidden';" style="visibility: visible;"> -->
+
+         <!-- <div class="rectangle-18-mg48iN" data-id="17:327"> -->
       </div>
-    </section>
-    <script>
-      $(document).ready(function () {
-        function getQueryParam(param) {
-          const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get(param);
-        }
+      
+   </div>
+   </div>
+   <script>
+    
+   </script>
+</body>
 
-        // Get the 'unitIDs' parameter from the URL
-        const unitID = getQueryParam("unitIDs");
-        $("#generatePDF1").click(function () {
-          $(".sec1").addClass("pdf-setting");
-
-          // Automatically remove the class after 2 seconds (2000 milliseconds)
-          setTimeout(function () {
-            $(".sec1").removeClass("pdf-setting");
-          }, 200); // Adjust the duration as needed
-          const { jsPDF } = window.jspdf;
-          var $button = $(this);
-          var $loading = $("#loading");
-
-          // Disable the button and show the loading indicator
-          $button.prop("disabled", true);
-          $loading.show();
-
-          // Create a new jsPDF instance
-          var doc = new jsPDF("p", "mm", "a4");
-
-          // Capture the content as a canvas
-          html2canvas(document.querySelector("#content"), {
-            useCORS: true,
-            allowTaint: false,
-            scale: 3,
-          })
-            .then(function (canvas) {
-              var imgData = canvas.toDataURL("image/png");
-              var imgWidth = 190; // Full width of A4 size page
-              var pageHeight = 290; // Full height of A4 size page
-              var imgHeight = (canvas.height * imgWidth) / canvas.width;
-              var heightLeft = imgHeight;
-              var position = 10;
-
-              // Add the first image to the PDF
-              doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-              heightLeft -= pageHeight;
-
-              // Add new pages if necessary
-              while (heightLeft > 0) {
-                position = heightLeft - imgHeight;
-                doc.addPage();
-                doc.addImage(imgData, "PNG", 10, position, imgWidth, imgHeight);
-                heightLeft -= pageHeight;
-              }
-
-              // Save the PDF
-              doc.save(unitID);
-
-              // Re-enable the button and hide the loading indicator
-              $button.prop("disabled", false);
-              $loading.hide();
-            })
-            .catch(function (error) {
-              // In case of an error, re-enable the button and hide the loading indicator
-              $button.prop("disabled", false);
-              $loading.hide();
-              console.error("PDF generation error: ", error);
-            });
-        });
-      });
-    </script>
-  </body>
 </html>
