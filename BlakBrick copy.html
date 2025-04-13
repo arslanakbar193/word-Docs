@@ -78,15 +78,43 @@
       .pdf-setting .header{
         padding-top: 0px !important;
       }
-      /* .pdf-setting .c-pad{
-        padding-top: 0px !important;
-      } */
+      .pdf-setting .c-pad.height-exceeded{
+        padding: 0px !important;
+        border:none !important;
+      }
+      .pdf-setting .c-pad.height-exceeded .myp{
+        padding: 0px 15px 15px 15px !important;
+        border: 0.6px solid #d7d7d7 !important;
+      }
       .pdf-setting .desc{
         font-size: 7px !important;
       }
       .footer h3 img {
         width: 175px !important;
         height: 135px !important;
+      }
+      .myp-continued{
+        color: #3f3f3f;
+        font-size: 8px;
+        margin-bottom: 1px;
+        line-height: 11px;
+        font-style: normal;
+        font-weight: 300;
+        white-space: pre-line;
+        word-wrap: break-word;
+        max-height: 132px;
+        overflow: hidden;
+      }
+      .pdf-setting .myp-continued{
+        margin-top: 90px;
+        padding: 7px 15px 0px 15px !important;
+        border: 0.6px solid #d7d7d7 !important;
+        border-bottom:none !important;
+      }
+      .pdf-setting .myp-continued +p{
+        padding: 0px 15px 15px 15px !important;
+        border: 0.6px solid #d7d7d7 !important;
+        border-top:none !important;
       }
       
     </style>
@@ -262,7 +290,7 @@
             <div style="width: 100%; float: left;" class="pdf-preview">
               <div style="margin-bottom: 10px;margin-top: 13px;font-size: 11px;font-weight: 500;color: #272624;font-style: normal;">Property Description</div>
               <div style="padding: 0px 15px 15px 15px;border: 0.6px solid #d7d7d7;" class="c-pad">
-                <p style="color: #3f3f3f;font-size: 8px;margin-bottom: 1px;line-height: 11px;font-style: normal;font-weight: 300;white-space: pre-line;word-wrap: break-word;">
+                <p class="myp" style="color: #3f3f3f;font-size: 8px;margin-bottom: 1px;line-height: 11px;font-style: normal;font-weight: 300;white-space: pre-line;word-wrap: break-word;">
                   {{Property Description}}
                 </p>
                 <p contenteditable="true" class="no-focus" style="color:#a1a1a1;font-weight: 400;font-size: 8px; margin-bottom: 0px;line-height:normal;text-align: left;letter-spacing: 0.00px;">
@@ -270,7 +298,7 @@
                 </p>
               </div>
             </div>
-            <div style="float: left; width: 100%; margin-top: 20px">
+            <div style="float: left; width: 100%; margin-top: 15px">
               <div
                 class="image-section"
                 style=" padding-bottom: 5px"
@@ -412,6 +440,65 @@
     </section>
     <script>
       $(document).ready(function () {
+        var $para = $('.myp');
+    var originalContent = $para.html(); // Preserve HTML
+    var maxHeight = 286; // Your desired max height
+    
+    // Create a test clone that's invisible
+    var $test = $para.clone()
+        .css({
+            'position': 'absolute',
+            'visibility': 'hidden',
+            'height': 'auto',
+            'width': $para.width() + 'px' // Match original width
+        })
+        .html(originalContent)
+        .appendTo('body');
+    
+    // Check if content exceeds max height
+    if ($test.height() > maxHeight) {
+        // Remove 'pdf-preview' class from parent div if height exceeds
+        $para.closest('.pdf-preview').removeClass('pdf-preview');
+        $para.closest('.c-pad').addClass('height-exceeded');
+        
+        // Reset original paragraph to empty
+        $para.html('');
+        
+        // Add content word by word until height is reached
+        var words = originalContent.split(/(<[^>]+>|\s+)/); // Split preserving HTML tags
+        var contentBefore = '';
+        var contentAfter = '';
+        var heightReached = false;
+        
+        for (var i = 0; i < words.length; i++) {
+            if (!heightReached) {
+                contentBefore += words[i];
+                $test.html(contentBefore);
+                if ($test.height() > maxHeight) {
+                    // Remove last word that caused overflow
+                    contentBefore = contentBefore.substring(0, contentBefore.lastIndexOf(words[i]));
+                    contentAfter = originalContent.substring(contentBefore.length);
+                    heightReached = true;
+                }
+            }
+        }
+        
+        // Update the original paragraph
+        $para.html(contentBefore);
+        
+        // Add remaining content to new paragraph with your requested styles
+        if (contentAfter.trim().length > 0) {
+            $para.after(
+                $('<p>', {
+                    'class': 'myp-continued',
+                    'html': contentAfter
+                })
+            );
+        }
+    }
+    
+    // Clean up
+    $test.remove();
         function getQueryParam(param) {
           const urlParams = new URLSearchParams(window.location.search);
           return urlParams.get(param);
