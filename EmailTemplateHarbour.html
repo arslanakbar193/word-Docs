@@ -1,0 +1,370 @@
+<meta charset="UTF-8" />
+<title>SPA Form</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+  rel="stylesheet"
+/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  * {
+    font-size: 16px !important;
+    color: #000;
+    font-family: "Lato" !important;
+  }
+  
+  .no-focus {
+    outline: none;
+  }
+  .container1 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border:1px solid #000;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+.container1 input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container1 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container1 .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.gallery-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-image-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.thumbnail-container img.active {
+    border: 2px solid #31A6DF;
+  }
+  a.hoveded:hover,
+  a.hoveded{
+    text-decoration: none !important;
+  }
+
+
+</style>
+
+
+<body>
+    <div class="container-fluid mt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center p-0">
+                <div style="margin-bottom: 10px; font-weight: 400; text-align: left;float: left;width:100%;margin-top: 50px;">
+                  <span contenteditable="true" class="no-focus">FOR SALE - (REFERENCE NUMBER - HRE-S-8144)</span>
+                </div>
+                <div style="margin-bottom: 30px; font-weight: 400; text-align: left;float: left;width:100%">
+                  <div style="display: flex;    justify-content: space-between;">
+                    <div style="font-weight: 400;color:#B41E1E;font-size: 30px !important;" contenteditable="true" class="no-focus">Pool View | High Floor | Ready to Move In</div>
+                    <div style="font-weight: 300;color:#B41E1E;font-size: 30px !important;" contenteditable="true" class="no-focus">AED 790,000</div>
+                  </div>
+                  <div style="display: flex;    justify-content: space-between;">
+                    <div style="font-weight: 300;font-size: 26px !important;" contenteditable="true" class="no-focus">Arjan, Burj View Residence, Dubai</div>
+                    <div style="font-weight: 300;font-size: 20px !important;"  contenteditable="true" class="no-focus">AED 1,497.83 per Sq Ft</div>
+                  </div>
+                </div>
+                <div style="float: left;width:100%;display: flex;justify-content: space-between;">
+                  <div style="float: left;width:70%;padding: 0px 0px 10px 0px;text-align: left;">
+                      <div style=" background: #ffffff; border: 1px solid #cccccc;position: relative;">
+                        <!-- Main Image -->
+                        <img id="main-image" 
+                             src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzMS5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark" 
+                             alt="Main Gallery Image" 
+                             style="width: 100%;  height: 460px; display: block;object-fit: cover;">
+                    
+                        <!-- Counter -->
+                        <div id="image-counter" 
+                             style="text-align: center; font-size: 14px; font-weight: 400; margin: 10px 0;position: absolute; right: 30px;bottom: 90px;">
+                          Showing 1 of 5
+                        </div>
+                    
+                        <!-- Thumbnails -->
+                        <div  class="thumbnail-container" style="display: flex;  flex-wrap: wrap; gap: 0px;margin-top: 10px;margin-left: 10px;margin-bottom: 10px;justify-content: center;">
+                          <img class="active" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzMS5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark" 
+                               onclick="changeImage(this, 0)" 
+                               style="width: 90px; height: 70px;  cursor: pointer; display: block;object-fit: cover;">
+                               
+                          <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark" 
+                               onclick="changeImage(this, 1)" 
+                               style="width: 90px; height: 70px;  cursor: pointer; display: block;object-fit: cover;">
+                               
+                          <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzMS5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark" 
+                               onclick="changeImage(this, 2)" 
+                               style="width: 90px; height: 70px;  cursor: pointer; display: block;object-fit: cover;">
+                               
+                          <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark" 
+                               onclick="changeImage(this, 3)" 
+                               style="width: 90px; height: 70px;  cursor: pointer; display: block;object-fit: cover;">
+                               
+                          <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzMS5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark" 
+                               onclick="changeImage(this, 4)" 
+                               style="width: 90px; height: 70px;  cursor: pointer; display: block;object-fit: cover;">
+                        </div>
+                      </div>
+                  
+                 
+                    
+                  </div>
+                  <div style="float:left;width:29%;">
+                    <div style="float:left;width:100%;display: flex;justify-content: center;padding-top: 50px;border-top: 3px solid #B41E1E;padding-bottom: 50px;">
+                      <table>
+                        <tr>
+                            <td>
+                            <img
+                        alt=""
+                        src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark"
+                        />
+                            </td>
+                        </tr>
+                      </table>
+                      
+                    </div>
+                    <div style="float:left;width:100%;border-bottom:1px solid #E4E3E9;padding-bottom: 10px;margin-bottom: 10px;padding-left: 10px;">
+                      <div style="text-align: left;color: #B41E1E;padding-bottom: 10px;font-size: 18px !important;" contenteditable="true" class="no-focus">Company Name</div>
+                      <div style="text-align: left;font-size: 18px !important;" contenteditable="true" class="no-focus">Harbor Real Estate Broker</div>
+                    </div>
+                    <div style="float:left;width:100%;border-bottom:1px solid #E4E3E9;padding-bottom: 10px;margin-bottom: 10px;padding-left: 10px;">
+                      <div style="text-align: left;color: #B41E1E;padding-bottom: 10px;" contenteditable="true" class="no-focus">Agent Name</div>
+                      <div style="text-align: left;" contenteditable="true" class="no-focus">Aya Altouny</div>
+                    </div>
+                    <div style="float:left;width:100%;border-bottom:1px solid #E4E3E9;padding-bottom:10px;margin-bottom:10px;padding-left: 10px;">
+                      <div style="text-align: left;color: #B41E1E;padding-bottom: 10px;" contenteditable="true" class="no-focus">Licence Number</div>
+                      <div style="text-align: left;" contenteditable="true" class="no-focus">---</div>
+                    </div>
+                    <div style="float:left;width:100%;border-bottom:1px solid #E4E3E9;padding-bottom: 10px;margin-bottom: 10px;padding-left: 10px;">
+                      <div style="text-align: left;color: #B41E1E;padding-bottom: 10px;" contenteditable="true" class="no-focus">DLD Permit</div>
+                      <div style="text-align: left;" contenteditable="true" class="no-focus">7127294148</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="float:left;width:100%;">
+                  <div style="display: flex;border: 1px solid #cccccc;">
+                    <div style="margin: 10px;flex: 1;border-right:2px solid #cccccc">
+                      <div contenteditable="true" class="no-focus" style="font-weight: 600;color:#B41E1E;">Category</div>
+                      <div contenteditable="true" class="no-focus" >Apartment</div>
+                    </div>
+                    <div style="margin: 10px;flex: 1;border-right:2px solid #cccccc">
+                      <div contenteditable="true" class="no-focus" style="font-weight: 600;color:#B41E1E;">No. of Beds</div>
+                      <div contenteditable="true" class="no-focus" >Studio</div>
+                    </div>
+                    <div style="margin: 10px;flex: 1;border-right:2px solid #cccccc">
+                      <div contenteditable="true" class="no-focus" style="font-weight: 600;color:#B41E1E;">Price</div>
+                      <div contenteditable="true" class="no-focus" >AED 790,000</div>
+                    </div>
+                    <div style="padding: 10px;flex: 1;   ">
+                      <div contenteditable="true" class="no-focus" style="font-weight: 600;color:#B41E1E;">Area</div>
+                      <div contenteditable="true" class="no-focus" >527.43 Sq Ft</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="float:left;width: 100%;margin-top: 650px;">
+                  <div style="text-align: end;">1/3</div>
+                </div>
+                <div style="float:left;width:100%;margin-top: 80px;">
+                  <div style="color:#B41E1E;padding-bottom: 10px;border-bottom: 1px solid #B41E1E;text-align: left;margin-bottom: 10px;font-weight: 600;">Description</div>
+                  <div style="text-align: left;">Harbor Real Estate, the only agency to receive a gold ranking for seven consecutive years from the Dubai Land Department, is delighted to
+                    introduce this elegant studio apartment at Burj View in Arjan. Oering the perfect blend of comfort and convenience, this modern unit features
+                    interiors ideal for those ready to move in and make it their own.
+                  </div>
+                  <div style="margin-top: 80px;">
+                    <h2 style="text-align: left;margin-bottom: 14px;" contenteditable="true" class="no-focus">Property Details:</h2>
+                    <ul style="text-align: left;" contenteditable="true" class="no-focus">
+                      <li style="margin-bottom: 10px;">Studio Apartment</li>
+                      <li style="margin-bottom: 10px;">1 Bathroom</li>
+                      <li style="margin-bottom: 10px;">527 sq. ft.</li>
+                      <li style="margin-bottom: 10px;">1 Car Parking</li>
+                      <li style="margin-bottom: 10px;">Ready to Move in</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="float:left;width:100%;">
+                  <div style="margin-top: 50px;">
+                    <h2 style="text-align: left;margin-bottom: 14px;" contenteditable="true" class="no-focus">Facilities and Amenities:</h2>
+                    <ul style="text-align: left;" contenteditable="true" class="no-focus">
+                      <li style="margin-bottom: 10px;">Indoor Clubhouse</li>
+                      <li style="margin-bottom: 10px;">Indoor Kids' Play Area</li>
+                      <li style="margin-bottom: 10px;">Swimming Pool</li>
+                      <li style="margin-bottom: 10px;">Full-Size Gym</li>
+                      <li style="margin-bottom: 10px;">Sauna & Steam Rooms</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="float:left;width:100%;">
+                  <div style="margin-top: 50px;">
+                    <h2 style="text-align: left;margin-bottom: 14px;" contenteditable="true" class="no-focus">Location Benefits:</h2>
+                    <ul style="text-align: left;" contenteditable="true" class="no-focus">
+                      <li style="margin-bottom: 10px;">5 minutes to Sheikh Mohammed Bin Zayed Road</li>
+                      <li style="margin-bottom: 10px;">5 minutes to Al Khail Road</li>
+                      <li style="margin-bottom: 10px;">5 minutes to Miracle Garden</li>
+                      <li style="margin-bottom: 10px;">10 minutes to Global Village</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="margin-top: 50px;text-align: left;float: left;width: 100%;" contenteditable="true" class="no-focus">
+                  Burj View Residence in Arjan offers a luxurious living experience with unparalleled views of the iconic Burj Khalifa and the vibrant Dubai skyline.
+                  Nestled in one of Dubai’s most sought-after neighborhoods, this residential development is designed for those who appreciate the finest in
+                  contemporary living.
+                </div>
+                <div style="margin-top: 50px;text-align: left;float: left;width: 100%;" contenteditable="true" class="no-focus">
+                  For more details or to schedule a viewing, please contact +971 50 916 6543 / +971 4 325 1616
+                </div>
+
+                <div style="float:left;width:100%;margin-top: 50px;">
+                  <div style="color:#B41E1E;padding-bottom: 10px;border-bottom: 1px solid #B41E1E;text-align: left;margin-bottom: 10px;font-weight: 600;">Property Features</div>
+                </div>
+                
+                <div style="float:left;width:100%;">
+                  <div style="margin-top: 10px;">
+                    <ul style="text-align: left;" contenteditable="true" class="no-focus">
+                      <li style="margin-bottom: 10px;">5 minutes to Sheikh Mohammed Bin Zayed Road</li>
+                      <li style="margin-bottom: 10px;">5 minutes to Al Khail Road</li>
+                      <li style="margin-bottom: 10px;">5 minutes to Miracle Garden</li>
+                      <li style="margin-bottom: 10px;">10 minutes to Global Village</li>
+                    </ul>
+                  </div>
+                </div>
+                <div style="float:left;width: 100%;margin-top: 80px;">
+                  <div style="text-align: end;">2/3</div>
+                </div>
+
+                <div style="float:left;width:100%;margin-top: 50px;">
+                  <div style="color:#B41E1E;padding-bottom: 10px;border-bottom: 1px solid #B41E1E;text-align: left;margin-bottom: 10px;font-weight: 600;">View on Map</div>
+                </div>
+                <div style="position: relative; width: 100%;float:left;margin-bottom: 60px;">
+                  <div id="map_canvas_view" style="width: 100%; height:350px;">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7221.440954457553!2d55.266039952125034!3d25.17891450384568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43c716d68b91%3A0x68a35ee5fb808ae5!2sGoyzer%20Technology%20Solutions%20LLC%20-%20Real%20Estate%20and%20Property%20Management%20Software!5e0!3m2!1sen!2s!4v1738833898576!5m2!1sen!2s"  style="border:0;height:100%;width:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+                  </div>
+
+                  <div style="float:left;width:100%;margin-top: 50px;">
+                    <div style="color:#B41E1E;padding-bottom: 10px;border-bottom: 1px solid #B41E1E;text-align: left;margin-bottom: 10px;font-weight: 600;">Disclaimer</div>
+                  </div>
+                  <div style="text-align: left;float: left;width: 100%;margin-bottom:100px" contenteditable="true" class="no-focus">
+                    Burj View Residence in Arjan offers a luxurious living experience with unparalleled views of the iconic Burj Khalifa and the vibrant Dubai skyline.
+                    Nestled in one of Dubai’s most sought-after neighborhoods, this residential development is designed for those who appreciate the finest in
+                    contemporary living.
+                  </div>
+                  <div style="float:left;width:100%;text-align: center;">
+                    <h1 style="font-size: 24px !important;">Harbor Real Estate Broker</h1>
+                    <p style="font-weight: 300;">18th Floor, City Tower 2, Sheikh Zayed Road, Dubai, U.A.E.</p>
+                    <div style="margin-bottom: 15px;">
+                      <a class="hoveded" href="www.harborbubai.com" style="font-weight: 300;"><span style="margin-right: 10px;"><img style="width: 20px;height: 20px;object-fit: contain;" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3BvaW50ZXIucG5nLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuMA==.watermark"></span>www.harborbubai.com</a>
+                    </div>
+                    <div style="margin-bottom: 15px;" style="font-weight: 300;">
+                      <a class="hoveded" href="info@garborduabi.com" style="font-weight: 300;"><span style="margin-right: 10px;"><img style="width: 20px;height: 20px;object-fit: contain;" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL21lc3NhZ2UucG5nLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuMA==.watermark"></span>info@garborduabi.com</a>
+                    </div>
+                    <div style="margin-bottom: 50px;" style="font-weight: 300;">
+                      <a class="hoveded" href="97143251616" style="font-weight: 300;color: #000;"><span style="margin-right: 10px;"><img style="width: 20px;height: 20px;object-fit: contain;" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3Bob24ucG5nLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuMA==.watermark"></span>97143251616</a>
+                    </div>
+                  </div>
+                  <div style="float:left;width:100%;border-top: 1px solid #cccccc;padding-top: 30px;text-align: left;padding-left: 140px;">
+                    <img src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3NzMi5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark"/>
+                  </div>
+                  <div style="float:left;width: 100%;margin-top: 400px;">
+                    <div style="text-align: end;">3/3</div>
+                  </div>
+
+
+                <div class="container13">
+                  <div>
+                  <label id="longitude" style="display: none;">{{Longitude}}</label>
+                  <label id="latitude" style="display: none;">{{Latitude}}</label>
+                  <label id="masklocation" value="False" style="display: none;">False</label>
+                  </div>
+                  </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+      const totalImages = 5;
+    
+      function changeImage(imgElement, index) {
+        const newSrc = $(imgElement).attr('src');
+    
+        // Change main image source
+        $('#main-image').attr('src', newSrc);
+    
+        // Update active border
+        $('.thumbnail-container img').removeClass('active');
+        $(imgElement).addClass('active');
+    
+        // Update image counter
+        $('#image-counter').text(`Showing ${index + 1} of ${totalImages}`);
+      }
+    
+      $(document).ready(function () {
+        // Add class to the container div so we can target thumbnails easily
+        $('.thumbnail-container img').on('click', function () {
+          const index = $(this).index();
+          changeImage(this, index);
+        });
+      });
+    </script>
+  
+</body>

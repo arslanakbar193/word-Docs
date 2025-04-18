@@ -1,0 +1,183 @@
+<meta charset="UTF-8" />
+<title>SPA Form</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&amp;family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;display=swap"
+  rel="stylesheet"
+/>
+<style>
+  * {
+    font-size: 15px !important;
+    color: #000;
+    font-family: "Lato" !important;
+  }
+  
+  .no-focus {
+    outline: none;
+  }
+  .container1 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border:1px solid #000;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+.container1 input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container1 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container1 .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+
+
+<body>
+    <div class="container-fluid mt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center p-0">
+                
+                <div style="margin-bottom:20px; text-align: left;float: left;width:100%">
+                  <span contenteditable="true class="no-focus"">Subject: Lease Contract Renewal Notice -</span> <span contenteditable="true" class="no-focus"> Hydra Avenue C4 - 2203 - Mohammed Hussein Nimer Al Hesan</span>
+                </div>
+                <div style="margin-bottom: 20px;text-align: left;float: left;width:100%">
+                  <span contenteditable="true" class="no-focus">Good day, </span><span style="font-weight: 400;" contenteditable="true" class="no-focus">Mr Mohammed Hussein,</span>
+                </div>
+                <div style="margin-bottom: 20px; text-align: left;float:left;width:100%;">
+                  <span contenteditable="true" class="no-focus">Warm greetings from Republik Real Estate!</span>
+                </div>
+                <div style="margin-bottom: 20px; text-align: left;float: left;width:100%;" contenteditable="true" class="no-focus">
+                  <span>We would like to inform you that your tenancy contract for </span> 
+                  <span contenteditable="true" class="no-focus">Unit 2203, Hydra Avenue C4, Al Reem Island, Abu Dhabi </span>
+                  <span>is set to expire on </span>
+                  <span contenteditable="true" class="no-focus">14 May 2025.</span>
+                </div>
+                <div style="margin-bottom: 20px; text-align: left;float: left;width:100%;" contenteditable="true" class="no-focus">
+                  <span>The rental price for the upcoming lease contract, covering the period from </span> 
+                  <span contenteditable="true" class="no-focus">15 May 2025 to 14 May 2026,</span> 
+                  <span >will be AED</span>
+                  <span contenteditable="true" class="no-focus">14 May 2025.</span>
+                </div>
+                <div style="margin-bottom: 30px; text-align: left;float: left;width:100%;">
+                  <span contenteditable="true" class="no-focus" style="font-style: italic;">Please be aware of the following processing fees that are to be paid at the time of lease contract renewal:</span>
+                </div>
+                <div style="margin-bottom:30px; font-weight: 400; text-align: left;float:left;width: 100%;">
+                  <ul style="margin-bottom: 0px;list-style-position: inside;padding-left: 0px; margin-left: 23px;margin-top: 0px;">
+                    <li style="margin-bottom: 15px;margin-left: 0px;">Contract Renewal Fee – AED 1,050 (Inc. 5% VAT)</li>
+                    <li style="margin-left: 0px;">Tawtheeq Fee – AED 787.50 (Inc. 5% VAT)</li>
+                  </ul>
+                </div>
+                <div style="margin-bottom: 30px;text-align: left;width:100%;float:left;">
+                  Our office is located at Addax Tower, 45th floor office number 4504 in Al Reem Island, Abu Dhabi. Also, kindly take note of our office timings:
+                </div>
+                <div contenteditable="true" class="no-focus" style="margin-bottom:15px; text-align: left;width:100%;float:left;width:100%;display:flex;align-items: center;margin-left: 23px;">
+                  <table><tr><td><img alt="" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81NTcyL3BvaW50ZXJzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni40OGJyYW5jaC5DZW50ZXI=.watermark"/></td></tr></table>
+                  <span contenteditable="true" class="no-focus" style="margin-left: 20px;">Opens - (Monday – Friday from 10 a.m. – 06 p.m.)</span>
+                </div>
+                <div contenteditable="true" class="no-focus" style="margin-bottom:15px; text-align: left;width:100%;float:left;width:100%;display:flex;align-items: center;margin-left: 23px;">
+                  <table><tr><td><img alt="" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81NTcyL3BvaW50ZXJzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni40OGJyYW5jaC5DZW50ZXI=.watermark"/></td></tr></table>
+                  <span contenteditable="true" class="no-focus" style="margin-left: 20px;">Opens – (Saturday – 10 a.m. – 01 p.m.)</span>
+                </div>
+                <div contenteditable="true" class="no-focus" style="margin-bottom:30px; text-align: left;width:100%;float:left;width:100%;display:flex;align-items: center;margin-left: 23px;">
+                  <table><tr><td><img alt="" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC81NTcyL3BvaW50ZXJzLnBuZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni40OGJyYW5jaC5DZW50ZXI=.watermark"/></td></tr></table>
+                  <span contenteditable="true" class="no-focus" style="margin-left: 20px;">Closed - (Sundays & Public Holidays)</span>
+                </div>
+                <div  style="margin-bottom:15px; text-align: left;text-align: left;width:100%;float:left;width:100%;">
+                  <span contenteditable="true" class="no-focus">Kindly acknowledge this email once received.</span>
+                </div>
+                <div contenteditable="true" class="no-focus" style="margin-bottom: 15px; text-align: left;width:100%;float: left;">
+                  Should you have any further questions, please do not hesitate to contact us or reply to this email with any queries.
+                </div>
+                <div style="margin-bottom: 30px;text-align: left;width:100%;float:left;">
+                  Thank you and have a great day!
+                </div>
+                <div style="margin-bottom:0px; text-align: left;float: left;width: 100%;color:#CE955D;font-weight: 600;">
+                  Best Regards,
+                </div>
+                <div style="margin-bottom: 0px; text-align: left;float: left;width: 100%;color:#CE955D;font-weight: 600;">
+                  Property Management Department 
+                </div>
+                
+
+                <div style="float: left;width:100%;padding: 30px 0px 65px 0px;text-align: left  ;">
+                  <table>
+                  <tr>
+                      <td>
+                      <img
+                  alt=""
+                  src="https://demo.goyzer.com/uploadedFiles/EmailAttachments/5d8c7afe-092a-4773-81df-c6083e8e8e91/republic.png"
+                  />
+                      </td>
+                  </tr>
+                  </table>
+                  
+              </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+          $('input').removeAttr('disabled');
+        });
+      </script>
+</body>
