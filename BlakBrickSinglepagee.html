@@ -1,0 +1,220 @@
+<html lang="en" data-lt-installed="true">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>LivingAscot</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <style>
+            * {
+            font-family: "Poppins", sans-serif;
+            }
+            .no-focus:focus {
+            outline: none;
+            }
+            .gradient-text {
+            position: absolute;
+            right: 2px;
+            width: 39px;
+            padding: 4px 7px;
+            background: #000;
+            color: #fff !important;
+            font-size: 6px;
+            z-index: 1;
+            top: 0px;
+            font-weight: 400;
+            }
+            #generatePDF1 {
+            background-color: #2f3433;
+            border: none;
+            color: #fff !important;
+            font-weight: bold;
+            border-radius: 4px;
+            padding: 7px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            }
+            #generatePDF1:focus {
+            outline: none;
+            }
+            #loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid #ffe740;
+            border-radius: 10px;
+            background-color: #ffe740;
+            font-weight: 600;
+            z-index: 1;
+            }
+            
+            
+            .footer h3 img {
+            width: 175px !important;
+            height: 135px !important;
+            object-fit: cover;
+            }
+            @media print {
+                .image-d.image-common{
+                    width: 100%;
+                    object-fit: cover;
+                    height: 210px !important;
+                }
+                .image-e.image-common{
+                    min-height: 155px !important;
+                    max-height: 155px !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="sec1" style="float: left; width: 100%;">
+        
+        <div class="container" style="max-width: 505px; margin: auto; display: flex; padding: 0px;" id="content">
+        <div class="header" style="width: 100%; padding-top: 30px;">
+        <div class="header-image-top mb-5" style="position: relative;">
+        <div style="width: 100%; float: left; display: flex;">
+        <div class="left-section" style="width: 35%; float: left; display: flex; justify-content: space-between; flex-direction: column;">
+        <div class="left-top">
+        <div contenteditable="true" class="no-focus promotiontitle" style="font-size: 20px; font-weight: 500; color: #272624; letter-spacing: 0px; line-height: 23px; height: auto; padding-right: 10px; text-align: left;">
+        {{PromotionalTitle}}
+        </div>
+        <div contenteditable="true" class="no-focus plocation" style="font-size:10px;padding-right: 10px; padding-top: 1px; color: #000000; font-style: normal; font-weight: 300; letter-spacing: 0px; line-height: 16px; text-align: left;">
+        {{Property}}, {{Community}}
+        </div>
+        </div>
+        <div style="float: left; width: 100%;">
+        <div style="margin-bottom: 0px; position: relative; top: 3px;">
+        <span class="no-focus" contenteditable="true" style="font-size: 9px; font-weight: 400; line-height: normal; letter-spacing: 0px; font-style: normal; color: #272624;">{{Bedrooms}}</span>
+        <span style="font-size: 9px; font-weight: 400; line-height: normal; letter-spacing: 0px; font-style: normal; color: #272624;" class="pfeatures">Bedrooms</span>
+        </div>
+        <div style="margin-bottom: 13px;">
+        <img alt="" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL2JlZC5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark" style="width: 32px; height: 20px;" />
+        </div>
+        <div style="margin-bottom: 0px;">
+        <span class="no-focus" contenteditable="true" style="font-size: 9px; font-weight: 400; line-height: normal; letter-spacing: 0px; font-style: normal; color: #272624;">{{Bathrooms}}</span>
+        <span style="font-size: 9px; font-weight: 400; line-height: normal; letter-spacing: 0px; font-style: normal; color: #272624;" class="pfeatures">Bathrooms</span>
+        </div>
+        <div style="margin-bottom: 14px;">
+        <img alt="" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3Nob3dlci5wbmcuMjY3Ny5TYWxlLjBieTAuNjU5NDYuRGVmYXVsdC4w.watermark" style="width: 30px;" />
+        </div>
+        <div style="margin-bottom: 0px;">
+        <span class="no-focus pfeatures" contenteditable="true" style="font-size: 9px; font-weight: 500; color: #272624;">BUA</span>
+        </div>
+        <div style="margin-bottom: 13px;">
+        <span style="font-size: 9px; font-weight: 400; color: #272624;" class="pfeatures">{{Plot Area}}</span>
+        </div>
+        <div style="margin-bottom: 0px;">
+        <span class="no-focus pfeatures" contenteditable="true" style="font-size: 9px; font-weight: 500; color: #272624;">Plot</span>
+        </div>
+        <div style="margin-bottom: 0px;">
+        <span style="font-size: 9px; font-weight: 400; color: #272624;" class="pfeatures">{{Builtup Area}}</span>
+        </div>
+        </div>
+        </div>
+        <div class="right-section" style="width: 66%; float: left;">
+        <div style="float: left; width: 100%; position: relative;">
+        <img class="image-a image-common" src="{{MarketingImageURL}}" alt="{{Marketing Image Title}}" style="width: 100%; object-fit: cover; min-height: 218px; max-height: 218px;" />
+        <div class="gradient-text">For Sale</div>
+        </div>
+        <div style="float: left; width: 100%; margin-top: 5px; display: flex; justify-content: space-between;">
+        <div style="float: left; width: 49.5%;">
+        <img class="image-b image-common" src="{{Image1URL}}" alt="{{Image1 Title}}" style="width: 100%; object-fit: cover; min-height: 112px; max-height: 112px;" />
+        </div>
+        <div style="float: left; width: 49.5%;">
+        <img class="image-b image-common" src="{{Image2URL}}" alt="{{Image2 Title}}" style="width: 100%; object-fit: cover; min-height: 112px; max-height: 112px;" />
+        </div>
+        </div>
+        </div>
+        </div>
+        <div style="width: 100%; float: left; text-align: right;">
+        <div style="padding-top: 7px;" class="cpas">
+        <span style="font-weight: 400; font-style: normal; font-size: 18px; color: #000000;">AED</span>
+        <span style="font-weight: 400; font-style: normal; font-size: 18px; color: #000000;">{{Selling Price}}</span>
+        </div>
+        </div>
+        <div style="width: 100%; float: left;" class="pdf-preview">
+        <div style="margin-bottom: 10px; margin-top: 13px; font-size: 11px; font-weight: 500; color: #272624; font-style: normal;" class="npd">Property Description</div>
+        <div style="padding: 0px 15px 15px; border: 0.6px solid #d7d7d7; height: 106px; overflow: hidden;" class="c-pad">
+        <p class="myp" style="height: 78px; overflow: hidden; color: #3f3f3f; font-size: 8px; margin-bottom: 1px; line-height: 11px; font-style: normal; font-weight: 300; white-space: pre-line; overflow-wrap: break-word;">
+        {{Property Description}}
+        </p>
+        <p contenteditable="true" class="no-focus" style="color: #a1a1a1; font-weight: 400; font-size: 8px; margin-bottom: 0px; line-height: normal; letter-spacing: 0px; text-align: left;">
+        Ref. {{Reference Number}}
+        </p>
+        </div>
+        </div>
+        <div style="float: left; width: 100%; margin-top: 20px;" class="cmargin">
+        <div class="image-section" style="padding-bottom: 5px;">
+        <img class="image-d image-common" src="{{Image3URL}}" alt="{{Image3 Title}}" style="width: 100%; object-fit: cover; height: 218px;" />
+        </div>
+        <div style="float: left; width: 100%; display: flex; justify-content: space-between;">
+        <div style="width: 49.5%;">
+        <img class="image-e image-common" src="{{Image4URL}}" alt="{{Image4 Title}}" style="width: 100%; object-fit: cover; min-height: 171px; max-height: 171px;" />
+        </div>
+        <div style="width: 49.5%;">
+        <img class="image-e image-common" src="{{Image5URL}}" alt="{{Image5 Title}}" style="width: 100%; object-fit: cover; min-height: 171px; max-height: 171px;" />
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="footer" style="float: left; width: 100%; margin-top: 12px;">
+        <div style="display: flex; align-items: flex-start; padding: 11px 2px;" class="agent-wrapper">
+        <div style="width: 193px; float: left;" class="changewidth">
+        <h3 style="margin-bottom: 0px; object-fit: cover; text-align: center;" class="profile-img">
+        {{Agent Picture}}
+        </h3>
+        </div>
+        <div style="width: 280px; float: left; padding-left: 12px;" class="default-padding">
+        <p class="newname" style="color: #272624; font-size: 14px; margin-bottom: 0px; font-weight: 300; font-style: normal;">
+        {{Contact Name}}
+        </p>
+        <p style="color: #272624; font-size: 8px; font-weight: 300; margin-top: 3px; margin-bottom: 4px; font-style: normal;">
+        {{Agent Designation}}
+        </p>
+        <div style="position: relative; float: left; width: 100%;" class="opt1">
+        <img alt="" style="width: 11px; height: 11px;" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL3Bob25lLmpwZy4yNjc3LlNhbGUuMGJ5MC42NTk0Ni5EZWZhdWx0LjA=.watermark" />
+        <span style="font-size: 8px; font-weight: 300; padding-left: 10px; color: #272624;" class="font-regular">+{{Contact Mobile}}</span>
+        </div>
+        <div style="position: relative; float: left; width: 100%; top: -1px;" class="opt2">
+        <img alt="" style="width: 14px; height: 10px;" src="https://img.goyzer.com/images/L3VmLzI2NzcvdW5pdC8yMzgxL21lc3NhZ2UuanBnLjI2NzcuU2FsZS4wYnkwLjY1OTQ2LkRlZmF1bHQuMA==.watermark" />
+        <span style="padding-left: 8px;">
+        <a href="{{Contact Email}}" style="text-decoration: none;"><span style="font-size: 8px; font-weight: 300; position: relative; top: -2px; color: #272624;" class="font-regular">{{Contact Email}}</span></a>
+        </span>
+        </div>
+        <div>
+        <img alt="" style="margin-top: -10px; clear: both; width: 90px; height: auto;" src="https://blackbrick.goyzer.com/uploadedfiles/Group/5063/logo__original.png " class="logo-image" />
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </section>
+        <script>
+            $(document).ready(function () {
+              $("img.image-common").each(function () {
+              var originalSrc = $(this).attr("src");
+              if (originalSrc && originalSrc.includes("watermark.aspx")) {
+                var url = new URL(originalSrc);
+                url.searchParams.delete("watermarktype");
+                url.searchParams.delete("position");
+                url.searchParams.set("module", "3");
+                $(this).attr("src", url.toString());
+              }
+            });
+              
+            });
+          </script>
+    </body>
+</html>
